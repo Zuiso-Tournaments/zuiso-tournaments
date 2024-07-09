@@ -34,10 +34,7 @@ export default async function MarcosPage() {
                             .
                         </p>
                     </div>
-                </div>
-                <h1 className="text-4xl my-8 font-extrabold text-white sm:text-center sm:text-6xl">
-                    Demos
-                </h1>
+                </div>      
             </div>
         </section>
     )
