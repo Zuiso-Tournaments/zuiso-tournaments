@@ -56,20 +56,24 @@ export default async function JaviPage() {
           </h1>
           
           <div className="grid gap-4 grid-cols-3">
-          <div className="relative bg-white rounded-2xl hover:scale-105 duration-300 flex flex-col">
-            <img
-              src="https://picsum.photos/seed/2/700/700"
-              className="rounded-2xl w-full"
-            />
-            <div className="absolute inset-0 flex items-center justify-center hover:bg-white/20 rounded-2xl">
-              <p className="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex justify-center items-center text-4xl text-white font-bold text-stroke-black">
-                Proyectos
-              </p>
-            </div>
-          </div>
+            <a href="https://github.com/bale2manos" className="block" target="_blank" rel="noopener noreferrer">
+              <div className="relative bg-white rounded-2xl hover:scale-105 duration-300 flex flex-col">
+                <img
+                  src="https://picsum.photos/seed/2/700/700"
+                  className="rounded-2xl w-full"
+                />
+                <div className="absolute inset-0 flex items-center justify-center hover:bg-white/20 rounded-2xl">
+                  <p className="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex justify-center items-center text-4xl text-white font-bold text-stroke-black">
+                    Proyectos
+                  </p>
+                </div>
+              </div>
+            </a>
 
 
-          <div className="relative bg-white rounded-2xl hover:scale-105 duration-300 flex flex-col">
+
+            <a href="https://basketaranjuez.com/" className="block" target="_blank" rel="noopener noreferrer">
+            <div className="relative bg-white rounded-2xl hover:scale-105 duration-300 flex flex-col">
               <img
                 src="https://i.pinimg.com/originals/fa/c6/3c/fac63c62d77afcc8f1b0cfe3ce001753.jpg"
                 className="rounded-2xl hover:opacity-20"
@@ -80,7 +84,9 @@ export default async function JaviPage() {
                 </p>
               </div>
             </div>
+            </a>
             
+            <a href="https://www.magicworldresort.com/es" className="block" target="_blank" rel="noopener noreferrer">
             <div className="relative bg-white rounded-2xl hover:scale-105 duration-300 flex flex-col">
               <img
                 src="https://picsum.photos/seed/3/700/700"
@@ -92,6 +98,8 @@ export default async function JaviPage() {
                 </p>
               </div>
             </div>
+            </a>
+
           </div>
         </div>
       </div>
