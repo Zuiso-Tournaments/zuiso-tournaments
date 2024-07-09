@@ -1,3 +1,47 @@
+interface Passion {
+  url: string;
+  title: string;
+  imgSrc: string;
+}
+
+const passions: Passion[] = [
+  {
+    url: "https://github.com/bale2manos",
+    title: "Proyectos",
+    imgSrc: "https://picsum.photos/seed/2/700/700"
+  },
+  {
+    url: "https://basketaranjuez.com/",
+    title: "Baloncesto",
+    imgSrc: "https://i.pinimg.com/originals/fa/c6/3c/fac63c62d77afcc8f1b0cfe3ce001753.jpg"
+  },
+  {
+    url: "https://www.magicworldresort.com/es",
+    title: "Viajes",
+    imgSrc: "https://picsum.photos/seed/3/700/700"
+  }
+];
+
+interface PassionCardProps {
+  url: string;
+  title: string;
+  imgSrc: string;
+}
+
+const PassionCard: React.FC<PassionCardProps> = ({ url, title, imgSrc }) => (
+  <a href={url} className="block" target="_blank" rel="noopener noreferrer">
+    <div className="relative bg-white rounded-2xl hover:scale-105 duration-300 flex flex-col">
+      <img src={imgSrc} alt={title} className="rounded-2xl w-full hover:opacity-20" />
+      <div className="absolute inset-0 flex items-center justify-center hover:bg-white/20 rounded-2xl">
+        <p className="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex justify-center items-center text-4xl text-gray-100 font-bold text-stroke-black">
+          {title}
+        </p>
+      </div>
+    </div>
+  </a>
+);
+
+
 export default async function JaviPage() {
     return (
     <section className="mb-32 bg-black">
@@ -55,51 +99,15 @@ export default async function JaviPage() {
             Pasiones
           </h1>
           
-          <div className="grid gap-4 grid-cols-3">
-            <a href="https://github.com/bale2manos" className="block" target="_blank" rel="noopener noreferrer">
-              <div className="relative bg-white rounded-2xl hover:scale-105 duration-300 flex flex-col">
-                <img
-                  src="https://picsum.photos/seed/2/700/700"
-                  className="rounded-2xl w-full"
-                />
-                <div className="absolute inset-0 flex items-center justify-center hover:bg-white/20 rounded-2xl">
-                  <p className="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex justify-center items-center text-4xl text-white font-bold text-stroke-black">
-                    Proyectos
-                  </p>
-                </div>
-              </div>
-            </a>
-
-
-
-            <a href="https://basketaranjuez.com/" className="block" target="_blank" rel="noopener noreferrer">
-            <div className="relative bg-white rounded-2xl hover:scale-105 duration-300 flex flex-col">
-              <img
-                src="https://i.pinimg.com/originals/fa/c6/3c/fac63c62d77afcc8f1b0cfe3ce001753.jpg"
-                className="rounded-2xl hover:opacity-20"
+          <div className="grid gap-4 grid-cols-1 sm:grid-cols-3">
+            {passions.map((passion, index) => (
+              <PassionCard
+                key={index}
+                url={passion.url}
+                title={passion.title}
+                imgSrc={passion.imgSrc}
               />
-              <div className="absolute inset-0 flex items-center justify-center hover:bg-white/20 rounded-2xl">
-                <p className="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex justify-center items-center text-4xl text-gray-100 font-bold text-stroke-black">
-                  Baloncesto
-                </p>
-              </div>
-            </div>
-            </a>
-            
-            <a href="https://www.magicworldresort.com/es" className="block" target="_blank" rel="noopener noreferrer">
-            <div className="relative bg-white rounded-2xl hover:scale-105 duration-300 flex flex-col">
-              <img
-                src="https://picsum.photos/seed/3/700/700"
-                className="rounded-2xl hover:opacity-20"
-              />
-              <div className="absolute inset-0 flex items-center justify-center hover:bg-white/20 rounded-2xl">
-                <p className="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex justify-center items-center text-4xl text-gray-100 font-bold text-stroke-black">
-                  Viajes
-                </p>
-              </div>
-            </div>
-            </a>
-
+            ))}
           </div>
         </div>
       </div>
