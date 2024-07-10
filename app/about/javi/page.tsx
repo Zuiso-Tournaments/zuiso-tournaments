@@ -1,3 +1,5 @@
+import RandomDice from '@/app/about/javi/randomDice';
+
 interface Passion {
   url: string;
   title: string;
@@ -109,6 +111,14 @@ export default async function JaviPage() {
               />
             ))}
           </div>
+
+
+          <h1 className="text-4xl  my-8 mt-16 font-extrabold text-white sm:text-center sm:text-6xl">
+            Dado aleatorio
+          </h1>
+          
+          <RandomDice />
+
         </div>
       </div>
     </section>
