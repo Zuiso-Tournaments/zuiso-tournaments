@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 import RandomDice from '@/app/about/javi/randomDice';
 
+=======
+>>>>>>> e1ca358d148342d2ae9dab2957fce1ba8ef9f463
 interface Passion {
   url: string;
   title: string;
@@ -111,6 +114,7 @@ export default async function JaviPage() {
               />
             ))}
           </div>
+<<<<<<< HEAD
 
 
           <h1 className="text-4xl  my-8 mt-16 font-extrabold text-white sm:text-center sm:text-6xl">
@@ -119,6 +123,8 @@ export default async function JaviPage() {
           
           <RandomDice />
 
+=======
+>>>>>>> e1ca358d148342d2ae9dab2957fce1ba8ef9f463
         </div>
       </div>
     </section>
