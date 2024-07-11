@@ -1,3 +1,5 @@
+import RandomDiceResults from '@/app/about/mdemora/RandomDiceResults';
+
 export default async function MdeMoraPage() {
   return (
     <section className="mb-32 bg-black">
@@ -41,6 +43,7 @@ export default async function MdeMoraPage() {
           <h1 className="text-4xl my-8 font-extrabold text-white sm:text-center sm:text-6xl">
             Demos
           </h1>
+          <RandomDiceResults />
         </div>
       </div>
     </section>
