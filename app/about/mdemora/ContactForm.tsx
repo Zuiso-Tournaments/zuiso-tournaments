@@ -21,6 +21,7 @@ import {
   SelectTrigger,
   SelectValue
 } from '@/components/ui/select';
+import { Button } from '@/components/ui/Button';
 
 // definimos la validacion y el esquema, automaticamente lo tipa
 const formSchema = z.object({
@@ -54,12 +55,14 @@ const ContactForm = () => {
   }
 
   return (
-    <div className="mt-10 text-black">
+    <div className="mt-10">
       <Form {...form}>
         <form
           className="flex flex-col gap-4"
           onSubmit={form.handleSubmit(onSubmit)}
         >
+          <p className="text-xl">Formulario</p>
+
           <FormField
             control={form.control}
             name="name"
@@ -130,9 +133,7 @@ const ContactForm = () => {
             )}
           />
 
-          <button type="submit" className="p-4 bg-white text-green-400">
-            Enviar
-          </button>
+          <Button type="submit">Enviar</Button>
         </form>
       </Form>
     </div>
