@@ -1,4 +1,4 @@
-import DiceApp from "./dice";
+import DiceApp from "./DiceApp";
 export default async function MarcosPage() {
   const artists = [
     {
