@@ -1,4 +1,4 @@
-import RandomDice from '@/app/about/javi/randomDice';
+import RandomDice from '@/app/about/javi/RandomDice';
 
 interface Passion {
   url: string;
