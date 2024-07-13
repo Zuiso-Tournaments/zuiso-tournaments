@@ -76,9 +76,3 @@ p a {
 .scale-animation {
   animation: scaleLoop 3s infinite;
 }
-
-.bg-golden {
-  background-color: gold;
-  color: black;
-  border-color: gold;
-}

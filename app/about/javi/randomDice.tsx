@@ -62,7 +62,7 @@ const RandomDice = () => {
                     className={cn(
                       'w-16 h-16 flex items-center justify-center border-2 rounded-xl font-bold text-2xl',
                       {
-                        'animate-pulse scale-animation bg-golden': result > 3,
+                        'animate-pulse scale-animation bg-yellow-500 text-black border-yellow-500': result > 3,
                         'odd:bg-white odd:text-black odd:border-black even:bg-black even:text-white even:border-white': result <= 3,
                       }
                     )}
