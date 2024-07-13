@@ -22,6 +22,7 @@ import {
   SelectValue
 } from '@/components/ui/select';
 
+// definimos la validacion y el esquema, automaticamente lo tipa
 const formSchema = z.object({
   name: z
     .string()
