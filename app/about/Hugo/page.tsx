@@ -1,35 +1,43 @@
 "use client";
+import classNames from 'classnames';
 import { useState } from 'react';
 
 interface Subditos {
     nombre: string;
     img: string;
+    index: number;
   }
 
 const subditos: Subditos[] = [
   {
     nombre: "Armando Jaleo",
-    img: "https://picsum.photos/200"
+    img: "https://picsum.photos/200",
+    index: 1
     },
   {
     nombre: "Armando Andamios",
-    img: "https://picsum.photos/300"
+    img: "https://picsum.photos/300",
+    index: 2
     },
   {
     nombre: "Armando Paredes",
-    img: "https://picsum.photos/400"
+    img: "https://picsum.photos/400",
+    index: 3
     },
   {
     nombre: "Armando Hormigón",
-    img: "https://picsum.photos/200"
+    img: "https://picsum.photos/200",
+    index: 4
     },
   {
     nombre: "Armando Escándalo",
-    img: "https://picsum.photos/300"
+    img: "https://picsum.photos/300",
+    index: 5
     },
   {
     nombre: "Armando Cemento",
-    img: "https://picsum.photos/400"
+    img: "https://picsum.photos/400",
+    index: 6
     }
 ];
 
@@ -71,7 +79,7 @@ return(
         </button>
         {selectedSubdito && (
           <div className="flex gap-4 justify-evenly mt-10">
-            <p className="mt-10 text-white text-xl font-bold">{selectedSubdito.nombre}</p>
+            <p className={classNames("mt-10 text-xl font-bold", selectedSubdito.index > 3 ? "text-blue-500" : "text-white") }>{selectedSubdito.nombre}</p>
             <img src={selectedSubdito.img} alt={selectedSubdito.nombre} className="h-32 w-32 rounded-full" />
           </div>
         )}
