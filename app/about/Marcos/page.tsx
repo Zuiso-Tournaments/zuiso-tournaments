@@ -1,22 +1,25 @@
 import DiceApp from "./dice";
 export default async function MarcosPage() {
-    const artists = [
-        {
-            name: "Yung Beef",
-            img: "https://cdn.themedizine.com/2019/05/Yung-Beef-1000x562.jpg",
-            spotify: "https://open.spotify.com/intl-es/artist/1rTUwYS38LkQTlT2fhikch?si=u4KlE5oCRhiYEYZzmv5zUQ"
-        },
-        {
-            name: "Cecilio G",
-            img: "https://www.mondosonoro.com/wp-content/uploads/2016/06/jarfaiter-ceciclio-g-y-el-coleta-concierto-558-body-image-1450090889-size_1000.jpg",
-            spotify: "https://open.spotify.com/intl-es/artist/2Q2fYVYxFSmodq53BFyD6p?si=7TVgwoBwQsqx6F4Kc33tlA"
-        },
-        {
-            name: "Midas Alonso",
-            img: "https://images.ecestaticos.com/aTiyI4cAaxiI2UXhsY1xl5Q1KLU=/31x0:930x674/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F149%2Fa1e%2F0b0%2F149a1e0b001bdf34effb653c66b954f1.jpg",
-            spotify: "https://open.spotify.com/intl-es/artist/4YbohdhSehUUc7RT3STcKW?si=Y0eY-kmGS4SHGUUMQR9cHg"
-        }
-    ];
+  const artists = [
+    {
+      name: 'Yung Beef',
+      img: 'https://cdn.themedizine.com/2019/05/Yung-Beef-1000x562.jpg',
+      spotify:
+        'https://open.spotify.com/intl-es/artist/1rTUwYS38LkQTlT2fhikch?si=u4KlE5oCRhiYEYZzmv5zUQ'
+    },
+    {
+      name: 'Cecilio G',
+      img: 'https://www.mondosonoro.com/wp-content/uploads/2016/06/jarfaiter-ceciclio-g-y-el-coleta-concierto-558-body-image-1450090889-size_1000.jpg',
+      spotify:
+        'https://open.spotify.com/intl-es/artist/2Q2fYVYxFSmodq53BFyD6p?si=7TVgwoBwQsqx6F4Kc33tlA'
+    },
+    {
+      name: 'Midas Alonso',
+      img: 'https://images.ecestaticos.com/aTiyI4cAaxiI2UXhsY1xl5Q1KLU=/31x0:930x674/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F149%2Fa1e%2F0b0%2F149a1e0b001bdf34effb653c66b954f1.jpg',
+      spotify:
+        'https://open.spotify.com/intl-es/artist/4YbohdhSehUUc7RT3STcKW?si=Y0eY-kmGS4SHGUUMQR9cHg'
+    }
+  ];
 
     return (
         <section className="mb-32 bg-black">
@@ -74,4 +77,3 @@ export default async function MarcosPage() {
         </section>
     );
 }
-
