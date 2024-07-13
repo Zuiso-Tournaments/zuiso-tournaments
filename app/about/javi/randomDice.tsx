@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from "react";
+import cn from 'classnames';
 
 const predictDice = () => {
     return Math.floor(Math.random() * 6) + 1;
@@ -58,14 +59,17 @@ const RandomDice = () => {
             <div className="flex gap-4 flex-wrap mt-2 w-full">
                 {results.map((result, index) => (
                     <div
-                        className={`w-16 h-16 flex items-center justify-center border-2 rounded-xl font-bold text-2xl
-                                ${result > 3 ? 'animate-pulse scale-animation bg-golden' 
-                                : 'odd:bg-white odd:text-black odd:border-black even:bg-black even:text-white even:border-white'}`}
-                        key={index}
-                    >
-                        {result}
-                    </div>
-                    
+                    className={cn(
+                      'w-16 h-16 flex items-center justify-center border-2 rounded-xl font-bold text-2xl',
+                      {
+                        'animate-pulse scale-animation bg-golden': result > 3,
+                        'odd:bg-white odd:text-black odd:border-black even:bg-black even:text-white even:border-white': result <= 3,
+                      }
+                    )}
+                    key={index}
+                  >
+                    {result}
+                  </div>
                     
                 ))}
             </div>
