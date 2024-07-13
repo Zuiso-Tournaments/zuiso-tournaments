@@ -10,6 +10,9 @@ const DiceApp = () => {
     return Math.floor(Math.random() * 6) + 1;
   };
 
+  const cn = (n: number) => {
+    return `w-16 h-16 flex items-center justify-center m-2 ${n > 3 ? 'bg-blue-500 rounded' : 'bg-red-500 rounded-full'}`;
+  }
   const addResult = () => {
     const newResult = rollDice();
     const updatedArrayResults = [...arrayResults];
@@ -45,7 +48,7 @@ const DiceApp = () => {
       </table>
       <div className="flex flex-wrap justify-center">
         {results.map((result, index) => (
-          <div key={index} className="w-16 h-16 flex items-center justify-center m-2 bg-blue-500 rounded">
+          <div key={index} className={cn(result)}>
             <span className="text-white text-lg">{result}</span>
           </div>
         ))}
