@@ -14,12 +14,14 @@ const RandomDiceResults = () => {
     setResults([...results, randomNumber]);
   };
 
+  const test = isEmpty(results);
+
   return (
     <div>
       <p className="text-lg">Random Dice Results</p>
 
       <Button onClick={handleClick}>Roll the dice</Button>
-      <div className="flex gap-4 flex-wrap mt-2">
+      {/* <div className="flex gap-4 flex-wrap mt-2">
         {results.map((result, index) => (
           <div
             className="size-10 flex items-center justify-center bg-red-500 border-2 border-white"
@@ -28,7 +30,7 @@ const RandomDiceResults = () => {
             {result}
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };
