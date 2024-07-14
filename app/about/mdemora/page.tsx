@@ -1,6 +1,6 @@
 import RandomDiceResults from '@/app/about/mdemora/RandomDiceResults';
 import ContactForm from '@/app/about/mdemora/ContactForm';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import MusicList from '@/app/about/mdemora/MusicList';
 
 export default async function MdeMoraPage() {
