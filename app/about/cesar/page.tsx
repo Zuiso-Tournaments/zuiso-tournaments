@@ -3,9 +3,10 @@
 import useSound from 'use-sound';
 
 const BoopButton = () => {
-  const [play] = useSound('./himno.mp3');
+  const [play] = useSound('/himno.mp3');
 
   const handleSoundClick = () => {
+    console.log('Playing sound');
     play();
   };
 
