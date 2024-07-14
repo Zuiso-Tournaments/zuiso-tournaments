@@ -1,11 +1,15 @@
 import useSound from 'use-sound';
 
-import boopSfx from '/Users/cesarmurodezarojacoste/Documents/work/zuiso-tournaments/himno.mp3';
+import boopSfx from './himno.mp3';
 
 const BoopButton = () => {
     const [play] = useSound(boopSfx);
 
-    return <button onClick={play} className="mt-8 px-4 py-2 bg-emerald-400 rounded-2xl size-20">
+    const handleSoundClick = () => {
+        play();
+    }
+
+    return <button onClick={handleSoundClick} className="mt-8 px-4 py-2 bg-emerald-400 rounded-2xl size-20">
                 <img src="https://cdn-icons-png.flaticon.com/512/2468/2468825.png" alt="Button Icon" className="size-10" />
             </button>;
     };
