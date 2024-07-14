@@ -1,4 +1,5 @@
 import RandomDice from '@/app/about/javi/RandomDice';
+import AboutForm from '@/app/about/javi/ContactForm';
 
 interface Passion {
   url: string;
@@ -31,6 +32,14 @@ interface PassionCardProps {
   imgSrc: string;
 }
 
+/**
+ * Renders a passion card component.
+ *
+ * @param {string} url - The URL to navigate to when the card is clicked.
+ * @param {string} title - The title of the card.
+ * @param {string} imgSrc - The source URL of the image to display on the card.
+ * @returns {React.ReactElement} The rendered passion card component.
+ */
 const PassionCard: React.FC<PassionCardProps> = ({ url, title, imgSrc }) => (
   <a href={url} className="block" target="_blank" rel="noopener noreferrer">
     <div className="relative bg-white rounded-2xl hover:scale-105 duration-300 flex flex-col">
@@ -48,6 +57,11 @@ const PassionCard: React.FC<PassionCardProps> = ({ url, title, imgSrc }) => (
   </a>
 );
 
+/**
+ * Renders the JaviPage component.
+ * 
+ * @returns JSX element representing the JaviPage component.
+ */
 export default async function JaviPage() {
   return (
     <section className="mb-32 bg-black">
@@ -137,6 +151,11 @@ export default async function JaviPage() {
           </h1>
 
           <RandomDice />
+
+          <h1 className="text-4xl  my-8 mt-16 font-extrabold text-white sm:text-center sm:text-6xl">
+            Formulario de contacto
+          </h1>
+          <AboutForm />
         </div>
       </div>
     </section>
