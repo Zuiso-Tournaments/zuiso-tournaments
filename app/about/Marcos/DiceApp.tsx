@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import { cn } from '@/utils/cn';
 
 const DiceApp = () => {
   // Especifica el tipo de estado como array de números
@@ -9,7 +10,7 @@ const DiceApp = () => {
   const rollDice = () => {
     return Math.floor(Math.random() * 6) + 1;
   };
-
+  
   const addResult = () => {
     const newResult = rollDice();
     const updatedArrayResults = [...arrayResults];
@@ -45,7 +46,7 @@ const DiceApp = () => {
       </table>
       <div className="flex flex-wrap justify-center">
         {results.map((result, index) => (
-          <div key={index} className="w-16 h-16 flex items-center justify-center m-2 bg-blue-500 rounded">
+          <div key={index} className={cn("w-16 h-16 flex items-center justify-center m-2", result > 3 ? "bg-blue-500 rounded" : "bg-red-500 rounded-full")}>
             <span className="text-white text-lg">{result}</span>
           </div>
         ))}
