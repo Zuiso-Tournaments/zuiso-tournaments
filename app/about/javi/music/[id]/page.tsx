@@ -137,7 +137,7 @@ export default function SongFromId() {
                         <div className="w-full">
                             {data?.url && (
                                 <iframe
-                                    className='w-full h-96'
+                                    className='w-full h-96 rounded-xl'
                                     src={data.url}
                                     title="YouTube video player"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
