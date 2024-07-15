@@ -116,8 +116,6 @@ const ContactForm = () => {
         setSelectedFiles(filesArray);
         const urls = filesArray.map((file) => URL.createObjectURL(file));
         setSelectedFileUrls(urls);
-        console.log(typeof urls);
-        console.log(form.getValues());
       }
     }
   };
@@ -127,12 +125,6 @@ const ContactForm = () => {
   function onSubmit() {
     const values = form.getValues();
     console.log(values);
-    const pictureUrls = selectedFileUrls.map((url) => url.toString());
-    const dataToSend = {
-      ...values,
-      pictures: pictureUrls
-    };
-    console.log(dataToSend);
     onReset();
     toast({
       title: 'Mensaje enviado',
@@ -191,6 +183,7 @@ const ContactForm = () => {
           className="flex flex-col gap-4"
           onSubmit={(event) => {
             event.preventDefault();
+            form.setValue('pictures', selectedFileUrls.map((url) => url.toString()));
             form.handleSubmit(() => onSubmit())();
           }}
           onReset={onReset}
