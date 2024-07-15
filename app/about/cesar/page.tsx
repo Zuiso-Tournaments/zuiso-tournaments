@@ -4,6 +4,8 @@ import { useState } from "react";
 
 import useSound from 'use-sound';
 
+import { cn } from '@/utils/cn';
+
 /*Aqui empieza el de hacer soonar el himno*/
 
 const HimnoButton = () => {
@@ -53,7 +55,10 @@ const DiceButton = () => {
       </button>
       <div className="ml-4 flex">
         {randomNumbers.map((number, index) => (
-          <p key={index} className="text-black bg-emerald-300 size-10 rounded-2xl flex-row ml-4 sm:text-center">
+          <p
+            key={index}
+            className={cn("size-10 rounded-2xl flex-row ml-4 sm:text-center" ,number > 3 ? "bg-red-500 text-yellow-300" : "bg-emerald-300 text-black")}
+          >
             {number}
           </p>
         ))}
