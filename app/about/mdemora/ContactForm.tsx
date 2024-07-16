@@ -21,7 +21,7 @@ import {
   SelectTrigger,
   SelectValue
 } from '@/components/ui/select';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 
 // definimos la validacion y el esquema, automaticamente lo tipa
 const formSchema = z.object({
