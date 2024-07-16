@@ -7,6 +7,8 @@ import { z } from "zod";
 
 import {Button} from "@/components/ui/button";
 
+import MusicList from './MusicList';
+
 import {
   Form,
   FormControl,
@@ -150,6 +152,7 @@ return(
         <Button type="submit">Submit</Button>
       </form>
     </Form>
+    <MusicList />
     </div>
 </section>
 );
