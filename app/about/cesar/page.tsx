@@ -1,8 +1,8 @@
 'use client';
 
-/*importar estados*/
+/*importar estados y vaina de react*/
 
-import { useState } from "react";
+import { useEffect, useState } from 'react';
 
 /*importar sonido*/
 
@@ -37,6 +37,11 @@ import {
   SelectValue
 } from '@/components/ui/select';
 import { Button } from '@/components/ui/Button';
+
+/*Importar lo de la musica de API*/
+
+import { Skeleton } from '@/components/ui/skeleton';
+import Link from 'next/link';
 
 /*Aqui empieza el de hacer sonar el himno*/
 
@@ -214,6 +219,63 @@ const ContactForm = () => {
   );
 };
 
+/*Aqui empieza lo de las APIs*/
+
+interface Music {
+  id: string;
+  title: string;
+  artista: string;
+  idioma: string;
+  estilo: string;
+}
+
+const MusicCard = ({ song }:{song:Music}) => {
+  return (
+    <Link
+      href={`/about/cesar/music/${song.id}`}
+      className="p-4 bg-red-600 rounded"
+    >
+      <div>
+        <h2 className="text-yellow-300">{song.title}</h2>
+        <p className="text-yellow-300">{song.artista}</p>
+        <p className="text-yellow-300">{song.idioma}</p>
+        <p className="text-yellow-300">{song.estilo}</p>
+      </div>
+    </Link>
+  );
+};
+
+const MusicList = () => {
+  const [music, setMusic] = useState<Music[]>([]);
+  const [loading, setloading] = useState(true);
+
+  const fetchData = async () => {
+    setTimeout(async () => {
+      const data = await fetch('http://localhost:3000/api/cesarApi').then((res) =>
+        res.json()
+      );
+      setMusic(data.music);
+      setloading(false);
+    }, 500);
+  };
+
+  /*Para que se cargue primero la pagina y despues esto por si da fallo*/
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  return (
+    <div className="my-4">
+      {loading && <Skeleton className="size-96" />}
+      <div className="flex gap-4 w-full flex-wrap mt-4">
+        {music.map((song) => (
+          <MusicCard key={song.id} song={song} /> 
+        ))}
+      </div>
+    </div>
+  );
+};
+
 export default function cesarAbout() {
   return (
     <section className="mb-32 bg-black">
@@ -289,6 +351,12 @@ export default function cesarAbout() {
               Formularios
             </h1>
             <ContactForm/>
+          </div>
+          <div>
+            <h1 className="text-4xl mt-11 mb-11 font-extrabold text-white sm:text-center sm:text-4xl">
+              API
+            </h1>
+            <MusicList/>
           </div>
         </div>
       </div>
