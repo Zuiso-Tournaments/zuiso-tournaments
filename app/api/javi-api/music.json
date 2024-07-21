@@ -1,0 +1,68 @@
+[
+  {
+    "id": "javi-0",
+    "title": "41 Paimon",
+    "artista": "Gloosito",
+    "idioma": "es",
+    "estilo": "Trap",
+    "url": "https://www.youtube.com/embed/I5BGIPwu-BQ?si=SQqLOkWmHQFSOUcI",
+    "imgSrc": "https://images.genius.com/fb0d8154ff99cb3c616563764305fbef.1000x1000x1.jpg",
+    "spotify": "hhttps://open.spotify.com/track/31kLK5da4po3aEPVhWbMtv?si=fe7a0b2e24b843c7",
+    "youtube": "https://www.youtube.com/watch?v=I5BGIPwu-BQ",
+    "soundcloud": "https://soundcloud.com/gloosito/41-paimon",
+    "genius": "https://genius.com/Gloosito-and-baby-pantera-41-paimon-lyrics"
+  },
+  {
+    "id": "javi-1",
+    "title": "Bitcoin",
+    "artista": "Leïti Sene",
+    "idioma": "es",
+    "estilo": "Trap",
+    "url": "https://www.youtube.com/embed/0qKUw8XJwi4?si=179QY4TXUN0eJ6v3",
+    "imgSrc": "https://i1.sndcdn.com/artworks-RPNuTORwYWh0-0-t500x500.jpg",
+    "spotify": "https://open.spotify.com/track/7JbTeC2duIt2N0Nlca37zW?si=4e8ae1087d094634",
+    "youtube": "https://www.youtube.com/watch?v=0qKUw8XJwi4",
+    "soundcloud": "https://soundcloud.com/leitisene/bitcoin",
+    "genius": "https://genius.com/Leiti-sene-bitcoin-lyrics"
+  },
+  {
+    "id": "javi-2",
+    "title": "Cangrinaje",
+    "artista": "Cruz Cafuné",
+    "idioma": "es",
+    "estilo": "R&B, Rap",
+    "url": "https://www.youtube.com/embed/gL6pN8IjXmQ?si=avcjMi4nfdKqE7LB",
+    "imgSrc": "https://i1.sndcdn.com/artworks-wVc46eSWrSLf-0-t500x500.jpg",
+    "spotify": "https://open.spotify.com/track/5V1YyUMhty1NCO3zVePAtR?si=0f27560098684fc5",
+    "youtube": "https://www.youtube.com/watch?v=gL6pN8IjXmQ",
+    "soundcloud": "https://soundcloud.com/cruzcafune/cangrinaje",
+    "genius": "https://genius.com/Cruz-cafune-cangrinaje-lyrics"
+  },
+  {
+    "id": "javi-3",
+    "title": "Still Rapping",
+    "artista": "C Tangana",
+    "idioma": "es",
+    "estilo": "Rap",
+    "url": "https://www.youtube.com/embed/eTSymSMHIPU?si=M-jQpC-QuDvMlw0B",
+    "imgSrc": "https://i.scdn.co/image/ab67616d0000b273e908b9a3405b9713bf63cb76",
+    "spotify": "https://open.spotify.com/track/0o5iW89OeuGzj60kpiy0pk?si=138fee64a2c14051",
+    "youtube": "https://www.youtube.com/watch?v=eTSymSMHIPU",
+    "soundcloud": "https://soundcloud.com/ctangana/still-rapping",
+    "genius": "https://genius.com/C-tangana-still-rapping-lyrics"
+  },
+  {
+    "id": "javi-4",
+    "title": "Retail Therapy",
+    "artista": "Central Cee",
+    "idioma": "en",
+    "estilo": "UK Drill",
+    "url": "https://www.youtube.com/embed/G1CbX1k9m5Q?si=spq2Ksjf2LUPpfEh",
+    "imgSrc": "https://i.scdn.co/image/ab67616d0000b273dbcf2d43296ad94132968932",
+    "spotify": "https://open.spotify.com/track/12auvGedCkbd6jiuspZXWS?si=5a449fa722d24772",
+    "youtube": "https://www.youtube.com/watch?v=G1CbX1k9m5Q",
+    "soundcloud": "https://soundcloud.com/central-cee/retail-therapy",
+    "genius": "https://genius.com/Central-cee-retail-therapy-lyrics"
+  }
+]
+

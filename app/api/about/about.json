@@ -1,0 +1,33 @@
+[
+  {
+    "title": "Miguel",
+    "slug": "about/mdemora",
+    "image": "https://avatars.githubusercontent.com/u/59265254?v=4",
+    "nickname": "El papasito"
+  },
+  {
+    "title": "César",
+    "slug": "about/cesar",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Ronaldo_in_2018.jpg/220px-Ronaldo_in_2018.jpg",
+    "nickname": "El 'codificador'"
+  },
+  {
+    "title": "Hugo",
+    "slug": "about/Hugo",
+    "image": "https://album.mediaset.es/cimg/1000001/2017/02/14/p1.jpg",
+    "nickname": "Tecnocurioso"
+  },
+  {
+    "title": "Marcos",
+    "slug": "about/Marcos",
+    "image": "https://cloud10.todocoleccion.online/coleccionismo-tabaco/tc/2016/08/14/23/58556819.jpg",
+    "nickname": "Pulmón y medio"
+  },
+  {
+    "title": "Javi",
+    "slug": "about/javi",
+    "image": "https://assets.goal.com/images/v3/bltdf4ce4ae43638886/c296197fee670843c46710bb06e126b1c2f4a4da.jpg?auto=webp&format=pjpg&width=3840&quality=60",
+    "nickname": "Qué moderno"
+  }
+]
+  

@@ -1,32 +1,18 @@
 'use client';
 
 /*importar estados*/
-
-import { useState } from "react";
-
-/*importar sonido*/
-
-import useSound from 'use-sound';
-
-/*importar comparaciones*/
-
-import { cn } from '@/utils/cn';
+import {Button} from '@/components/ui/button';
 
 /*importar todo lo del formulario*/
-
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
+  FormMessage,
 } from '@/components/ui/form';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-
-import { z } from 'zod';
-import { Input } from '@/components/ui/input';
+import {Input} from '@/components/ui/input';
 import {
   Select,
   SelectContent,
@@ -34,9 +20,18 @@ import {
   SelectItem,
   SelectLabel,
   SelectTrigger,
-  SelectValue
+  SelectValue,
 } from '@/components/ui/select';
-import { Button } from '@/components/ui/Button';
+
+/*importar comparaciones*/
+import {cn} from '@/utils/cn';
+import {zodResolver} from '@hookform/resolvers/zod';
+import {useState} from 'react';
+import {useForm} from 'react-hook-form';
+
+/*importar sonido*/
+import useSound from 'use-sound';
+import {z} from 'zod';
 
 /*Aqui empieza el de hacer sonar el himno*/
 
@@ -51,8 +46,7 @@ const HimnoButton = () => {
   return (
     <button
       onClick={handleSoundClick}
-      className="mt-8 px-4 py-2 rounded-2xl size-20"
-    >
+      className="mt-8 size-20 rounded-2xl px-4 py-2">
       <img
         src="https://cdn-icons-png.flaticon.com/512/2468/2468825.png"
         alt="Button Icon"
@@ -69,7 +63,7 @@ const DiceButton = () => {
 
   const play = () => {
     const random = Math.floor(Math.random() * 6) + 1;
-    setRandomNumbers(prevNumbers => [...prevNumbers, random]);
+    setRandomNumbers((prevNumbers) => [...prevNumbers, random]);
   };
 
   const handleDiceClick = () => {
@@ -77,8 +71,10 @@ const DiceButton = () => {
   };
 
   return (
-    <div className="flex mt-8">
-      <button onClick={handleDiceClick} className="px-4 py-2 rounded-2xl size-20">
+    <div className="mt-8 flex">
+      <button
+        onClick={handleDiceClick}
+        className="size-20 rounded-2xl px-4 py-2">
         <img
           src="https://img.freepik.com/fotos-premium/ilustracion-3d-cerca-par-dados-blancos-sobre-fondo-negro-dados-blancos-vuelo-juegos-azar-casinos_116124-5781.jpg?w=360"
           alt="Button Icon"
@@ -89,8 +85,12 @@ const DiceButton = () => {
         {randomNumbers.map((number, index) => (
           <p
             key={index}
-            className={cn("size-10 rounded-2xl flex-row ml-4 sm:text-center" ,number > 3 ? "bg-red-500 text-yellow-300" : "bg-emerald-300 text-black")}
-          >
+            className={cn(
+              'ml-4 size-10 flex-row rounded-2xl sm:text-center',
+              number > 3
+                ? 'bg-red-500 text-yellow-300'
+                : 'bg-emerald-300 text-black'
+            )}>
             {number}
           </p>
         ))}
@@ -104,17 +104,14 @@ const DiceButton = () => {
 const formSchema = z.object({
   name: z
     .string()
-    .min(3, { message: 'Tan pequeño como la colita de marcos' })
-    .max(50, { message: 'Ni hace falta que mencione como quien es de grande' }),
-  email: z
-    .string()
-    .email('Eso no es un email fiera'),
+    .min(3, {message: 'Tan pequeño como la colita de marcos'})
+    .max(50, {message: 'Ni hace falta que mencione como quien es de grande'}),
+  email: z.string().email('Eso no es un email fiera'),
   message: z
     .string()
-    .min(10, { message: 'Tan pequeño como la colita de marcos' })
-    .max(500, { message: 'Ni hace falta que mencione como quien es de grande' }),
-  fruits: z
-    .string()
+    .min(10, {message: 'Tan pequeño como la colita de marcos'})
+    .max(500, {message: 'Ni hace falta que mencione como quien es de grande'}),
+  fruits: z.string(),
 });
 
 const ContactForm = () => {
@@ -124,8 +121,8 @@ const ContactForm = () => {
       name: '',
       email: '',
       message: '',
-      fruits: ''
-    }
+      fruits: '',
+    },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
@@ -137,12 +134,11 @@ const ContactForm = () => {
       <Form {...form}>
         <form
           className="flex flex-col gap-4"
-          onSubmit={form.handleSubmit(onSubmit)}
-        >
+          onSubmit={form.handleSubmit(onSubmit)}>
           <FormField
             control={form.control}
             name="name"
-            render={({ field }) => (
+            render={({field}) => (
               <FormItem>
                 <FormLabel className="flex justify-end">Username</FormLabel>
                 <FormControl className="bg-red-600 text-yellow-300">
@@ -155,9 +151,11 @@ const ContactForm = () => {
           <FormField
             control={form.control}
             name="email"
-            render={({ field }) => (
+            render={({field}) => (
               <FormItem>
-                <FormLabel className="flex justify-end">Correo Electronico</FormLabel>
+                <FormLabel className="flex justify-end">
+                  Correo Electronico
+                </FormLabel>
                 <FormControl className="bg-red-600 text-yellow-300">
                   <Input placeholder="Email" {...field} />
                 </FormControl>
@@ -169,7 +167,7 @@ const ContactForm = () => {
           <FormField
             control={form.control}
             name="message"
-            render={({ field }) => (
+            render={({field}) => (
               <FormItem>
                 <FormLabel className="flex justify-end">Mensaje</FormLabel>
                 <FormControl className="bg-red-600 text-yellow-300">
@@ -183,7 +181,7 @@ const ContactForm = () => {
           <FormField
             control={form.control}
             name="fruits"
-            render={({ field }) => (
+            render={({field}) => (
               <FormItem>
                 <FormLabel>Select</FormLabel>
                 <FormControl>
@@ -207,7 +205,9 @@ const ContactForm = () => {
               </FormItem>
             )}
           />
-          <Button className="bg-red-600 text-yellow-300" type="submit">Enviar</Button>
+          <Button className="bg-red-600 text-yellow-300" type="submit">
+            Enviar
+          </Button>
         </form>
       </Form>
     </div>
@@ -217,19 +217,18 @@ const ContactForm = () => {
 export default function cesarAbout() {
   return (
     <section className="mb-32 bg-black">
-      <div className="max-w-6xl px-4 py-8 mx-auto sm:px-6 sm:pt-24 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:pt-24 lg:px-8">
         <div className="sm:align-center flex-col sm:flex-col">
-          <h1 className="text-4xl mb-11 font-extrabold text-white sm:text-center sm:text-6xl">
+          <h1 className="mb-11 text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
             César, the pride of spain
           </h1>
           <div
             className="flex gap-4 rounded-2xl bg-contain"
             style={{
               backgroundImage:
-                'url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Bandera_de_España_%28sin_escudo%29.svg/2560px-Bandera_de_España_%28sin_escudo%29.svg.png)'
-            }}
-          >
-            <div className="mt-6 mb-6 text-lg flex flex-col gap-16 px-8">
+                'url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Bandera_de_España_%28sin_escudo%29.svg/2560px-Bandera_de_España_%28sin_escudo%29.svg.png)',
+            }}>
+            <div className="mb-6 mt-6 flex flex-col gap-16 px-8 text-lg">
               <p className="text-black">
                 Soy una persona de mente muy abierta, siempre dispuesta a
                 considerar nuevas ideas y perspectivas, evitando la terquedad en
@@ -261,8 +260,7 @@ export default function cesarAbout() {
                 Para apoyarnos siguenos en nuestas redes sociales{' '}
                 <a
                   href="https://twitter.com/ElPatica"
-                  className="text-blue-400 hover:underline"
-                >
+                  className="text-blue-400 hover:underline">
                   @ElPatica
                 </a>
                 .
@@ -270,25 +268,25 @@ export default function cesarAbout() {
             </div>
           </div>
           <div className="flex justify-center">
-            <HimnoButton/>
+            <HimnoButton />
           </div>
           <div>
-            <h1 className="text-4xl mt-11 mb-8 font-extrabold text-white sm:text-center sm:text-6xl">
+            <h1 className="mb-8 mt-11 text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
               Extra work del todopoderoso miguel
             </h1>
-            <hr className="my-16 border-gray-300 ml-32 mr-32" />
+            <hr className="my-16 ml-32 mr-32 border-gray-300" />
           </div>
           <div>
-            <h1 className="text-4xl mt-11 mb-11 font-extrabold text-white sm:text-center sm:text-4xl">
+            <h1 className="mb-11 mt-11 text-4xl font-extrabold text-white sm:text-center sm:text-4xl">
               Dado bomba
             </h1>
-            <DiceButton/>
+            <DiceButton />
           </div>
           <div>
-            <h1 className="text-4xl mt-11 mb-11 font-extrabold text-white sm:text-center sm:text-4xl">
+            <h1 className="mb-11 mt-11 text-4xl font-extrabold text-white sm:text-center sm:text-4xl">
               Formularios
             </h1>
-            <ContactForm/>
+            <ContactForm />
           </div>
         </div>
       </div>
