@@ -12,7 +12,7 @@ interface PersonProps {
 const AboutCard = ({ person, index }: {person: PersonProps, index: number}) => {
 
     return (
-        <Link href={`/about/${person.slug}`}>
+        <Link href={`${person.slug}`}>
             <div className="relative rounded-2xl hover:scale-105 duration-300 flex flex-col">
                 <div className="w-48 h-48 overflow-hidden rounded-2xl">
                     <img
