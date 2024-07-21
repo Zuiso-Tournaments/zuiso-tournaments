@@ -1,4 +1,5 @@
-import { createClient } from '@/utils/supabase/server';
+import {createClient} from '@/lib/supabase/server';
+
 import s from './Navbar.module.css';
 import Navlinks from './Navlinks';
 
@@ -6,7 +7,7 @@ export default async function Navbar() {
   const supabase = createClient();
 
   const {
-    data: { user }
+    data: {user},
   } = await supabase.auth.getUser();
 
   return (
@@ -14,7 +15,7 @@ export default async function Navbar() {
       <a href="#skip" className="sr-only focus:not-sr-only">
         Skip to content
       </a>
-      <div className="max-w-6xl px-6 mx-auto">
+      <div className="mx-auto max-w-6xl px-6">
         <Navlinks user={user} />
       </div>
     </nav>

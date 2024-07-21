@@ -1,17 +1,15 @@
 'use client';
-import React, { ChangeEvent, useState, useEffect, useRef } from 'react';
+
+import {useToast} from '@/components/ui/Toasts/use-toast';
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
+  FormMessage,
 } from '@/components/ui/form';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { Input } from '@/components/ui/input';
+import {Input} from '@/components/ui/input';
 import {
   Select,
   SelectContent,
@@ -19,24 +17,27 @@ import {
   SelectItem,
   SelectLabel,
   SelectTrigger,
-  SelectValue
+  SelectValue,
 } from '@/components/ui/select';
-import { useToast } from '@/components/ui/Toasts/use-toast';
-import { cn } from '@/utils/cn';
-import { set } from 'lodash';
+import {cn} from '@/lib/cn';
+import {zodResolver} from '@hookform/resolvers/zod';
+import {set} from 'lodash';
+import React, {ChangeEvent, useEffect, useRef, useState} from 'react';
+import {useForm} from 'react-hook-form';
+import {z} from 'zod';
 
 const formSchema = z.object({
   topic: z.string().min(1, 'Selecciona un asunto'),
   name: z
     .string()
-    .min(3, { message: 'Nombre entre 3-50 caracteres' })
-    .max(50, { message: 'Nombre entre 3-50 caracteres' }),
+    .min(3, {message: 'Nombre entre 3-50 caracteres'})
+    .max(50, {message: 'Nombre entre 3-50 caracteres'}),
   email: z.string().email('Email no válido'),
   message: z
     .string()
-    .min(10, { message: 'Mensaje entre 10-500 caracteres' })
-    .max(500, { message: 'Mensaje entre 10-500 caracteres' }),
-  pictures: z.array(z.string()).max(10, 'Máximo 10 archivos').optional()
+    .min(10, {message: 'Mensaje entre 10-500 caracteres'})
+    .max(500, {message: 'Mensaje entre 10-500 caracteres'}),
+  pictures: z.array(z.string()).max(10, 'Máximo 10 archivos').optional(),
 });
 
 /**
@@ -54,8 +55,8 @@ const ContactForm = () => {
       email: '',
       topic: '',
       message: '',
-      pictures: []
-    }
+      pictures: [],
+    },
   });
 
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
@@ -69,7 +70,7 @@ const ContactForm = () => {
         toast({
           title: 'Error',
           description: 'Se permite un máximo de 10 archivos.',
-          variant: 'destructive'
+          variant: 'destructive',
         });
         e.target.value = '';
         setSelectedFileUrls([]);
@@ -96,7 +97,7 @@ const ContactForm = () => {
         'application/vnd.openxmlformats-officedocument.presentationml.presentation',
         'video/mp4',
         'video/quicktime',
-        'video/x-msvideo'
+        'video/x-msvideo',
       ];
 
       const invalidFiles = filesArray.filter(
@@ -107,7 +108,7 @@ const ContactForm = () => {
         toast({
           title: 'Error',
           description: `El archivo '${invalidFiles[0].name}' no es un formato válido.`,
-          variant: 'destructive'
+          variant: 'destructive',
         });
         e.target.value = '';
         setSelectedFileUrls([]);
@@ -120,7 +121,7 @@ const ContactForm = () => {
     }
   };
 
-  const { toast } = useToast();
+  const {toast} = useToast();
 
   function onSubmit() {
     const values = form.getValues();
@@ -128,7 +129,7 @@ const ContactForm = () => {
     onReset();
     toast({
       title: 'Mensaje enviado',
-      description: 'Gracias por tu mensaje'
+      description: 'Gracias por tu mensaje',
     });
   }
 
@@ -138,7 +139,7 @@ const ContactForm = () => {
       email: '',
       topic: '',
       message: '',
-      pictures: []
+      pictures: [],
     });
     setSelectedFiles([]);
     setSelectedFileUrls([]);
@@ -161,7 +162,7 @@ const ContactForm = () => {
           key={index}
           src={selectedFileUrls[index]}
           alt={`Preview ${index}`}
-          className="h-32 rounded-md border-white border-2"
+          className="h-32 rounded-md border-2 border-white"
         />
       );
     } else {
@@ -170,7 +171,7 @@ const ContactForm = () => {
           key={index}
           src="https://upload.wikimedia.org/wikipedia/commons/d/dc/No_Preview_image_2.png"
           alt={`Error Preview ${index}`}
-          className="h-32 rounded-md border-white border-2"
+          className="h-32 rounded-md border-2 border-white"
         />
       );
     }
@@ -183,15 +184,17 @@ const ContactForm = () => {
           className="flex flex-col gap-4"
           onSubmit={(event) => {
             event.preventDefault();
-            form.setValue('pictures', selectedFileUrls.map((url) => url.toString()));
+            form.setValue(
+              'pictures',
+              selectedFileUrls.map((url) => url.toString())
+            );
             form.handleSubmit(() => onSubmit())();
           }}
-          onReset={onReset}
-        >
+          onReset={onReset}>
           <FormField
             control={form.control}
             name="topic"
-            render={({ field }) => (
+            render={({field}) => (
               <FormItem>
                 <FormLabel className="text-white">Asunto</FormLabel>
                 <FormControl>
@@ -217,7 +220,7 @@ const ContactForm = () => {
           <FormField
             control={form.control}
             name="name"
-            render={({ field }) => (
+            render={({field}) => (
               <FormItem>
                 <FormLabel className="text-white">Nombre</FormLabel>
                 <FormControl>
@@ -231,7 +234,7 @@ const ContactForm = () => {
           <FormField
             control={form.control}
             name="email"
-            render={({ field }) => (
+            render={({field}) => (
               <FormItem>
                 <FormLabel className="text-white">Email</FormLabel>
                 <FormControl>
@@ -245,7 +248,7 @@ const ContactForm = () => {
           <FormField
             control={form.control}
             name="message"
-            render={({ field }) => (
+            render={({field}) => (
               <FormItem>
                 <FormLabel className="text-white">Mensaje</FormLabel>
                 <FormControl>
@@ -259,14 +262,14 @@ const ContactForm = () => {
           <FormField
             control={form.control}
             name="pictures"
-            render={({ field }) => (
+            render={({field}) => (
               <FormItem>
                 <FormLabel className="text-white">
                   Adjuntar imágenes relacionadas con la solicitud
                 </FormLabel>
                 <FormControl className="cursor-pointer">
                   <Input
-                    className="w-96 mt-16 cursor-pointer"
+                    className="mt-16 w-96 cursor-pointer"
                     type="file"
                     ref={fileInputRef} // Assign the ref to the file input element
                     multiple
@@ -278,7 +281,7 @@ const ContactForm = () => {
                   />
                 </FormControl>
                 <FormMessage {...field} />
-                <div className="flex flex-row gap-4 pt-4 flex-wrap">
+                <div className="flex flex-row flex-wrap gap-4 pt-4">
                   {selectedFiles.map((file, index) =>
                     renderPreview(file, index)
                   )}
@@ -291,20 +294,18 @@ const ContactForm = () => {
             <button
               type="reset"
               className={cn(
-                'bg-red-500 text-white rounded-md py-2 px-4 w-[180px]',
+                'w-[180px] rounded-md bg-red-500 px-4 py-2 text-white',
                 'hover:bg-red-600'
-              )}
-            >
+              )}>
               Limpiar
             </button>
 
             <button
               type="submit"
               className={cn(
-                'bg-blue-500 text-white rounded-md py-2 px-4 w-[180px]',
+                'w-[180px] rounded-md bg-blue-500 px-4 py-2 text-white',
                 'hover:bg-blue-600'
-              )}
-            >
+              )}>
               Enviar
             </button>
           </div>

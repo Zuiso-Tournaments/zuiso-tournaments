@@ -1,18 +1,16 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
-import { updatePassword } from '@/utils/auth-helpers/server';
-import { handleRequest } from '@/utils/auth-helpers/client';
-import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import {Button} from '@/components/ui/button';
+import {handleRequest} from '@/lib/auth-helpers/client';
+import {updatePassword} from '@/lib/auth-helpers/server';
+import {useRouter} from 'next/navigation';
+import React, {useState} from 'react';
 
 interface UpdatePasswordProps {
   redirectMethod: string;
 }
 
-export default function UpdatePassword({
-  redirectMethod
-}: UpdatePasswordProps) {
+export default function UpdatePassword({redirectMethod}: UpdatePasswordProps) {
   const router = redirectMethod === 'client' ? useRouter() : null;
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -27,8 +25,7 @@ export default function UpdatePassword({
       <form
         noValidate={true}
         className="mb-4"
-        onSubmit={(e) => handleSubmit(e)}
-      >
+        onSubmit={(e) => handleSubmit(e)}>
         <div className="grid gap-2">
           <div className="grid gap-1">
             <label htmlFor="password">New Password</label>
@@ -38,7 +35,7 @@ export default function UpdatePassword({
               type="password"
               name="password"
               autoComplete="current-password"
-              className="w-full p-3 rounded-md bg-zinc-800"
+              className="w-full rounded-md bg-zinc-800 p-3"
             />
             <label htmlFor="passwordConfirm">Confirm New Password</label>
             <input
@@ -47,15 +44,14 @@ export default function UpdatePassword({
               type="password"
               name="passwordConfirm"
               autoComplete="current-password"
-              className="w-full p-3 rounded-md bg-zinc-800"
+              className="w-full rounded-md bg-zinc-800 p-3"
             />
           </div>
           <Button
             variant="slim"
             type="submit"
             className="mt-1"
-            loading={isSubmitting}
-          >
+            loading={isSubmitting}>
             Update Password
           </Button>
         </div>

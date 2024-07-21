@@ -1,12 +1,12 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
-import React from 'react';
+import {Button} from '@/components/ui/button';
+import {handleRequest} from '@/lib/auth-helpers/client';
+import {signUp} from '@/lib/auth-helpers/server';
 import Link from 'next/link';
-import { signUp } from '@/utils/auth-helpers/server';
-import { handleRequest } from '@/utils/auth-helpers/client';
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import {useRouter} from 'next/navigation';
+import React from 'react';
+import {useState} from 'react';
 
 // Define prop type with allowEmail boolean
 interface SignUpProps {
@@ -14,7 +14,7 @@ interface SignUpProps {
   redirectMethod: string;
 }
 
-export default function SignUp({ allowEmail, redirectMethod }: SignUpProps) {
+export default function SignUp({allowEmail, redirectMethod}: SignUpProps) {
   const router = redirectMethod === 'client' ? useRouter() : null;
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -29,8 +29,7 @@ export default function SignUp({ allowEmail, redirectMethod }: SignUpProps) {
       <form
         noValidate={true}
         className="mb-4"
-        onSubmit={(e) => handleSubmit(e)}
-      >
+        onSubmit={(e) => handleSubmit(e)}>
         <div className="grid gap-2">
           <div className="grid gap-1">
             <label htmlFor="email">Email</label>
@@ -42,7 +41,7 @@ export default function SignUp({ allowEmail, redirectMethod }: SignUpProps) {
               autoCapitalize="none"
               autoComplete="email"
               autoCorrect="off"
-              className="w-full p-3 rounded-md bg-zinc-800"
+              className="w-full rounded-md bg-zinc-800 p-3"
             />
             <label htmlFor="password">Password</label>
             <input
@@ -51,28 +50,27 @@ export default function SignUp({ allowEmail, redirectMethod }: SignUpProps) {
               type="password"
               name="password"
               autoComplete="current-password"
-              className="w-full p-3 rounded-md bg-zinc-800"
+              className="w-full rounded-md bg-zinc-800 p-3"
             />
           </div>
           <Button
             variant="slim"
             type="submit"
             className="mt-1"
-            loading={isSubmitting}
-          >
+            loading={isSubmitting}>
             Sign up
           </Button>
         </div>
       </form>
       <p>Already have an account?</p>
       <p>
-        <Link href="/signin/password_signin" className="font-light text-sm">
+        <Link href="/signin/password_signin" className="text-sm font-light">
           Sign in with email and password
         </Link>
       </p>
       {allowEmail && (
         <p>
-          <Link href="/signin/email_signin" className="font-light text-sm">
+          <Link href="/signin/email_signin" className="text-sm font-light">
             Sign in via magic link
           </Link>
         </p>

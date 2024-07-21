@@ -1,7 +1,9 @@
 import ContactForm from '@/app/about/mdemora/ContactForm';
+import DrizzleTest from '@/app/about/mdemora/DrizzleTest';
 import MusicList from '@/app/about/mdemora/MusicList';
 import RandomDiceResults from '@/app/about/mdemora/RandomDiceResults';
 import {Button} from '@/components/ui/button';
+import Link from 'next/link';
 
 export default async function MdeMoraPage() {
   return (
@@ -57,6 +59,16 @@ export default async function MdeMoraPage() {
           </div>
 
           <MusicList />
+
+          <p className="my-10">Ejemplo Jotai</p>
+
+          <Link href="/about/mdemora/jotai">
+            <Button className="bg-green-500"> navegar a jotai</Button>
+          </Link>
+
+          <p className="my-10">Ejemplo Drizzle</p>
+
+          <DrizzleTest />
         </div>
       </div>
     </section>
