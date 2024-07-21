@@ -1,5 +1,6 @@
 import RandomDice from '@/app/about/javi/RandomDice';
 import AboutForm from '@/app/about/javi/ContactForm';
+import MusicList from '@/app/about/javi/MusicList';
 
 interface Passion {
   url: string;
@@ -156,6 +157,11 @@ export default async function JaviPage() {
             Formulario de contacto
           </h1>
           <AboutForm />
+
+          <h1 className="text-4xl  my-8 mt-16 font-extrabold text-white sm:text-center sm:text-6xl">
+            Mi música
+          </h1>
+          <MusicList />
         </div>
       </div>
     </section>
