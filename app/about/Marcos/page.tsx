@@ -1,4 +1,5 @@
 import DiceApp from "./DiceApp";
+import SongList from "./SongList";
 export default async function MarcosPage() {
   const artists = [
     {
@@ -72,6 +73,7 @@ export default async function MarcosPage() {
                 <div className="mt-12">
                     <h1 className="text-3xl font-bold text-white mb-4 sm:text-center">Marcos also enjoys playing with a dice and seeing which result comes up the most times.</h1>
                     <DiceApp />
+                    <SongList />
                 </div>   
             </div>
         </section>
