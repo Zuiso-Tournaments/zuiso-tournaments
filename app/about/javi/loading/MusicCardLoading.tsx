@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Loading = () => {
+export const MusicCardLoading = () => {
     return (
         <div className="flex flex-col max-w-6xl px-4 mx-auto sm:px-6 lg:px-8 load-pulse">
             {/* Title section */}

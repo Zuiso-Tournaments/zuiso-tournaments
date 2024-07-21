@@ -3,7 +3,7 @@
 import MusicCard from '@/app/about/javi/MusicCard';
 import { MusicCardProps } from '@/app/about/javi/MusicCard';
 import { useEffect, useState } from 'react';
-import { Loading } from '@/components/ui/javi-loading/music-list';
+import { MusicListLoading  } from '@/app/about/javi/loading/MusicListLoading';
 
 const MusicList = () => {
   const [music, setMusic] = useState<MusicCardProps[]>([]);
@@ -31,7 +31,7 @@ const MusicList = () => {
   }, []);
 
   if (loading) {
-    return <Loading />;
+    return <MusicListLoading />;
   }
 
   if (error) {

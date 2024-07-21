@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { MusicCardProps } from '@/app/about/javi/MusicCard';
-import { Loading } from '@/components/ui/javi-loading/music-card';
+import { MusicCardLoading } from '@/app/about/javi/loading/MusicCardLoading';
 
 const languageToFlag: { [key: string]: string } = {
   es: '🇪🇸',
@@ -48,7 +48,7 @@ export default function SongFromId() {
     }
   }, [params.id]);
 
-  if (loading) return <Loading />;
+  if (loading) return <MusicCardLoading />;
   if (error) return <div>Error: {error}</div>;
 
   return (

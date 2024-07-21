@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Loading = () => {
+export const MusicListLoading = () => {
     return (
         <div className="flex gap-4 w-full flex-wrap mt-4 justify-center load-pulse">
             {Array.from({ length: 5 }).map((_, index) => (
