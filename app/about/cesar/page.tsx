@@ -1,8 +1,12 @@
 'use client';
 
+import { useState } from "react";
+
 import useSound from 'use-sound';
 
-const BoopButton = () => {
+/*Aqui empieza el de hacer soonar el himno*/
+
+const HimnoButton = () => {
   const [play] = useSound('/himno.mp3');
 
   const handleSoundClick = () => {
@@ -13,7 +17,7 @@ const BoopButton = () => {
   return (
     <button
       onClick={handleSoundClick}
-      className="mt-8 px-4 py-2 bg-emerald-400 rounded-2xl size-20"
+      className="mt-8 px-4 py-2 rounded-2xl size-20"
     >
       <img
         src="https://cdn-icons-png.flaticon.com/512/2468/2468825.png"
@@ -24,7 +28,41 @@ const BoopButton = () => {
   );
 };
 
-export default async function cesarAbout() {
+/*Aqui empieza el de el dado*/
+
+const DiceButton = () => {
+  const [randomNumbers, setRandomNumbers] = useState<number[]>([]);
+
+  const play = () => {
+    const random = Math.floor(Math.random() * 6) + 1;
+    setRandomNumbers(prevNumbers => [...prevNumbers, random]);
+  };
+
+  const handleDiceClick = () => {
+    play();
+  };
+
+  return (
+    <div className="flex mt-8">
+      <button onClick={handleDiceClick} className="px-4 py-2 rounded-2xl size-20">
+        <img
+          src="https://img.freepik.com/fotos-premium/ilustracion-3d-cerca-par-dados-blancos-sobre-fondo-negro-dados-blancos-vuelo-juegos-azar-casinos_116124-5781.jpg?w=360"
+          alt="Button Icon"
+          className="size-10"
+        />
+      </button>
+      <div className="ml-4 flex">
+        {randomNumbers.map((number, index) => (
+          <p key={index} className="text-black bg-emerald-300 size-10 rounded-2xl flex-row ml-4 sm:text-center">
+            {number}
+          </p>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default function cesarAbout() {
   return (
     <section className="mb-32 bg-black">
       <div className="max-w-6xl px-4 py-8 mx-auto sm:px-6 sm:pt-24 lg:px-8">
@@ -80,7 +118,15 @@ export default async function cesarAbout() {
             </div>
           </div>
           <div className="flex justify-center">
-            <BoopButton />
+            <HimnoButton/>
+          </div>
+          <div>
+            <h1 className="text-4xl mt-11 mb-8 font-extrabold text-white sm:text-center sm:text-6xl">
+              Extra work del todopoderoso miguel
+            </h1>
+          </div>
+          <div>
+            <DiceButton/>
           </div>
         </div>
       </div>
