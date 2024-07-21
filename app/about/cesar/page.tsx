@@ -1,10 +1,8 @@
 'use client';
 
-import { useState } from "react";
-
+import {cn} from '@/utils/cn';
+import {useState} from 'react';
 import useSound from 'use-sound';
-
-import { cn } from '@/utils/cn';
 
 /*Aqui empieza el de hacer soonar el himno*/
 
@@ -19,8 +17,7 @@ const HimnoButton = () => {
   return (
     <button
       onClick={handleSoundClick}
-      className="mt-8 px-4 py-2 rounded-2xl size-20"
-    >
+      className="mt-8 size-20 rounded-2xl px-4 py-2">
       <img
         src="https://cdn-icons-png.flaticon.com/512/2468/2468825.png"
         alt="Button Icon"
@@ -37,7 +34,7 @@ const DiceButton = () => {
 
   const play = () => {
     const random = Math.floor(Math.random() * 6) + 1;
-    setRandomNumbers(prevNumbers => [...prevNumbers, random]);
+    setRandomNumbers((prevNumbers) => [...prevNumbers, random]);
   };
 
   const handleDiceClick = () => {
@@ -45,8 +42,10 @@ const DiceButton = () => {
   };
 
   return (
-    <div className="flex mt-8">
-      <button onClick={handleDiceClick} className="px-4 py-2 rounded-2xl size-20">
+    <div className="mt-8 flex">
+      <button
+        onClick={handleDiceClick}
+        className="size-20 rounded-2xl px-4 py-2">
         <img
           src="https://img.freepik.com/fotos-premium/ilustracion-3d-cerca-par-dados-blancos-sobre-fondo-negro-dados-blancos-vuelo-juegos-azar-casinos_116124-5781.jpg?w=360"
           alt="Button Icon"
@@ -57,8 +56,12 @@ const DiceButton = () => {
         {randomNumbers.map((number, index) => (
           <p
             key={index}
-            className={cn("size-10 rounded-2xl flex-row ml-4 sm:text-center" ,number > 3 ? "bg-red-500 text-yellow-300" : "bg-emerald-300 text-black")}
-          >
+            className={cn(
+              'ml-4 size-10 flex-row rounded-2xl sm:text-center',
+              number > 3
+                ? 'bg-red-500 text-yellow-300'
+                : 'bg-emerald-300 text-black'
+            )}>
             {number}
           </p>
         ))}
@@ -70,19 +73,18 @@ const DiceButton = () => {
 export default function cesarAbout() {
   return (
     <section className="mb-32 bg-black">
-      <div className="max-w-6xl px-4 py-8 mx-auto sm:px-6 sm:pt-24 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:pt-24 lg:px-8">
         <div className="sm:align-center flex-col sm:flex-col">
-          <h1 className="text-4xl mb-8 font-extrabold text-white sm:text-center sm:text-6xl">
+          <h1 className="mb-8 text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
             César, the pride of spain
           </h1>
           <div
             className="flex gap-4 rounded-2xl bg-contain"
             style={{
               backgroundImage:
-                'url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Bandera_de_España_%28sin_escudo%29.svg/2560px-Bandera_de_España_%28sin_escudo%29.svg.png)'
-            }}
-          >
-            <div className="mt-6 mb-6 text-lg flex flex-col gap-16 px-8">
+                'url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Bandera_de_España_%28sin_escudo%29.svg/2560px-Bandera_de_España_%28sin_escudo%29.svg.png)',
+            }}>
+            <div className="mb-6 mt-6 flex flex-col gap-16 px-8 text-lg">
               <p className="text-black">
                 Soy una persona de mente muy abierta, siempre dispuesta a
                 considerar nuevas ideas y perspectivas, evitando la terquedad en
@@ -114,8 +116,7 @@ export default function cesarAbout() {
                 Para apoyarnos siguenos en nuestas redes sociales{' '}
                 <a
                   href="https://twitter.com/ElPatica"
-                  className="text-blue-400 hover:underline"
-                >
+                  className="text-blue-400 hover:underline">
                   @ElPatica
                 </a>
                 .
@@ -123,15 +124,15 @@ export default function cesarAbout() {
             </div>
           </div>
           <div className="flex justify-center">
-            <HimnoButton/>
+            <HimnoButton />
           </div>
           <div>
-            <h1 className="text-4xl mt-11 mb-8 font-extrabold text-white sm:text-center sm:text-6xl">
+            <h1 className="mb-8 mt-11 text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
               Extra work del todopoderoso miguel
             </h1>
           </div>
           <div>
-            <DiceButton/>
+            <DiceButton />
           </div>
         </div>
       </div>
