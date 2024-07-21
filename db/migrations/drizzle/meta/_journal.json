@@ -8,6 +8,13 @@
       "when": 1721571663619,
       "tag": "0000_happy_prodigy",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1721580025233,
+      "tag": "0001_broken_stellaris",
+      "breakpoints": true
     }
   ]
 }

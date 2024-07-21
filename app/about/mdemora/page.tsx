@@ -1,11 +1,15 @@
+import {getPollas} from '@/actions/pollas';
 import ContactForm from '@/app/about/mdemora/ContactForm';
 import DrizzleTest from '@/app/about/mdemora/DrizzleTest';
+import MisPollas from '@/app/about/mdemora/MisPollas';
 import MusicList from '@/app/about/mdemora/MusicList';
 import RandomDiceResults from '@/app/about/mdemora/RandomDiceResults';
 import {Button} from '@/components/ui/button';
 import Link from 'next/link';
 
 export default async function MdeMoraPage() {
+  const pollas = await getPollas();
+
   return (
     <section className="mb-32 bg-black">
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:pt-24 lg:px-8">
@@ -69,6 +73,8 @@ export default async function MdeMoraPage() {
           <p className="my-10">Ejemplo Drizzle</p>
 
           <DrizzleTest />
+
+          <MisPollas pollas={pollas} />
         </div>
       </div>
     </section>
