@@ -1,10 +1,39 @@
 'use client';
 
-import {cn} from '@/utils/cn';
-import {useState} from 'react';
-import useSound from 'use-sound';
+/*importar estados*/
+import {Button} from '@/components/ui/button';
 
-/*Aqui empieza el de hacer soonar el himno*/
+/*importar todo lo del formulario*/
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import {Input} from '@/components/ui/input';
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+
+/*importar comparaciones*/
+import {cn} from '@/utils/cn';
+import {zodResolver} from '@hookform/resolvers/zod';
+import {useState} from 'react';
+import {useForm} from 'react-hook-form';
+
+/*importar sonido*/
+import useSound from 'use-sound';
+import {z} from 'zod';
+
+/*Aqui empieza el de hacer sonar el himno*/
 
 const HimnoButton = () => {
   const [play] = useSound('/himno.mp3');
@@ -70,12 +99,127 @@ const DiceButton = () => {
   );
 };
 
+/*Aqui empiezan lo de los formularios*/
+
+const formSchema = z.object({
+  name: z
+    .string()
+    .min(3, {message: 'Tan pequeño como la colita de marcos'})
+    .max(50, {message: 'Ni hace falta que mencione como quien es de grande'}),
+  email: z.string().email('Eso no es un email fiera'),
+  message: z
+    .string()
+    .min(10, {message: 'Tan pequeño como la colita de marcos'})
+    .max(500, {message: 'Ni hace falta que mencione como quien es de grande'}),
+  fruits: z.string(),
+});
+
+const ContactForm = () => {
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      message: '',
+      fruits: '',
+    },
+  });
+
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    /*Creo que aqui seria donde se haria algo con las vainas del formulario*/
+    console.log(values);
+  }
+  return (
+    <div className="mt-10">
+      <Form {...form}>
+        <form
+          className="flex flex-col gap-4"
+          onSubmit={form.handleSubmit(onSubmit)}>
+          <FormField
+            control={form.control}
+            name="name"
+            render={({field}) => (
+              <FormItem>
+                <FormLabel className="flex justify-end">Username</FormLabel>
+                <FormControl className="bg-red-600 text-yellow-300">
+                  <Input placeholder="POLLA" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="email"
+            render={({field}) => (
+              <FormItem>
+                <FormLabel className="flex justify-end">
+                  Correo Electronico
+                </FormLabel>
+                <FormControl className="bg-red-600 text-yellow-300">
+                  <Input placeholder="Email" {...field} />
+                </FormControl>
+
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="message"
+            render={({field}) => (
+              <FormItem>
+                <FormLabel className="flex justify-end">Mensaje</FormLabel>
+                <FormControl className="bg-red-600 text-yellow-300">
+                  <Input placeholder="Esribe tu mensaje" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="fruits"
+            render={({field}) => (
+              <FormItem>
+                <FormLabel>Select</FormLabel>
+                <FormControl>
+                  <Select value={field.value} onValueChange={field.onChange}>
+                    <SelectTrigger className="w-[180px]">
+                      <SelectValue placeholder="Select a fruit" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectGroup>
+                        <SelectLabel>Fruits</SelectLabel>
+                        <SelectItem value="apple">Apple</SelectItem>
+                        <SelectItem value="banana">Banana</SelectItem>
+                        <SelectItem value="blueberry">Blueberry</SelectItem>
+                        <SelectItem value="grapes">Grapes</SelectItem>
+                        <SelectItem value="pineapple">Pineapple</SelectItem>
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button className="bg-red-600 text-yellow-300" type="submit">
+            Enviar
+          </Button>
+        </form>
+      </Form>
+    </div>
+  );
+};
+
 export default function cesarAbout() {
   return (
     <section className="mb-32 bg-black">
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:pt-24 lg:px-8">
         <div className="sm:align-center flex-col sm:flex-col">
-          <h1 className="mb-8 text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
+          <h1 className="mb-11 text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
             César, the pride of spain
           </h1>
           <div
@@ -130,9 +274,19 @@ export default function cesarAbout() {
             <h1 className="mb-8 mt-11 text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
               Extra work del todopoderoso miguel
             </h1>
+            <hr className="my-16 ml-32 mr-32 border-gray-300" />
           </div>
           <div>
+            <h1 className="mb-11 mt-11 text-4xl font-extrabold text-white sm:text-center sm:text-4xl">
+              Dado bomba
+            </h1>
             <DiceButton />
+          </div>
+          <div>
+            <h1 className="mb-11 mt-11 text-4xl font-extrabold text-white sm:text-center sm:text-4xl">
+              Formularios
+            </h1>
+            <ContactForm />
           </div>
         </div>
       </div>
