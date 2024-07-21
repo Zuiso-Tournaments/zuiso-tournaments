@@ -1,9 +1,8 @@
 'use client';
 
+import ProgressTracker from '@/app/about/mdemora/jotai/ProgressTracker';
 import {animeAtom} from '@/app/about/mdemora/jotai/atoms';
-import {progressAtom} from '@/app/about/mdemora/jotai/derivedAtoms';
 import {Button} from '@/components/ui/button';
-import {Progress} from '@/components/ui/progress';
 import {useAtomValue, useSetAtom} from 'jotai';
 
 const AnimeList = () => {
@@ -24,28 +23,17 @@ const AddAnime = () => {
   return (
     <Button
       onClick={() => {
-        setAnime((anime) => [
-          ...anime,
+        setAnime((animes) => [
+          ...animes,
           {
-            title: 'Cowboy Bebop',
+            title: `Cowboy Bebop ${Math.random()}`,
             year: 1998,
             watched: false,
           },
         ]);
       }}>
-      Add Cowboy Bebop
+      Add Cowboy Bebop random
     </Button>
-  );
-};
-
-const ProgressTracker = () => {
-  const progress = useAtomValue(progressAtom);
-
-  return (
-    <div className="flex max-w-96 items-center gap-2 bg-slate-500 ">
-      <Progress value={progress * 100} className="w-full " />
-      {Math.trunc(progress * 100)}%
-    </div>
   );
 };
 
