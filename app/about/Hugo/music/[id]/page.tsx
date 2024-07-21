@@ -4,10 +4,12 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { Song } from '@/app/about/Hugo/MusicCard';
 
 export default function MusicAboutId() {
-  const [data, setdata] = useState();
 
+  const [data, setdata] = useState<Song>();
+ 
   const params = useParams();
 
   const fetchData = async () => {
@@ -20,8 +22,6 @@ export default function MusicAboutId() {
   useEffect(() => {
     fetchData();
   }, []);
-
-  if (!data) return <div>Loading...</div>;
 
   return (
     <section className="mb-32 bg-black">
@@ -36,17 +36,8 @@ export default function MusicAboutId() {
             <p>{data?.estilo}</p>
           </div>
         </div>
-        <iframe
-          width="560"
-          height="315"
-          src={data?.url}
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
 
-        <Link href="/about/mdemora">
+        <Link href="/about/Hugo">
           <Button>Atras</Button>
         </Link>
       </div>
