@@ -1,6 +1,6 @@
 'use client';
 
-import type {Song} from '@/app/about/hugo/MusicCard';
+import type {Song} from '@/app/about/mdemora/types';
 import {Button} from '@/components/ui/button';
 import Link from 'next/link';
 import {useParams} from 'next/navigation';
