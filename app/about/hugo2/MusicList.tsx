@@ -1,6 +1,6 @@
 'use client';
 
-import MusicCard from '@/app/about/hugo/MusicCard';
+import MusicCard from '@/app/about/hugo2/MusicCard';
 import {useEffect, useState} from 'react';
 
 const MusicList = () => {

@@ -1,6 +1,6 @@
 'use client';
 
-import type {Song} from '@/app/about/hugo/MusicCard';
+import type {Song} from '@/app/about/hugo2/MusicCard';
 import {Button} from '@/components/ui/button';
 import Link from 'next/link';
 import {useParams} from 'next/navigation';
