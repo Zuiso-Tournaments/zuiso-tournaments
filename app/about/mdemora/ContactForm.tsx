@@ -1,17 +1,15 @@
 'use client';
+
+import {Button} from '@/components/ui/button';
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
+  FormMessage,
 } from '@/components/ui/form';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-
-import { z } from 'zod';
-import { Input } from '@/components/ui/input';
+import {Input} from '@/components/ui/input';
 import {
   Select,
   SelectContent,
@@ -19,22 +17,24 @@ import {
   SelectItem,
   SelectLabel,
   SelectTrigger,
-  SelectValue
+  SelectValue,
 } from '@/components/ui/select';
-import { Button } from '@/components/ui/Button';
+import {zodResolver} from '@hookform/resolvers/zod';
+import {useForm} from 'react-hook-form';
+import {z} from 'zod';
 
 // definimos la validacion y el esquema, automaticamente lo tipa
 const formSchema = z.object({
   name: z
     .string()
-    .min(3, { message: 'muy shiquito' })
-    .max(50, { message: 'muy largo' }),
+    .min(3, {message: 'muy shiquito'})
+    .max(50, {message: 'muy largo'}),
   email: z.string().email('Tu email no tira primo'),
   message: z
     .string()
-    .min(10, { message: 'muy shiquito' })
-    .max(500, { message: 'muy largo' }),
-  fruits: z.string()
+    .min(10, {message: 'muy shiquito'})
+    .max(500, {message: 'muy largo'}),
+  fruits: z.string(),
 });
 
 const ContactForm = () => {
@@ -44,8 +44,8 @@ const ContactForm = () => {
       name: '',
       email: '',
       message: '',
-      fruits: ''
-    }
+      fruits: '',
+    },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
@@ -59,14 +59,13 @@ const ContactForm = () => {
       <Form {...form}>
         <form
           className="flex flex-col gap-4"
-          onSubmit={form.handleSubmit(onSubmit)}
-        >
+          onSubmit={form.handleSubmit(onSubmit)}>
           <p className="text-xl">Formulario</p>
 
           <FormField
             control={form.control}
             name="name"
-            render={({ field }) => (
+            render={({field}) => (
               <FormItem>
                 <FormLabel>Nombre</FormLabel>
                 <FormControl>
@@ -80,7 +79,7 @@ const ContactForm = () => {
           <FormField
             control={form.control}
             name="email"
-            render={({ field }) => (
+            render={({field}) => (
               <FormItem>
                 <FormLabel>Correo Electronico</FormLabel>
                 <FormControl>
@@ -94,7 +93,7 @@ const ContactForm = () => {
           <FormField
             control={form.control}
             name="message"
-            render={({ field }) => (
+            render={({field}) => (
               <FormItem>
                 <FormLabel>Mensaje</FormLabel>
                 <FormControl>
@@ -108,7 +107,7 @@ const ContactForm = () => {
           <FormField
             control={form.control}
             name="fruits"
-            render={({ field }) => (
+            render={({field}) => (
               <FormItem>
                 <FormLabel>Select</FormLabel>
                 <FormControl>

@@ -2,20 +2,10 @@
 
 import {addNewNoteAction} from '@/actions/notes';
 import {Button} from '@/components/ui/button';
-import type {Note} from '@/db/schemas/notes';
-import {useEffect, useState} from 'react';
+import useNotesQuery from '@/hooks/useNotesQuery';
 
-const DrizzleTest = () => {
-  const [notes, setNotes] = useState<Note[]>([]);
-
-  const fetchData = async () => {
-    const {data} = await fetch('/api/drizzle').then((res) => res.json());
-    setNotes(data);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+const RQTest = () => {
+  const {data} = useNotesQuery();
 
   const handleClick = async () => {
     const res = await addNewNoteAction('Hello, world!');
@@ -32,7 +22,7 @@ const DrizzleTest = () => {
 
       <Button onClick={handleClick}>Click me</Button>
 
-      {notes.map((note) => (
+      {data?.map((note) => (
         <div key={note.id}>
           <p>{note.text}</p>
         </div>
@@ -41,4 +31,4 @@ const DrizzleTest = () => {
   );
 };
 
-export default DrizzleTest;
+export default RQTest;

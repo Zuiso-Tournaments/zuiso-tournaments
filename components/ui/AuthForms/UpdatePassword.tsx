@@ -4,20 +4,18 @@ import {Button} from '@/components/ui/button';
 import {handleRequest} from '@/lib/auth-helpers/client';
 import {updatePassword} from '@/lib/auth-helpers/server';
 import {useRouter} from 'next/navigation';
-import React, {useState} from 'react';
+import React from 'react';
 
+/* eslint-disable react-hooks/rules-of-hooks */
 interface UpdatePasswordProps {
   redirectMethod: string;
 }
 
 export default function UpdatePassword({redirectMethod}: UpdatePasswordProps) {
   const router = redirectMethod === 'client' ? useRouter() : null;
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    setIsSubmitting(true); // Disable the button while the request is being handled
     await handleRequest(e, updatePassword, router);
-    setIsSubmitting(false);
   };
 
   return (
@@ -47,11 +45,7 @@ export default function UpdatePassword({redirectMethod}: UpdatePasswordProps) {
               className="w-full rounded-md bg-zinc-800 p-3"
             />
           </div>
-          <Button
-            variant="slim"
-            type="submit"
-            className="mt-1"
-            loading={isSubmitting}>
+          <Button type="submit" className="mt-1">
             Update Password
           </Button>
         </div>

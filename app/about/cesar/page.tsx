@@ -24,13 +24,13 @@ import {
 } from '@/components/ui/select';
 
 /*importar comparaciones*/
-import {cn} from '@/utils/cn';
+import {cn} from '@/lib/cn';
 import {zodResolver} from '@hookform/resolvers/zod';
 import {useState} from 'react';
 import {useForm} from 'react-hook-form';
 
 /*importar sonido*/
-import useSound from 'use-sound';
+import {useSound} from 'use-sound';
 import {z} from 'zod';
 
 /*Aqui empieza el de hacer sonar el himno*/

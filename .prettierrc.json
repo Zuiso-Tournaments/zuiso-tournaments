@@ -7,6 +7,7 @@
   "bracketSpacing": false,
   "bracketSameLine": true,
   "importOrder": [
+    "<THIRD_PARTY_MODULES>",
     "lodash/(.*)$",
     "^api/(.*)$",
     "^app/(.*)$",

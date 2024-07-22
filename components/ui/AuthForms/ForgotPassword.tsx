@@ -5,7 +5,8 @@ import {handleRequest} from '@/lib/auth-helpers/client';
 import {requestPasswordUpdate} from '@/lib/auth-helpers/server';
 import Link from 'next/link';
 import {useRouter} from 'next/navigation';
-import {useState} from 'react';
+
+/* eslint-disable react-hooks/rules-of-hooks */
 
 // Define prop type with allowEmail boolean
 interface ForgotPasswordProps {
@@ -20,12 +21,9 @@ export default function ForgotPassword({
   disableButton,
 }: ForgotPasswordProps) {
   const router = redirectMethod === 'client' ? useRouter() : null;
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    setIsSubmitting(true); // Disable the button while the request is being handled
     await handleRequest(e, requestPasswordUpdate, router);
-    setIsSubmitting(false);
   };
 
   return (
@@ -48,12 +46,7 @@ export default function ForgotPassword({
               className="w-full rounded-md bg-zinc-800 p-3"
             />
           </div>
-          <Button
-            variant="slim"
-            type="submit"
-            className="mt-1"
-            loading={isSubmitting}
-            disabled={disableButton}>
+          <Button type="submit" className="mt-1" disabled={disableButton}>
             Send Email
           </Button>
         </div>
@@ -72,7 +65,7 @@ export default function ForgotPassword({
       )}
       <p>
         <Link href="/signin/signup" className="text-sm font-light">
-          Don't have an account? Sign up
+          Don&apos;t have an account? Sign up
         </Link>
       </p>
     </div>

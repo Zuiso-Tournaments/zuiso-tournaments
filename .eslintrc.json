@@ -24,9 +24,10 @@
   },
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/exhaustive-deps": "off",
     "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/no-explicit-any": "off",
+    "@next/next/no-img-element": "off",
     "react/self-closing-comp": [
       "error",
       {

@@ -1,10 +1,11 @@
 'use client';
 
-import { createClient } from '@/lib/supabase/client';
-import { type Provider } from '@supabase/supabase-js';
-import { getURL } from '@/lib/helpers';
-import { redirectToPath } from './server';
-import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
+import {getURL} from '@/lib/helpers';
+import {createClient} from '@/lib/supabase/client';
+import {type Provider} from '@supabase/supabase-js';
+import type {AppRouterInstance} from 'next/dist/shared/lib/app-router-context.shared-runtime';
+
+import {redirectToPath} from './server';
 
 export async function handleRequest(
   e: React.FormEvent<HTMLFormElement>,
@@ -38,7 +39,7 @@ export async function signInWithOAuth(e: React.FormEvent<HTMLFormElement>) {
   await supabase.auth.signInWithOAuth({
     provider: provider,
     options: {
-      redirectTo: redirectURL
-    }
+      redirectTo: redirectURL,
+    },
   });
 }

@@ -1,17 +1,10 @@
-import { NextResponse } from 'next/server';
-import { getNotes } from '@/actions/notes';
+import {getNotes} from '@/actions/notes';
+import {NextResponse} from 'next/server';
 
-
-
-
-
-
-export async function GET(request: Request) {
-
+export async function GET() {
   const data = await getNotes();
 
-console.log(data)
+  console.log(data);
 
-  return NextResponse.json({ data });
+  return NextResponse.json({data});
 }
-

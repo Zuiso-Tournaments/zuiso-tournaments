@@ -1,15 +1,15 @@
 'use server';
 
-import Stripe from 'stripe';
-import { stripe } from '@/lib/stripe/config';
-import { createClient } from '@/lib/supabase/server';
-import { createOrRetrieveCustomer } from '@/lib/supabase/admin';
 import {
-  getURL,
+  calculateTrialEndUnixTimestamp,
   getErrorRedirect,
-  calculateTrialEndUnixTimestamp
+  getURL,
 } from '@/lib/helpers';
-import { Tables } from '@/types_db';
+import {stripe} from '@/lib/stripe/config';
+import {createOrRetrieveCustomer} from '@/lib/supabase/admin';
+import {createClient} from '@/lib/supabase/server';
+import type {Tables} from '@/types_db';
+import type Stripe from 'stripe';
 
 type Price = Tables<'prices'>;
 
@@ -27,7 +27,7 @@ export async function checkoutWithStripe(
     const supabase = createClient();
     const {
       error,
-      data: { user }
+      data: {user},
     } = await supabase.auth.getUser();
 
     if (error || !user) {
@@ -40,7 +40,7 @@ export async function checkoutWithStripe(
     try {
       customer = await createOrRetrieveCustomer({
         uuid: user?.id || '',
-        email: user?.email || ''
+        email: user?.email || '',
       });
     } catch (err) {
       console.error(err);
@@ -52,16 +52,16 @@ export async function checkoutWithStripe(
       billing_address_collection: 'required',
       customer,
       customer_update: {
-        address: 'auto'
+        address: 'auto',
       },
       line_items: [
         {
           price: price.id,
-          quantity: 1
-        }
+          quantity: 1,
+        },
       ],
       cancel_url: getURL(),
-      success_url: getURL(redirectPath)
+      success_url: getURL(redirectPath),
     };
 
     console.log(
@@ -73,13 +73,13 @@ export async function checkoutWithStripe(
         ...params,
         mode: 'subscription',
         subscription_data: {
-          trial_end: calculateTrialEndUnixTimestamp(price.trial_period_days)
-        }
+          trial_end: calculateTrialEndUnixTimestamp(price.trial_period_days),
+        },
       };
     } else if (price.type === 'one_time') {
       params = {
         ...params,
-        mode: 'payment'
+        mode: 'payment',
       };
     }
 
@@ -94,7 +94,7 @@ export async function checkoutWithStripe(
 
     // Instead of returning a Response, just return the data or error.
     if (session) {
-      return { sessionId: session.id };
+      return {sessionId: session.id};
     } else {
       throw new Error('Unable to create checkout session.');
     }
@@ -105,7 +105,7 @@ export async function checkoutWithStripe(
           redirectPath,
           error.message,
           'Please try again later or contact a system administrator.'
-        )
+        ),
       };
     } else {
       return {
@@ -113,7 +113,7 @@ export async function checkoutWithStripe(
           redirectPath,
           'An unknown error occurred.',
           'Please try again later or contact a system administrator.'
-        )
+        ),
       };
     }
   }
@@ -124,7 +124,7 @@ export async function createStripePortal(currentPath: string) {
     const supabase = createClient();
     const {
       error,
-      data: { user }
+      data: {user},
     } = await supabase.auth.getUser();
 
     if (!user) {
@@ -138,7 +138,7 @@ export async function createStripePortal(currentPath: string) {
     try {
       customer = await createOrRetrieveCustomer({
         uuid: user.id || '',
-        email: user.email || ''
+        email: user.email || '',
       });
     } catch (err) {
       console.error(err);
@@ -150,9 +150,9 @@ export async function createStripePortal(currentPath: string) {
     }
 
     try {
-      const { url } = await stripe.billingPortal.sessions.create({
+      const {url} = await stripe.billingPortal.sessions.create({
         customer,
-        return_url: getURL('/account')
+        return_url: getURL('/account'),
       });
       if (!url) {
         throw new Error('Could not create billing portal');

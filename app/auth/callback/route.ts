@@ -1,7 +1,7 @@
-import { createClient } from '@/lib/supabase/server';
-import { NextResponse } from 'next/server';
-import { NextRequest } from 'next/server';
-import { getErrorRedirect, getStatusRedirect } from '@/lib/helpers';
+import {getErrorRedirect, getStatusRedirect} from '@/lib/helpers';
+import {createClient} from '@/lib/supabase/server';
+import type {NextRequest} from 'next/server';
+import {NextResponse} from 'next/server';
 
 export async function GET(request: NextRequest) {
   // The `/auth/callback` route is required for the server-side auth flow implemented
@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
   if (code) {
     const supabase = createClient();
 
-    const { error } = await supabase.auth.exchangeCodeForSession(code);
+    const {error} = await supabase.auth.exchangeCodeForSession(code);
 
     if (error) {
       return NextResponse.redirect(

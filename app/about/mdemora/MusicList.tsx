@@ -1,11 +1,12 @@
 'use client';
 
 import MusicCard from '@/app/about/mdemora/MusicCard';
-import { Skeleton } from '@/components/ui/skeleton';
-import { useEffect, useState } from 'react';
+import type {Song} from '@/app/about/mdemora/types';
+import {Skeleton} from '@/components/ui/skeleton';
+import {useEffect, useState} from 'react';
 
 const MusicList = () => {
-  const [music, setMusic] = useState([]);
+  const [music, setMusic] = useState<Song[]>([]);
   const [loading, setloading] = useState(true);
 
   const fetchData = async () => {
@@ -26,7 +27,7 @@ const MusicList = () => {
     <div className="my-4">
       <h1>Music List</h1>
       {loading && <Skeleton className="size-96" />}
-      <div className="flex gap-4 w-full flex-wrap mt-4">
+      <div className="mt-4 flex w-full flex-wrap gap-4">
         {music.map((song) => (
           <MusicCard key={song.id} song={song} />
         ))}

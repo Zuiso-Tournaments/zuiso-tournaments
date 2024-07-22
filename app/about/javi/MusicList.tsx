@@ -1,9 +1,9 @@
 'use client';
 
+import type {MusicCardProps} from '@/app/about/javi/MusicCard';
 import MusicCard from '@/app/about/javi/MusicCard';
-import { MusicCardProps } from '@/app/about/javi/MusicCard';
-import { useEffect, useState } from 'react';
-import { MusicListLoading  } from '@/app/about/javi/loading/MusicListLoading';
+import {MusicListLoading} from '@/app/about/javi/loading/MusicListLoading';
+import {useEffect, useState} from 'react';
 
 const MusicList = () => {
   const [music, setMusic] = useState<MusicCardProps[]>([]);
@@ -39,7 +39,7 @@ const MusicList = () => {
   }
 
   return (
-    <div className="flex gap-4 w-full flex-wrap mt-4 justify-center">
+    <div className="mt-4 flex w-full flex-wrap justify-center gap-4">
       {music.map((song, index) => (
         <MusicCard key={song.id} song={song} index={index} />
       ))}

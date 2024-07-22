@@ -1,13 +1,13 @@
-import { NextResponse } from 'next/server';
+import {NextResponse} from 'next/server';
 
 import MUSIC from './music.json';
 
-export async function GET(request: Request) {
-  return NextResponse.json({ music: MUSIC });
+export async function GET() {
+  return NextResponse.json({music: MUSIC});
 }
 
-export async function POST(request: Request) {
+export async function POST() {
   setTimeout(() => {
-    return NextResponse.json({ hello: 'world2' });
+    return NextResponse.json({hello: 'world2'});
   }, 3000);
 }

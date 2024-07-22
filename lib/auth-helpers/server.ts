@@ -1,13 +1,13 @@
 'use server';
 
-import { createClient } from '@/lib/supabase/server';
-import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
-import { getURL, getErrorRedirect, getStatusRedirect } from '@/lib/helpers';
-import { getAuthTypes } from '@/lib/auth-helpers/settings';
+import {getAuthTypes} from '@/lib/auth-helpers/settings';
+import {getErrorRedirect, getStatusRedirect, getURL} from '@/lib/helpers';
+import {createClient} from '@/lib/supabase/server';
+import {cookies} from 'next/headers';
+import {redirect} from 'next/navigation';
 
 function isValidEmail(email: string) {
-  var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
   return regex.test(email);
 }
 
@@ -19,7 +19,7 @@ export async function SignOut(formData: FormData) {
   const pathName = String(formData.get('pathName')).trim();
 
   const supabase = createClient();
-  const { error } = await supabase.auth.signOut();
+  const {error} = await supabase.auth.signOut();
 
   if (error) {
     return getErrorRedirect(
@@ -48,17 +48,17 @@ export async function signInWithEmail(formData: FormData) {
   }
 
   const supabase = createClient();
-  let options = {
+  const options = {
     emailRedirectTo: callbackURL,
-    shouldCreateUser: true
+    shouldCreateUser: true,
   };
 
   // If allowPassword is false, do not create a new user
-  const { allowPassword } = getAuthTypes();
+  const {allowPassword} = getAuthTypes();
   if (allowPassword) options.shouldCreateUser = false;
-  const { data, error } = await supabase.auth.signInWithOtp({
+  const {data, error} = await supabase.auth.signInWithOtp({
     email,
-    options: options
+    options: options,
   });
 
   if (error) {
@@ -68,7 +68,7 @@ export async function signInWithEmail(formData: FormData) {
       error.message
     );
   } else if (data) {
-    cookieStore.set('preferredSignInView', 'email_signin', { path: '/' });
+    cookieStore.set('preferredSignInView', 'email_signin', {path: '/'});
     redirectPath = getStatusRedirect(
       '/signin/email_signin',
       'Success!',
@@ -103,8 +103,8 @@ export async function requestPasswordUpdate(formData: FormData) {
 
   const supabase = createClient();
 
-  const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: callbackURL
+  const {data, error} = await supabase.auth.resetPasswordForEmail(email, {
+    redirectTo: callbackURL,
   });
 
   if (error) {
@@ -138,9 +138,9 @@ export async function signInWithPassword(formData: FormData) {
   let redirectPath: string;
 
   const supabase = createClient();
-  const { error, data } = await supabase.auth.signInWithPassword({
+  const {error, data} = await supabase.auth.signInWithPassword({
     email,
-    password
+    password,
   });
 
   if (error) {
@@ -150,7 +150,7 @@ export async function signInWithPassword(formData: FormData) {
       error.message
     );
   } else if (data.user) {
-    cookieStore.set('preferredSignInView', 'password_signin', { path: '/' });
+    cookieStore.set('preferredSignInView', 'password_signin', {path: '/'});
     redirectPath = getStatusRedirect('/', 'Success!', 'You are now signed in.');
   } else {
     redirectPath = getErrorRedirect(
@@ -179,12 +179,12 @@ export async function signUp(formData: FormData) {
   }
 
   const supabase = createClient();
-  const { error, data } = await supabase.auth.signUp({
+  const {error, data} = await supabase.auth.signUp({
     email,
     password,
     options: {
-      emailRedirectTo: callbackURL
-    }
+      emailRedirectTo: callbackURL,
+    },
   });
 
   if (error) {
@@ -237,8 +237,8 @@ export async function updatePassword(formData: FormData) {
   }
 
   const supabase = createClient();
-  const { error, data } = await supabase.auth.updateUser({
-    password
+  const {error, data} = await supabase.auth.updateUser({
+    password,
   });
 
   if (error) {
@@ -283,10 +283,10 @@ export async function updateEmail(formData: FormData) {
     getStatusRedirect('/account', 'Success!', `Your email has been updated.`)
   );
 
-  const { error } = await supabase.auth.updateUser(
-    { email: newEmail },
+  const {error} = await supabase.auth.updateUser(
+    {email: newEmail},
     {
-      emailRedirectTo: callbackUrl
+      emailRedirectTo: callbackUrl,
     }
   );
 
@@ -310,8 +310,8 @@ export async function updateName(formData: FormData) {
   const fullName = String(formData.get('fullName')).trim();
 
   const supabase = createClient();
-  const { error, data } = await supabase.auth.updateUser({
-    data: { full_name: fullName }
+  const {error, data} = await supabase.auth.updateUser({
+    data: {full_name: fullName},
   });
 
   if (error) {

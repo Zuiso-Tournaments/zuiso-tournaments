@@ -13,13 +13,13 @@
   },
   {
     "title": "Hugo",
-    "slug": "about/Hugo",
+    "slug": "about/hugo",
     "image": "https://album.mediaset.es/cimg/1000001/2017/02/14/p1.jpg",
     "nickname": "Tecnocurioso"
   },
   {
     "title": "Marcos",
-    "slug": "about/Marcos",
+    "slug": "about/marcos",
     "image": "https://cloud10.todocoleccion.online/coleccionismo-tabaco/tc/2016/08/14/23/58556819.jpg",
     "nickname": "Pulmón y medio"
   },
@@ -30,4 +30,3 @@
     "nickname": "Qué moderno"
   }
 ]
-  

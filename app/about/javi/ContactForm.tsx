@@ -21,8 +21,8 @@ import {
 } from '@/components/ui/select';
 import {cn} from '@/lib/cn';
 import {zodResolver} from '@hookform/resolvers/zod';
-import {set} from 'lodash';
-import React, {ChangeEvent, useEffect, useRef, useState} from 'react';
+import type {ChangeEvent} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {useForm} from 'react-hook-form';
 import {z} from 'zod';
 
@@ -200,7 +200,7 @@ const ContactForm = () => {
                 <FormControl>
                   <Select value={field.value} onValueChange={field.onChange}>
                     <SelectTrigger className="w-[180px]">
-                      <SelectValue placeholder="Selecciona un asunto"></SelectValue>
+                      <SelectValue placeholder="Selecciona un asunto" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectGroup>

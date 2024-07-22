@@ -6,14 +6,14 @@ import {
   ToastDescription,
   ToastProvider,
   ToastTitle,
-  ToastViewport
+  ToastViewport,
 } from '@/components/ui/Toasts/toast';
-import { useToast } from '@/components/ui/Toasts/use-toast';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
+import {useToast} from '@/components/ui/Toasts/use-toast';
+import {usePathname, useRouter, useSearchParams} from 'next/navigation';
+import {useEffect} from 'react';
 
 export function Toaster() {
-  const { toast, toasts } = useToast();
+  const {toast, toasts} = useToast();
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
@@ -26,10 +26,10 @@ export function Toaster() {
     if (error || status) {
       toast({
         title: error
-          ? error ?? 'Hmm... Something went wrong.'
-          : status ?? 'Alright!',
+          ? (error ?? 'Hmm... Something went wrong.')
+          : (status ?? 'Alright!'),
         description: error ? error_description : status_description,
-        variant: error ? 'destructive' : undefined
+        variant: error ? 'destructive' : undefined,
       });
       // Clear any 'error', 'status', 'status_description', and 'error_description' search params
       // so that the toast doesn't show up again on refresh, but leave any other search params
@@ -39,17 +39,17 @@ export function Toaster() {
         'error',
         'status',
         'status_description',
-        'error_description'
+        'error_description',
       ];
       paramsToRemove.forEach((param) => newSearchParams.delete(param));
       const redirectPath = `${pathname}?${newSearchParams.toString()}`;
-      router.replace(redirectPath, { scroll: false });
+      router.replace(redirectPath, {scroll: false});
     }
   }, [searchParams]);
 
   return (
     <ToastProvider>
-      {toasts.map(function ({ id, title, description, action, ...props }) {
+      {toasts.map(function ({id, title, description, action, ...props}) {
         return (
           <Toast key={id} {...props}>
             <div className="grid gap-1">

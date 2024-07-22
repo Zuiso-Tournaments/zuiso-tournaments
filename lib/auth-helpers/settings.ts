@@ -12,7 +12,7 @@ if (!allowPassword && !allowEmail)
   throw new Error('At least one of allowPassword and allowEmail must be true');
 
 export const getAuthTypes = () => {
-  return { allowOauth, allowEmail, allowPassword };
+  return {allowOauth, allowEmail, allowPassword};
 };
 
 export const getViewTypes = () => {
@@ -27,7 +27,7 @@ export const getViewTypes = () => {
       'password_signin',
       'forgot_password',
       'update_password',
-      'signup'
+      'signup',
     ];
   }
 

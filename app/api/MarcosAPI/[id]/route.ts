@@ -1,7 +1,8 @@
-import { NextResponse } from "next/server";
-import MUSIC from "../music.json";
+import {NextResponse} from 'next/server';
 
-export async function GET(request: Request, { params }: any) {
+import MUSIC from '../music.json';
+
+export async function GET(request: Request, {params}: any) {
   const id = params.id;
 
   const song = MUSIC.find((song) => song.id === id);
@@ -9,11 +10,11 @@ export async function GET(request: Request, { params }: any) {
   if (!song) {
     return NextResponse.json(
       {
-        error: "Song not found",
+        error: 'Song not found',
       },
-      { status: 404 }
+      {status: 404}
     );
   }
 
-  return NextResponse.json({ ...song });
+  return NextResponse.json({...song});
 }

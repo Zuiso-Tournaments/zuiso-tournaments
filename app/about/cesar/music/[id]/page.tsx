@@ -1,13 +1,12 @@
 'use client';
 
-import { Button } from '@/components/ui/Button';
+import {Button} from '@/components/ui/button';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import {useParams} from 'next/navigation';
+import {useEffect, useState} from 'react';
 
 export default function MusicAboutId() {
-
-  interface Music{
+  interface Music {
     title: string;
     artista: string;
     idioma: string;
@@ -29,23 +28,31 @@ export default function MusicAboutId() {
     fetchData();
   }, []);
 
-  if (!data) return <div><h1 className="text-4xl mb-11 font-extrabold text-white sm:text-center sm:text-6xl"> Loading...</h1></div>;
+  if (!data)
+    return (
+      <div>
+        <h1 className="mb-11 text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
+          {' '}
+          Loading...
+        </h1>
+      </div>
+    );
 
   return (
     <section className="mb-32 bg-black">
-      <div className="max-w-6xl px-4 py-8 mx-auto sm:px-6 sm:pt-24 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:pt-24 lg:px-8">
         <div className="sm:align-center sm:flex sm:flex-col">
           <div>
-            <h1 className="text-4xl mb-8 font-extrabold text-white sm:text-center sm:text-6xl">
+            <h1 className="mb-8 text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
               {data?.title}
             </h1>
             <p className="flex justify-center">{data?.artista}</p>
             <p className="flex justify-center">{data?.idioma}</p>
-            <p className="flex justify-center mb-8">{data?.estilo}</p>
+            <p className="mb-8 flex justify-center">{data?.estilo}</p>
           </div>
         </div>
         <iframe
-          className="w-full h-96"
+          className="h-96 w-full"
           width="560"
           height="315"
           src={data?.url}
@@ -53,10 +60,10 @@ export default function MusicAboutId() {
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
-        ></iframe>
+        />
 
         <Link href="/about/cesar">
-          <Button className="text-yellow-300 bg-red-600">Atras</Button>
+          <Button className="bg-red-600 text-yellow-300">Atras</Button>
         </Link>
       </div>
     </section>

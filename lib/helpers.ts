@@ -1,4 +1,4 @@
-import type { Tables } from '@/types_db';
+import type {Tables} from '@/types_db';
 
 type Price = Tables<'prices'>;
 
@@ -28,23 +28,23 @@ export const getURL = (path: string = '') => {
 
 export const postData = async ({
   url,
-  data
+  data,
 }: {
   url: string;
-  data?: { price: Price };
+  data?: {price: Price};
 }) => {
   const res = await fetch(url, {
     method: 'POST',
-    headers: new Headers({ 'Content-Type': 'application/json' }),
+    headers: new Headers({'Content-Type': 'application/json'}),
     credentials: 'same-origin',
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
   });
 
   return res.json();
 };
 
 export const toDateTime = (secs: number) => {
-  var t = new Date(+0); // Unix epoch start.
+  const t = new Date(+0); // Unix epoch start.
   t.setSeconds(secs);
   return t;
 };
@@ -68,9 +68,9 @@ export const calculateTrialEndUnixTimestamp = (
   return Math.floor(trialEnd.getTime() / 1000); // Convert to Unix timestamp in seconds
 };
 
-const toastKeyMap: { [key: string]: string[] } = {
+const toastKeyMap: {[key: string]: string[]} = {
   status: ['status', 'status_description'],
-  error: ['error', 'error_description']
+  error: ['error', 'error_description'],
 };
 
 const getToastRedirect = (

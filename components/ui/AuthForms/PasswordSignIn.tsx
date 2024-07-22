@@ -5,7 +5,9 @@ import {handleRequest} from '@/lib/auth-helpers/client';
 import {signInWithPassword} from '@/lib/auth-helpers/server';
 import Link from 'next/link';
 import {useRouter} from 'next/navigation';
-import React, {useState} from 'react';
+import React from 'react';
+
+/* eslint-disable react-hooks/rules-of-hooks */
 
 // Define prop type with allowEmail boolean
 interface PasswordSignInProps {
@@ -18,12 +20,9 @@ export default function PasswordSignIn({
   redirectMethod,
 }: PasswordSignInProps) {
   const router = redirectMethod === 'client' ? useRouter() : null;
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    setIsSubmitting(true); // Disable the button while the request is being handled
     await handleRequest(e, signInWithPassword, router);
-    setIsSubmitting(false);
   };
 
   return (
@@ -55,11 +54,7 @@ export default function PasswordSignIn({
               className="w-full rounded-md bg-zinc-800 p-3"
             />
           </div>
-          <Button
-            variant="slim"
-            type="submit"
-            className="mt-1"
-            loading={isSubmitting}>
+          <Button type="submit" className="mt-1">
             Sign in
           </Button>
         </div>
@@ -78,7 +73,7 @@ export default function PasswordSignIn({
       )}
       <p>
         <Link href="/signin/signup" className="text-sm font-light">
-          Don't have an account? Sign up
+          Don&apos;t have an account? Sign up
         </Link>
       </p>
     </div>

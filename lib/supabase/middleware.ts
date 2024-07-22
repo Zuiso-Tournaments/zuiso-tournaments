@@ -1,12 +1,12 @@
-import { createServerClient, type CookieOptions } from '@supabase/ssr';
-import { type NextRequest, NextResponse } from 'next/server';
+import {type CookieOptions, createServerClient} from '@supabase/ssr';
+import {type NextRequest, NextResponse} from 'next/server';
 
 export const createClient = (request: NextRequest) => {
   // Create an unmodified response
   let response = NextResponse.next({
     request: {
-      headers: request.headers
-    }
+      headers: request.headers,
+    },
   });
 
   const supabase = createServerClient(
@@ -22,17 +22,17 @@ export const createClient = (request: NextRequest) => {
           request.cookies.set({
             name,
             value,
-            ...options
+            ...options,
           });
           response = NextResponse.next({
             request: {
-              headers: request.headers
-            }
+              headers: request.headers,
+            },
           });
           response.cookies.set({
             name,
             value,
-            ...options
+            ...options,
           });
         },
         remove(name: string, options: CookieOptions) {
@@ -40,31 +40,31 @@ export const createClient = (request: NextRequest) => {
           request.cookies.set({
             name,
             value: '',
-            ...options
+            ...options,
           });
           response = NextResponse.next({
             request: {
-              headers: request.headers
-            }
+              headers: request.headers,
+            },
           });
           response.cookies.set({
             name,
             value: '',
-            ...options
+            ...options,
           });
-        }
-      }
+        },
+      },
     }
   );
 
-  return { supabase, response };
+  return {supabase, response};
 };
 
 export const updateSession = async (request: NextRequest) => {
   try {
     // This `try/catch` block is only here for the interactive tutorial.
     // Feel free to remove once you have Supabase connected.
-    const { supabase, response } = createClient(request);
+    const {supabase, response} = createClient(request);
 
     // This will refresh session if expired - required for Server Components
     // https://supabase.com/docs/guides/auth/server-side/nextjs
@@ -77,8 +77,8 @@ export const updateSession = async (request: NextRequest) => {
     // Check out http://localhost:3000 for Next Steps.
     return NextResponse.next({
       request: {
-        headers: request.headers
-      }
+        headers: request.headers,
+      },
     });
   }
 };

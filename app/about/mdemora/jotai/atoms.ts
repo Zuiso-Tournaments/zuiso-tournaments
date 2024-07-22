@@ -12,4 +12,3 @@ export const animeAtom = atom([
     watched: false,
   },
 ]);
-

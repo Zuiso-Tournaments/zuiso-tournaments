@@ -2,7 +2,7 @@
 
 import {addNewPollaAction} from '@/actions/pollas';
 import {Button} from '@/components/ui/button';
-import {Polla} from '@/db/schemas/pollas';
+import type {Polla} from '@/db/schemas/pollas';
 import {useEffect, useState} from 'react';
 
 const MisPollas = ({pollas: defaultPollas}: {pollas: Polla[]}) => {

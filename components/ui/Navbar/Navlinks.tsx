@@ -9,11 +9,15 @@ import {usePathname, useRouter} from 'next/navigation';
 
 import s from './Navbar.module.css';
 
+/* eslint-disable react-hooks/rules-of-hooks */
+// TODO: Fix the issue with the eslint-disable comment
+
 interface NavlinksProps {
   user?: any;
 }
 
 export default function Navlinks({user}: NavlinksProps) {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const router = getRedirectMethod() === 'client' ? useRouter() : null;
 
   return (

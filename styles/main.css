@@ -28,7 +28,7 @@ body {
     'Helvetica', sans-serif;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
-  @apply text-white bg-zinc-800 antialiased;
+  @apply bg-zinc-800 text-white antialiased;
 }
 
 body {
@@ -60,12 +60,17 @@ p a {
 
 @layer utilities {
   .text-stroke-black {
-    text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000;
+    text-shadow:
+      -1.5px -1.5px 0 #000,
+      1.5px -1.5px 0 #000,
+      -1.5px 1.5px 0 #000,
+      1.5px 1.5px 0 #000;
   }
 }
 
 @keyframes scaleLoop {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {
@@ -77,9 +82,9 @@ p a {
   animation: scaleLoop 3s infinite;
 }
 
-
 @keyframes pulse-load {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {

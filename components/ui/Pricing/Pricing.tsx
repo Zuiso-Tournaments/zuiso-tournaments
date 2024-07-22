@@ -6,7 +6,7 @@ import {getErrorRedirect} from '@/lib/helpers';
 import {getStripe} from '@/lib/stripe/client';
 import {checkoutWithStripe} from '@/lib/stripe/server';
 import type {Tables} from '@/types_db';
-import {User} from '@supabase/supabase-js';
+import type {User} from '@supabase/supabase-js';
 import cn from 'classnames';
 import {usePathname, useRouter} from 'next/navigation';
 import {useState} from 'react';
@@ -43,14 +43,10 @@ export default function Pricing({user, products, subscription}: Props) {
   const router = useRouter();
   const [billingInterval, setBillingInterval] =
     useState<BillingInterval>('month');
-  const [priceIdLoading, setPriceIdLoading] = useState<string>();
   const currentPath = usePathname();
 
   const handleStripeCheckout = async (price: Price) => {
-    setPriceIdLoading(price.id);
-
     if (!user) {
-      setPriceIdLoading(undefined);
       return router.push('/signin/signup');
     }
 
@@ -60,12 +56,10 @@ export default function Pricing({user, products, subscription}: Props) {
     );
 
     if (errorRedirect) {
-      setPriceIdLoading(undefined);
       return router.push(errorRedirect);
     }
 
     if (!sessionId) {
-      setPriceIdLoading(undefined);
       return router.push(
         getErrorRedirect(
           currentPath,
@@ -77,15 +71,13 @@ export default function Pricing({user, products, subscription}: Props) {
 
     const stripe = await getStripe();
     stripe?.redirectToCheckout({sessionId});
-
-    setPriceIdLoading(undefined);
   };
 
   if (!products.length) {
     return (
       <section className="bg-black">
         <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-24 lg:px-8">
-          <div className="sm:align-center sm:flex sm:flex-col"></div>
+          <div className="sm:align-center sm:flex sm:flex-col" />
           <p className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
             No subscription pricing plans found. Create them in your{' '}
             <a
@@ -179,9 +171,7 @@ export default function Pricing({user, products, subscription}: Props) {
                       </span>
                     </p>
                     <Button
-                      variant="slim"
                       type="button"
-                      loading={priceIdLoading === price.id}
                       onClick={() => handleStripeCheckout(price)}
                       className="mt-8 block w-full rounded-md py-2 text-center text-sm font-semibold text-white hover:bg-zinc-900">
                       {subscription ? 'Manage' : 'Subscribe'}

@@ -1,19 +1,18 @@
-'use client'
+'use client';
 
+import type {PersonProps} from '@/app/about/AboutCard';
 import AboutCard from '@/app/about/AboutCard';
-import { PersonProps } from '@/app/about/AboutCard';
-import { useEffect, useState } from 'react';
-import { AboutLoading  } from '@/app/about/AboutLoading';
+import {AboutLoading} from '@/app/about/AboutLoading';
+import {useEffect, useState} from 'react';
 
-const AboutList
- = () => {
+const AboutList = () => {
   const [people, setPeople] = useState<PersonProps[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   const fetchAboutData = async () => {
     try {
-      const response = await fetch('/api/about'); 
+      const response = await fetch('/api/about');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -40,9 +39,9 @@ const AboutList
   }
 
   return (
-    <div className="flex gap-4 w-full flex-wrap mt-4 justify-center">
-      {people.map((person, index) => (
-        <AboutCard key={person.title} person={person} index={index} />
+    <div className="mt-4 flex w-full flex-wrap justify-center gap-4">
+      {people.map((person) => (
+        <AboutCard key={person.title} person={person} />
       ))}
     </div>
   );

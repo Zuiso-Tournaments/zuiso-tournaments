@@ -6,7 +6,8 @@ import {signUp} from '@/lib/auth-helpers/server';
 import Link from 'next/link';
 import {useRouter} from 'next/navigation';
 import React from 'react';
-import {useState} from 'react';
+
+/* eslint-disable react-hooks/rules-of-hooks */
 
 // Define prop type with allowEmail boolean
 interface SignUpProps {
@@ -16,12 +17,9 @@ interface SignUpProps {
 
 export default function SignUp({allowEmail, redirectMethod}: SignUpProps) {
   const router = redirectMethod === 'client' ? useRouter() : null;
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    setIsSubmitting(true); // Disable the button while the request is being handled
     await handleRequest(e, signUp, router);
-    setIsSubmitting(false);
   };
 
   return (
@@ -53,11 +51,7 @@ export default function SignUp({allowEmail, redirectMethod}: SignUpProps) {
               className="w-full rounded-md bg-zinc-800 p-3"
             />
           </div>
-          <Button
-            variant="slim"
-            type="submit"
-            className="mt-1"
-            loading={isSubmitting}>
+          <Button type="submit" className="mt-1">
             Sign up
           </Button>
         </div>

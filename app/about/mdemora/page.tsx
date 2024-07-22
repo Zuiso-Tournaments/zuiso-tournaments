@@ -3,6 +3,7 @@ import ContactForm from '@/app/about/mdemora/ContactForm';
 import DrizzleTest from '@/app/about/mdemora/DrizzleTest';
 import MisPollas from '@/app/about/mdemora/MisPollas';
 import MusicList from '@/app/about/mdemora/MusicList';
+import RQTest from '@/app/about/mdemora/RQTest';
 import RandomDiceResults from '@/app/about/mdemora/RandomDiceResults';
 import {Button} from '@/components/ui/button';
 import Link from 'next/link';
@@ -21,13 +22,15 @@ export default async function MdeMoraPage() {
             <img
               src="https://picsum.photos/seed/mdemora/300/300"
               className="size-96 rounded-2xl"
+              alt="Miguel de Mora"
             />
             <div className="mt-4 flex flex-col gap-8 text-lg">
               <p className="text-white">
                 Miguel de Mora is a software engineer and writer. He is the
-                author of the book "The Pragmatic Programmer" and has written
-                several articles on software development. He is also the creator
-                of the popular programming blog "Code With Miguel."
+                author of the book &quot;The Pragmatic Programmer&quot; and has
+                written several articles on software development. He is also the
+                creator of the popular programming blog &quot;Code With
+                Miguel.&quot;
               </p>
               <p>
                 Miguel has a passion for teaching and sharing his knowledge with
@@ -75,6 +78,8 @@ export default async function MdeMoraPage() {
           <DrizzleTest />
 
           <MisPollas pollas={pollas} />
+
+          <RQTest />
         </div>
       </div>
     </section>

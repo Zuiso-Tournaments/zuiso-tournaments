@@ -1,6 +1,6 @@
-import RandomDice from '@/app/about/javi/RandomDice';
 import AboutForm from '@/app/about/javi/ContactForm';
 import MusicList from '@/app/about/javi/MusicList';
+import RandomDice from '@/app/about/javi/RandomDice';
 
 interface Passion {
   url: string;
@@ -12,19 +12,19 @@ const passions: Passion[] = [
   {
     url: 'https://github.com/bale2manos',
     title: 'Proyectos',
-    imgSrc: 'https://picsum.photos/seed/2/700/700'
+    imgSrc: 'https://picsum.photos/seed/2/700/700',
   },
   {
     url: 'https://basketaranjuez.com/',
     title: 'Baloncesto',
     imgSrc:
-      'https://i.pinimg.com/originals/fa/c6/3c/fac63c62d77afcc8f1b0cfe3ce001753.jpg'
+      'https://i.pinimg.com/originals/fa/c6/3c/fac63c62d77afcc8f1b0cfe3ce001753.jpg',
   },
   {
     url: 'https://www.magicworldresort.com/es',
     title: 'Viajes',
-    imgSrc: 'https://picsum.photos/seed/3/700/700'
-  }
+    imgSrc: 'https://picsum.photos/seed/3/700/700',
+  },
 ];
 
 interface PassionCardProps {
@@ -41,16 +41,16 @@ interface PassionCardProps {
  * @param {string} imgSrc - The source URL of the image to display on the card.
  * @returns {React.ReactElement} The rendered passion card component.
  */
-const PassionCard: React.FC<PassionCardProps> = ({ url, title, imgSrc }) => (
+const PassionCard: React.FC<PassionCardProps> = ({url, title, imgSrc}) => (
   <a href={url} className="block" target="_blank" rel="noopener noreferrer">
-    <div className="relative bg-white rounded-2xl hover:scale-105 duration-300 flex flex-col">
+    <div className="relative flex flex-col rounded-2xl bg-white duration-300 hover:scale-105">
       <img
         src={imgSrc}
         alt={title}
-        className="rounded-2xl w-full hover:opacity-20"
+        className="w-full rounded-2xl hover:opacity-20"
       />
-      <div className="absolute inset-0 flex items-center justify-center hover:bg-white/20 rounded-2xl">
-        <p className="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex justify-center items-center text-4xl text-gray-100 font-bold text-stroke-black">
+      <div className="absolute inset-0 flex items-center justify-center rounded-2xl hover:bg-white/20">
+        <p className="text-stroke-black absolute inset-0 z-10 flex items-center justify-center text-4xl font-bold text-gray-100 opacity-0 duration-300 hover:opacity-100">
           {title}
         </p>
       </div>
@@ -66,23 +66,25 @@ const PassionCard: React.FC<PassionCardProps> = ({ url, title, imgSrc }) => (
 export default async function JaviPage() {
   return (
     <section className="mb-32 bg-black">
-      <div className="max-w-6xl px-4 py-8 mx-auto sm:px-6 sm:pt-24 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:pt-24 lg:px-8">
         <div className="sm:align-center flex flex-col sm:flex-col">
-          <h1 className="text-4xl mb-8 font-extrabold text-white sm:text-center sm:text-6xl">
+          <h1 className="mb-8 text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
             Javier Pallarés
           </h1>
           <div className="flex gap-5">
-            <div className="flex flex-col w-svw gap-3">
+            <div className="flex w-svw flex-col gap-3">
               <img
                 src="https://picsum.photos/seed/javi/700/600"
-                className="w-96 h-80 rounded-2xl"
+                className="h-80 w-96 rounded-2xl"
+                alt="Javier Pallarés"
               />
               <img
                 src="https://picsum.photos/seed/pallarés/700/600"
-                className="w-96 h-80 rounded-2xl"
+                className="h-80 w-96 rounded-2xl"
+                alt="Javier Pallarés"
               />
             </div>
-            <div className="mt-4 text-lg flex flex-col gap-8 align-middle">
+            <div className="mt-4 flex flex-col gap-8 align-middle text-lg">
               <p className="text-white">
                 Javier Pallarés es un programador exitoso y un destacado
                 entrenador de baloncesto reconocido a nivel mundial. Con una
@@ -124,19 +126,18 @@ export default async function JaviPage() {
                 Puedes seguir el trabajo de Javi en{' '}
                 <a
                   href="https://github.com/bale2manos/"
-                  className="text-blue-400 hover:underline"
-                >
+                  className="text-blue-400 hover:underline">
                   @bale2manos
                 </a>
                 .
               </p>
             </div>
           </div>
-          <h1 className="text-4xl my-8 font-extrabold text-white sm:text-center sm:text-6xl">
+          <h1 className="my-8 text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
             Pasiones
           </h1>
 
-          <div className="grid gap-4 grid-cols-1 sm:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             {passions.map((passion, index) => (
               <PassionCard
                 key={index}
@@ -147,18 +148,18 @@ export default async function JaviPage() {
             ))}
           </div>
 
-          <h1 className="text-4xl  my-8 mt-16 font-extrabold text-white sm:text-center sm:text-6xl">
+          <h1 className="my-8  mt-16 text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
             Dado aleatorio
           </h1>
 
           <RandomDice />
 
-          <h1 className="text-4xl mt-16 font-extrabold text-white sm:text-center sm:text-6xl">
+          <h1 className="mt-16 text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
             Formulario de contacto
           </h1>
           <AboutForm />
 
-          <h1 className="text-4xl  my-8 mt-16 font-extrabold text-white sm:text-center sm:text-6xl">
+          <h1 className="my-8  mt-16 text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
             Mi música
           </h1>
           <MusicList />

@@ -1,10 +1,12 @@
+import {ReactQueryClientProvider} from '@/components/ReactQueryClientProvider';
 import Footer from '@/components/ui/Footer';
 import Navbar from '@/components/ui/Navbar';
 import {Toaster} from '@/components/ui/Toasts/toaster';
 import {getURL} from '@/lib/helpers';
 import {Provider} from 'jotai';
-import {Metadata} from 'next';
-import {PropsWithChildren, Suspense} from 'react';
+import type {Metadata} from 'next';
+import type {PropsWithChildren} from 'react';
+import {Suspense} from 'react';
 import 'styles/main.css';
 
 const title = 'Next.js Subscription Starter';
@@ -28,7 +30,9 @@ export default async function RootLayout({children}: PropsWithChildren) {
         <main
           id="skip"
           className="md:min-h[calc(100dvh-5rem)] min-h-[calc(100dvh-4rem)]">
-          <Provider>{children}</Provider>
+          <ReactQueryClientProvider>
+            <Provider>{children}</Provider>
+          </ReactQueryClientProvider>
         </main>
         <Footer />
         <Suspense>
