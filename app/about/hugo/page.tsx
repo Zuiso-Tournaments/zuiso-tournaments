@@ -10,6 +10,7 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
+
 import {Input} from '@/components/ui/input';
 import {zodResolver} from '@hookform/resolvers/zod';
 import classNames from 'classnames';
@@ -18,6 +19,7 @@ import {useForm} from 'react-hook-form';
 import {z} from 'zod';
 
 import MusicList from './MusicList';
+import MisSubditos from './Subditos';
 
 interface Subditos {
   nombre: string;
@@ -183,6 +185,7 @@ export default function HugoAbout() {
         </Form>
         <MusicList />
       </div>
+      <MisSubditos />
     </section>
   );
 }

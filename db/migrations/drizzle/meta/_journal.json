@@ -15,6 +15,13 @@
       "when": 1721580025233,
       "tag": "0001_broken_stellaris",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1721844414968,
+      "tag": "0002_windy_gamora",
+      "breakpoints": true
     }
   ]
 }
