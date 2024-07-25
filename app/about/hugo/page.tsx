@@ -19,7 +19,7 @@ import {useForm} from 'react-hook-form';
 import {z} from 'zod';
 
 import MusicList from './MusicList';
-import MisSubditos from './Subditos';
+import MisSubditos from './MisSubditos';
 
 interface Subditos {
   nombre: string;

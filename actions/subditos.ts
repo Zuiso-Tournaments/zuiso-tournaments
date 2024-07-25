@@ -8,11 +8,11 @@ export const getSubditos = async () => {
   return await db.select().from(subditos);
 };
 
-export const addNewSubditoAction = async (subditos: SubditosInsert) => {
-  console.log({subditos});
+export const addNewSubditoAction = async (subdito: SubditosInsert) => {
+  console.log({subdito});
 
   try {
-    const res = await db.insert(subditos).values(subditos);
+    const res = await db.insert(subditos).values(subdito);
     revalidatePath('/about/hugo');
     return res;
   } catch (error) {
