@@ -15,6 +15,34 @@
       "when": 1721580025233,
       "tag": "0001_broken_stellaris",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1721745884334,
+      "tag": "0002_wealthy_star_brand",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1722005262547,
+      "tag": "0003_amused_cerise",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1722083289394,
+      "tag": "0004_harsh_bushwacker",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1722083712843,
+      "tag": "0005_dark_lady_vermin",
+      "breakpoints": true
     }
   ]
 }
