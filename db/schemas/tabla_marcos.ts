@@ -1,6 +1,6 @@
 import {pgTable, serial, text, timestamp, boolean} from 'drizzle-orm/pg-core';
 
-export const tareas = pgTable('task', {
+export const tareas = pgTable('tabla_marcos', {
     id: serial('id').primaryKey(),
     tarea: text('tarea').notNull(),
     done: boolean('done').default(false),

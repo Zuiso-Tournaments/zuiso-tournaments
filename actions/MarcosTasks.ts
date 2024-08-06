@@ -1,7 +1,7 @@
 'use server'
 import db from '@/db'
-import { tareas } from '@/db/schemas/TablaMarcos'
-import type { Tarea, TareaInsert } from '@/db/schemas/TablaMarcos'
+import { tareas } from '@/db/schemas/tabla_marcos'
+import type { Tarea, TareaInsert } from '@/db/schemas/tabla_marcos'
 import { eq } from 'drizzle-orm';
 
 
@@ -40,12 +40,11 @@ export async function addTask(task: TareaInsert) {
     }
 }
 
-export async function updateTask(n: number, task: TareaInsert) {
+export async function updateTask(n: number, task: Partial<TareaInsert>) {
     try {
-        if (!task.tarea) {
-            throw new Error('El campo "tarea" es obligatorio');
+        if (Object.keys(task).length === 0) {
+            throw new Error('Debe proporcionar al menos un campo para actualizar');
         }
-        console.error('task:', task);
         await db.update(tareas).set(task).where(eq(tareas.id, n));
         return task;
     } catch (error) {

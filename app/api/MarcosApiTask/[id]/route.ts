@@ -18,25 +18,33 @@ export async function GET(request: Request, {params}: any) {
     return NextResponse.json({...task}, {status: 200});
 }
 
-export async function PUT(request: Request, {params}: any) {
-    const id = params.id;
-  
-    const body = await request.json();
+export async function PATCH(request: Request, { params }: any) {
+  const id = parseInt(params.id, 10);
 
-    const task = await updateTask(id, body);
-  
-    if (!task) {
+  const body = await request.json();
+
+  try {
+      const task = await updateTask(id, body);
+
+      if (!task) {
+          return NextResponse.json(
+              {
+                  error: 'Task not found',
+              },
+              { status: 404 }
+          );
+      }
+
+      return NextResponse.json({ id, ...task }, { status: 200 });
+  } catch (error) {
       return NextResponse.json(
-        {
-          error: 'Task not found',
-        },
-        {status: 404}
+          {
+              error: "Error desconocido",
+          },
+          { status: 500 }
       );
-    }
-
-    return NextResponse.json({...task}, {status: 200});
+  }
 }
-
 export async function DELETE(request: Request, { params }: any) {
   const id = parseInt(params.id, 10);
   try {

@@ -13,8 +13,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { useState, useEffect } from 'react'; 
-import type { Tarea, TareaInsert } from '@/db/schemas/TablaMarcos';
-import { Checkbox } from "@/components/ui/checkbox"
+import type { Tarea, TareaInsert } from '@/db/schemas/tabla_marcos';
+import { TodoCard } from "@/app/about/Marcos/TODO/TodoCard";
 
 const formSchema = z.object({
   task: z.string().nonempty(),
@@ -84,13 +84,12 @@ export default function TODO() {
         return;
       }
   
-      const taskToSend: TareaInsert = {
-        tarea: task.tarea,
+      const taskToSend = {
         done: !task.done,
       };
   
       const response = await fetch(`/api/MarcosApiTask/${taskId}`, {
-        method: 'PUT',
+        method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -173,40 +172,7 @@ export default function TODO() {
           <h2 className="text-2xl font-bold mb-4 text-black">Lista de Tareas</h2>
           <ul className="space-y-4">
           {tasks.map((task) => (
-            <li key={task.id} className="flex items-center justify-between text-black">
-              <div className="flex items-center space-x-2">
-                <Checkbox
-                  id={`checkbox-${task.id}`}
-                  className="w-6 h-6"
-                  checked={task.done ?? false}
-                  onCheckedChange= {() => handleCheckboxChange(task.id)}
-                />
-                <div className="leading-none">
-                  <label
-                    htmlFor={`checkbox-${task.id}`}
-                    className="text-lg font-medium"
-                  >
-                    {task.tarea}
-                  </label>
-                </div>
-              </div>
-              <Button variant="ghost" onClick={() => handleDelete(task.id)}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="currentColor"
-                  className="w-6 h-6 text-red-600"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </Button>
-            </li>
+            <TodoCard key={task.id} task={task} onComplete={handleCheckboxChange} onDelete={handleDelete} />
           ))}
           </ul>
         </div>

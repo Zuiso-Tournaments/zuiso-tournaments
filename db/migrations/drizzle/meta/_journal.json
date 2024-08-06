@@ -43,6 +43,13 @@
       "when": 1722083712843,
       "tag": "0005_dark_lady_vermin",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1722945341594,
+      "tag": "0006_living_kate_bishop",
+      "breakpoints": true
     }
   ]
 }

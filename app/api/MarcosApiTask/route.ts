@@ -1,6 +1,6 @@
 import { addTask, getTasks } from "@/actions/MarcosTasks";
 import { NextResponse } from "next/server";
-import type { TareaInsert } from "db/schemas/TablaMarcos";
+import type { TareaInsert } from "@/db/schemas/tabla_marcos";
 
 export async function GET() {
     try {
