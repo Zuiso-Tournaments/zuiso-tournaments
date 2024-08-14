@@ -1,7 +1,7 @@
 import RQProvider from '@/components/ReactQueryClientProvider';
 import Footer from '@/components/ui/Footer';
 import Navbar from '@/components/ui/Navbar';
-import {Toaster} from '@/components/ui/Toasts/toaster';
+import { Toaster } from "@/components/ui/toaster"
 import {getURL} from '@/lib/helpers';
 import {Provider as JotaiProvider} from 'jotai';
 import type {Metadata} from 'next';
