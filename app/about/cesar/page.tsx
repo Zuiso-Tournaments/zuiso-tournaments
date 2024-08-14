@@ -26,12 +26,16 @@ import {
 /*importar comparaciones*/
 import {cn} from '@/lib/cn';
 import {zodResolver} from '@hookform/resolvers/zod';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {useForm} from 'react-hook-form';
 
 /*importar sonido*/
 import {useSound} from 'use-sound';
 import {z} from 'zod';
+
+/*importar base de datos*/
+import {addNewBocadilloAction, getBocadillo} from '@/actions/bocadillo';
+import type {Bocadillo} from '@/db/schemas/bocadillo';
 
 /*Aqui empieza el de hacer sonar el himno*/
 
@@ -214,6 +218,48 @@ const ContactForm = () => {
   );
 };
 
+/*Aqui empieza lo de la base de datos*/
+const MisBocadillos = ({bocadillos: defaultBocadillos}: {bocadillos: Bocadillo[]}) => {
+  const [bocadillos, setBocadillos] = useState<Bocadillo[]>(defaultBocadillos);
+
+  const fetchData = async () => {
+    const {data} = await fetch('/api/bocadillo').then((res) => res.json());
+    setBocadillos(data);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    setBocadillos(defaultBocadillos);
+  }, [defaultBocadillos]);
+
+  const handleClick = async () => {
+    const res = await addNewBocadilloAction({
+      userId: '1',
+      deMierda: false,
+      cm: 4,
+    });
+
+    console.log(res);
+  };
+
+  return (
+    <div>
+      <Button onClick={handleClick}>Bocadillo nuevo</Button>
+      <div className="flex gap-4">
+        {bocadillos.map((bocadillo) => (
+          <div key={bocadillo.id} className="text-white mt-8 border border-red-500 p-4">
+            <p>Tu bocata es de mierda porque eres tonto: {bocadillo.deMierda ? 'Si' : 'No'}</p>
+            <p>Tamaño, relativo como ya sabemos, a partir de 2cm de otro planeta: {bocadillo.cm}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 export default function cesarAbout() {
   return (
     <section className="mb-32 bg-black">
@@ -287,6 +333,12 @@ export default function cesarAbout() {
               Formularios
             </h1>
             <ContactForm />
+          </div>
+          <div>
+            <h1 className="mb-11 mt-11 text-4xl font-extrabold text-white sm:text-center sm:text-4xl">
+              Crear elementos en la base de datos con un boton
+            </h1>
+            <MisBocadillos bocadillos={[]} />
           </div>
         </div>
       </div>
