@@ -1,9 +1,9 @@
-import {ReactQueryClientProvider} from '@/components/ReactQueryClientProvider';
+import RQProvider from '@/components/ReactQueryClientProvider';
 import Footer from '@/components/ui/Footer';
 import Navbar from '@/components/ui/Navbar';
-import {Toaster} from '@/components/ui/Toasts/toaster';
+import { Toaster } from "@/components/ui/toaster"
 import {getURL} from '@/lib/helpers';
-import {Provider} from 'jotai';
+import {Provider as JotaiProvider} from 'jotai';
 import type {Metadata} from 'next';
 import type {PropsWithChildren} from 'react';
 import {Suspense} from 'react';
@@ -30,9 +30,9 @@ export default async function RootLayout({children}: PropsWithChildren) {
         <main
           id="skip"
           className="md:min-h[calc(100dvh-5rem)] min-h-[calc(100dvh-4rem)]">
-          <ReactQueryClientProvider>
-            <Provider>{children}</Provider>
-          </ReactQueryClientProvider>
+          <RQProvider>
+            <JotaiProvider>{children}</JotaiProvider>
+          </RQProvider>
         </main>
         <Footer />
         <Suspense>
