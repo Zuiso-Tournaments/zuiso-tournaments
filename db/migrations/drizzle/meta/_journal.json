@@ -50,6 +50,13 @@
       "when": 1722945341594,
       "tag": "0006_living_kate_bishop",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1723397601877,
+      "tag": "0007_fast_captain_universe",
+      "breakpoints": true
     }
   ]
 }
