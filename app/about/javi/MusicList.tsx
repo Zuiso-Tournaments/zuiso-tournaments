@@ -12,7 +12,7 @@ const MusicList = () => {
 
   const fetchMusicData = async () => {
     try {
-      const response = await fetch('/api/javi-api'); // Use relative path for the API endpoint
+      const response = await fetch('/api/javiMusicApi'); // Use relative path for the API endpoint
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }

@@ -1,6 +1,9 @@
+import { getFilms } from '@/actions/javiTODO';
 import AboutForm from '@/app/about/javi/ContactForm';
 import MusicList from '@/app/about/javi/MusicList';
 import RandomDice from '@/app/about/javi/RandomDice';
+import FilmsToWatch from '@/app/about/javi/TODO/FilmsToWatch';
+
 
 interface Passion {
   url: string;
@@ -64,6 +67,8 @@ const PassionCard: React.FC<PassionCardProps> = ({url, title, imgSrc}) => (
  * @returns JSX element representing the JaviPage component.
  */
 export default async function JaviPage() {
+  const films = await getFilms();
+
   return (
     <section className="mb-32 bg-black">
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:pt-24 lg:px-8">
@@ -163,6 +168,10 @@ export default async function JaviPage() {
             Mi música
           </h1>
           <MusicList />
+          <h1 className="my-8  mt-16 text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
+            Mis películas y series por ver
+          </h1>
+          <FilmsToWatch films={films}/>
         </div>
       </div>
     </section>
