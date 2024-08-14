@@ -15,6 +15,7 @@ import { z } from 'zod';
 import { useState, useEffect } from 'react'; 
 import type { Tarea, TareaInsert } from '@/db/schemas/tabla_marcos';
 import { TodoCard } from "@/app/about/Marcos/TODO/TodoCard";
+import { useFeedback } from '@/hooks/useFeedback';
 
 const formSchema = z.object({
   task: z.string().nonempty(),
@@ -23,6 +24,8 @@ const formSchema = z.object({
 export default function TODO() {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [tasks, setTasks] = useState<Tarea[]>([]);
+  const { successFeedback, errorFeedback } = useFeedback();
+
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -64,10 +67,12 @@ export default function TODO() {
       }
 
       setSubmitStatus('success');
+      successFeedback('Tarea añadida correctamente');
       fetchTasks();
     } catch (error) {
       console.error('Error de red o del servidor:', error);
       setSubmitStatus('error');
+      errorFeedback('Error de red o del servidor');
     }
   }
 
@@ -98,10 +103,13 @@ export default function TODO() {
   
       if (response.ok) {
         fetchTasks();
+        successFeedback('Tarea actualizada correctamente');
       } else {
         console.error(`Error al actualizar la tarea ${taskId}:`, response.statusText);
+        errorFeedback('Error al actualizar la tarea');
       }
     } catch (error) {
+      errorFeedback('Error al actualizar la tarea');
       console.error(`Error en la solicitud para actualizar la tarea ${taskId}:`, error);
     }
   }
@@ -114,10 +122,13 @@ export default function TODO() {
         });
         if (response.ok) {
           fetchTasks();
+          successFeedback('Tarea eliminada correctamente');
         } else {
+          errorFeedback('Error al eliminar la tarea');
           console.error(`Error al eliminar la tarea ${taskId}:`, response.statusText);
         }
       } catch (error) {
+        errorFeedback('Error al eliminar la tarea');
         console.error(`Error en la solicitud para eliminar la tarea ${taskId}:`, error);
       }
     }
