@@ -28,7 +28,7 @@ export default function SongFromId() {
   const fetchData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/javi-api/${params.id}`
+        `http://localhost:3000/api/javiMusicApi/${params.id}`
       );
       if (!response.ok) {
         throw new Error('Failed to fetch data');
