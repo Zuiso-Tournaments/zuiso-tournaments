@@ -1,6 +1,5 @@
 'use client';
 
-import {useToast} from '@/components/ui/Toasts/use-toast';
 import {
   Form,
   FormControl,
@@ -19,6 +18,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import {useToast} from '@/components/ui/use-toast';
 import {cn} from '@/lib/cn';
 import {zodResolver} from '@hookform/resolvers/zod';
 import type {ChangeEvent} from 'react';
