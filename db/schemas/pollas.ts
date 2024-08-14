@@ -1,7 +1,6 @@
 import {
   boolean,
   integer,
-  numeric,
   pgTable,
   serial,
   text,
