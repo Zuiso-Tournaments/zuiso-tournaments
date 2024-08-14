@@ -1,6 +1,6 @@
 {
-  "id": "07672294-95d6-4a3a-abfd-b93f2353c5ad",
-  "prevId": "73cb6484-6a30-40c4-ba11-5f155684873a",
+  "id": "a4113802-6480-4480-b5ee-1493f564759b",
+  "prevId": "07672294-95d6-4a3a-abfd-b93f2353c5ad",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -94,8 +94,8 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "public.peliculas": {
-      "name": "peliculas",
+    "public.task": {
+      "name": "task",
       "schema": "",
       "columns": {
         "id": {
@@ -104,20 +104,8 @@
           "primaryKey": true,
           "notNull": true
         },
-        "nombre": {
-          "name": "nombre",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "director": {
-          "name": "director",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "genero": {
-          "name": "genero",
+        "tarea": {
+          "name": "tarea",
           "type": "text",
           "primaryKey": false,
           "notNull": true

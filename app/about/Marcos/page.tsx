@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import DiceApp from './DiceApp';
 import SongList from './SongList';
 
@@ -97,6 +98,12 @@ export default async function MarcosPage() {
           </h1>
           <DiceApp />
           <SongList />
+          <Link 
+            className="text-blue-400 hover:underline mt-9 mx-4 py-2 px-4 bg-gray-100 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105" 
+            href="/about/Marcos/TODO"
+          >
+            TO DO APP
+          </Link>
         </div>
       </div>
     </section>

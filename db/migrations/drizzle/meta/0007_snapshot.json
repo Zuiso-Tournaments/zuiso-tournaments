@@ -1,9 +1,51 @@
 {
-  "id": "07672294-95d6-4a3a-abfd-b93f2353c5ad",
-  "prevId": "73cb6484-6a30-40c4-ba11-5f155684873a",
+  "id": "6bebbab8-0698-4c45-81a4-346cc34c1600",
+  "prevId": "2f8d7df6-2401-4d1a-be9f-8e2e1f984d85",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
+    "public.examples": {
+      "name": "examples",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "title": {
+          "name": "title",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
     "public.notes": {
       "name": "notes",
       "schema": "",
@@ -94,8 +136,8 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "public.peliculas": {
-      "name": "peliculas",
+    "public.tabla_marcos": {
+      "name": "tabla_marcos",
       "schema": "",
       "columns": {
         "id": {
@@ -104,23 +146,18 @@
           "primaryKey": true,
           "notNull": true
         },
-        "nombre": {
-          "name": "nombre",
+        "tarea": {
+          "name": "tarea",
           "type": "text",
           "primaryKey": false,
           "notNull": true
         },
-        "director": {
-          "name": "director",
-          "type": "text",
+        "done": {
+          "name": "done",
+          "type": "boolean",
           "primaryKey": false,
-          "notNull": true
-        },
-        "genero": {
-          "name": "genero",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
+          "notNull": false,
+          "default": false
         },
         "created_at": {
           "name": "created_at",

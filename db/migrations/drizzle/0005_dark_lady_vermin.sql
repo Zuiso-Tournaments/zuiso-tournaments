@@ -1,0 +1,1 @@
+ALTER TABLE "task" ALTER COLUMN "done" SET DEFAULT false;
