@@ -6,8 +6,8 @@ export const getCoffes = async (): Promise<Coffe[]> => {
   return res.data;
 };
 
-export const postCoffe = async (values: CoffeInsert): Promise<any> => {
-  const res = await fetchClient<any>('/coffe', {
+export const postCoffe = async (values: CoffeInsert): Promise<Coffe> => {
+  const res = await fetchClient<{data: Coffe}>('/coffe', {
     method: 'POST',
     body: values,
   });
@@ -15,8 +15,8 @@ export const postCoffe = async (values: CoffeInsert): Promise<any> => {
 };
 
 
-export const deleteCoffe = async (values: CoffeInsert): Promise<any> => {
-  const res = await fetchClient<any>('/coffe', {
+export const deleteCoffe = async (values: CoffeInsert): Promise<Coffe> => {
+  const res = await fetchClient<{data: Coffe}>('/coffe', {
     method: 'DELETE',
     body: values,
   });

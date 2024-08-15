@@ -1,7 +1,6 @@
 'use client';
 
 import {Button} from '@/components/ui/button';
-// import {Button} from '@/components/ui/button';
 import {
   Dialog,
   DialogContent,
@@ -12,9 +11,6 @@ import {
 import CoffeCard from '@/features/coffe/components/CoffeCard';
 import CoffeForm from '@/features/coffe/components/CoffeForm';
 import useCoffeQuery from '@/features/coffe/hooks/useCoffeQuery';
-// import CoffeCard from '@/features/Coffe/components/CoffeCard';
-// import CoffeForm from '@/features/Coffe/components/CoffeForm';
-// import useCoffeQuery from '@/features/Coffe/hooks/useCoffeQuery';
 import React, {useState} from 'react';
 
 const CoffePage = () => {
