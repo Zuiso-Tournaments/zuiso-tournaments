@@ -5,57 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1723661319687,
-      "tag": "0000_long_toxin",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1723661528808,
-      "tag": "0001_certain_stranger",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1723661694138,
-      "tag": "0002_sleepy_junta",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1723716156133,
-      "tag": "0003_unknown_ted_forrester",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "7",
-      "when": 1723716475296,
-      "tag": "0003_greedy_lethal_legion",
-      "breakpoints": true
-    },
-    {
-      "idx": 5,
-      "version": "7",
-      "when": 1723717220878,
-      "tag": "0004_friendly_tombstone",
-      "breakpoints": true
-    },
-    {
-      "idx": 6,
-      "version": "7",
-      "when": 1723717306277,
-      "tag": "0005_careful_shockwave",
-      "breakpoints": true
-    },
-    {
-      "idx": 7,
-      "version": "7",
-      "when": 1723717149810,
-      "tag": "0004_aromatic_misty_knight",
+      "when": 1723718135193,
+      "tag": "0000_windy_silvermane",
       "breakpoints": true
     }
   ]
