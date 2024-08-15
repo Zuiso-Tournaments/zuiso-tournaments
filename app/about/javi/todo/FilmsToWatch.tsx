@@ -1,7 +1,7 @@
 'use client';
 
 import {addNewFilmAction} from '@/actions/javiTODO';
-import FilmCard from '@/app/about/javi/todo2/FilmCard';
+import FilmCard from '@/app/about/javi/todo/FilmCard';
 import Modal from '@/components/ui/Modal/Modal';
 import ModalBody from '@/components/ui/Modal/ModalBody';
 import ModalFooter from '@/components/ui/Modal/ModalFooter';

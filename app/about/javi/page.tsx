@@ -2,7 +2,7 @@ import {getFilms} from '@/actions/javiTODO';
 import AboutForm from '@/app/about/javi/ContactForm';
 import MusicList from '@/app/about/javi/MusicList';
 import RandomDice from '@/app/about/javi/RandomDice';
-import FilmsToWatch from '@/app/about/javi/todo2/FilmsToWatch';
+import FilmsToWatch from '@/app/about/javi/todo/FilmsToWatch';
 
 interface Passion {
   url: string;
