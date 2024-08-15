@@ -1,7 +1,10 @@
 'use server';
 
+import { getURL } from "@/lib/helpers";
 
-const API_BASE_URL = 'http://localhost:3000/api';
+
+const API_BASE_URL = getURL(`api`);
+
 
 type FetchOptions = {
   method?: 'GET' | 'POST' | 'PATCH' | 'DELETE';
