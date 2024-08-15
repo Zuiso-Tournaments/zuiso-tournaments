@@ -1,6 +1,6 @@
 'use client';
 
-import {TodoCard} from '@/app/about/marcos/TODO/TodoCard';
+import {TodoCard} from '@/app/about/marcos/todo2/TodoCard';
 import {Button} from '@/components/ui/button';
 import {
   Form,
