@@ -1,8 +1,9 @@
 import RQProvider from '@/components/ReactQueryClientProvider';
 import Footer from '@/components/ui/Footer';
 import Navbar from '@/components/ui/Navbar';
-import { Toaster } from "@/components/ui/toaster"
+import {Toaster} from '@/components/ui/toaster';
 import {getURL} from '@/lib/helpers';
+import {SpeedInsights} from '@vercel/speed-insights/next';
 import {Provider as JotaiProvider} from 'jotai';
 import type {Metadata} from 'next';
 import type {PropsWithChildren} from 'react';
@@ -38,6 +39,7 @@ export default async function RootLayout({children}: PropsWithChildren) {
         <Suspense>
           <Toaster />
         </Suspense>
+        <SpeedInsights />
       </body>
     </html>
   );
