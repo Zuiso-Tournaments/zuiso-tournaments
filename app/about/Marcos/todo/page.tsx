@@ -1,6 +1,5 @@
 'use client';
 
-import {TodoCard} from '@/app/about/marcos/todo/TodoCard';
 import {Button} from '@/components/ui/button';
 import {
   Form,
@@ -17,6 +16,8 @@ import {zodResolver} from '@hookform/resolvers/zod';
 import {useEffect, useState} from 'react';
 import {useForm} from 'react-hook-form';
 import {z} from 'zod';
+
+import {TodoCard} from './TodoCard';
 
 const formSchema = z.object({
   task: z.string().nonempty(),
