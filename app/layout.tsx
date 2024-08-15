@@ -3,6 +3,7 @@ import Footer from '@/components/ui/Footer';
 import Navbar from '@/components/ui/Navbar';
 import {Toaster} from '@/components/ui/toaster';
 import {getURL} from '@/lib/helpers';
+import {Analytics} from '@vercel/analytics/react';
 import {SpeedInsights} from '@vercel/speed-insights/next';
 import {Provider as JotaiProvider} from 'jotai';
 import type {Metadata} from 'next';
@@ -40,6 +41,7 @@ export default async function RootLayout({children}: PropsWithChildren) {
           <Toaster />
         </Suspense>
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
