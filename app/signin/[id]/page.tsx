@@ -6,7 +6,7 @@ import PasswordSignIn from '@/components/ui/AuthForms/PasswordSignIn';
 import Separator from '@/components/ui/AuthForms/Separator';
 import SignUp from '@/components/ui/AuthForms/Signup';
 import UpdatePassword from '@/components/ui/AuthForms/UpdatePassword';
-import Card from '@/components/ui/Card';
+import {Card} from '@/components/ui/card';
 import {
   getAuthTypes,
   getDefaultSignInView,

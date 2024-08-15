@@ -1,7 +1,7 @@
 'use client';
 
-import Card from '@/components/ui/Card';
 import {Button} from '@/components/ui/button';
+import {Card, CardDescription, CardFooter} from '@/components/ui/card';
 import {handleRequest} from '@/lib/auth-helpers/client';
 import {updateEmail} from '@/lib/auth-helpers/server';
 import {useRouter} from 'next/navigation';
@@ -23,19 +23,10 @@ export default function EmailForm({
   };
 
   return (
-    <Card
-      title="Your Email"
-      description="Please enter the email address you want to use to login."
-      footer={
-        <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
-          <p className="pb-4 sm:pb-0">
-            We will email you to verify the change.
-          </p>
-          <Button type="submit" form="emailForm">
-            Update Email
-          </Button>
-        </div>
-      }>
+    <Card title="Your Email">
+      <CardDescription>
+        Please enter the email address you want to use to login.
+      </CardDescription>
       <div className="mb-4 mt-8 text-xl font-semibold">
         <form id="emailForm" onSubmit={(e) => handleSubmit(e)}>
           <input
@@ -48,6 +39,16 @@ export default function EmailForm({
           />
         </form>
       </div>
+      <CardFooter>
+        <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
+          <p className="pb-4 sm:pb-0">
+            We will email you to verify the change.
+          </p>
+          <Button type="submit" form="emailForm">
+            Update Email
+          </Button>
+        </div>
+      </CardFooter>
     </Card>
   );
 }

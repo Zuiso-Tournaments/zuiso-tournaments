@@ -1,6 +1,9 @@
 'use client';
 
 /*importar estados*/
+
+/*importar base de datos*/
+import {addNewBocadilloAction} from '@/actions/bocadillo';
 import {Button} from '@/components/ui/button';
 
 /*importar todo lo del formulario*/
@@ -22,6 +25,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import type {Bocadillo} from '@/db/schemas/bocadillo';
 
 /*importar comparaciones*/
 import {cn} from '@/lib/cn';
@@ -32,10 +36,6 @@ import {useForm} from 'react-hook-form';
 /*importar sonido*/
 import {useSound} from 'use-sound';
 import {z} from 'zod';
-
-/*importar base de datos*/
-import {addNewBocadilloAction, getBocadillo} from '@/actions/bocadillo';
-import type {Bocadillo} from '@/db/schemas/bocadillo';
 
 /*Aqui empieza el de hacer sonar el himno*/
 
@@ -219,7 +219,11 @@ const ContactForm = () => {
 };
 
 /*Aqui empieza lo de la base de datos*/
-const MisBocadillos = ({bocadillos: defaultBocadillos}: {bocadillos: Bocadillo[]}) => {
+const MisBocadillos = ({
+  bocadillos: defaultBocadillos,
+}: {
+  bocadillos: Bocadillo[];
+}) => {
   const [bocadillos, setBocadillos] = useState<Bocadillo[]>(defaultBocadillos);
 
   const fetchData = async () => {
@@ -250,9 +254,17 @@ const MisBocadillos = ({bocadillos: defaultBocadillos}: {bocadillos: Bocadillo[]
       <Button onClick={handleClick}>Bocadillo nuevo</Button>
       <div className="flex gap-4">
         {bocadillos.map((bocadillo) => (
-          <div key={bocadillo.id} className="text-white mt-8 border border-red-500 p-4">
-            <p>Tu bocata es de mierda porque eres tonto: {bocadillo.deMierda ? 'Si' : 'No'}</p>
-            <p>Tamaño, relativo como ya sabemos, a partir de 2cm de otro planeta: {bocadillo.cm}</p>
+          <div
+            key={bocadillo.id}
+            className="mt-8 border border-red-500 p-4 text-white">
+            <p>
+              Tu bocata es de mierda porque eres tonto:{' '}
+              {bocadillo.deMierda ? 'Si' : 'No'}
+            </p>
+            <p>
+              Tamaño, relativo como ya sabemos, a partir de 2cm de otro planeta:{' '}
+              {bocadillo.cm}
+            </p>
           </div>
         ))}
       </div>
