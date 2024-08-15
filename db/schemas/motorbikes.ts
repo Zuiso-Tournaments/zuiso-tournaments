@@ -1,6 +1,6 @@
 import { pgTable, varchar,serial, text, timestamp} from 'drizzle-orm/pg-core';
 
-export const carSchema = pgTable('motorbikes_table', {
+export const motorbikesSchema = pgTable('motorbikes_table', {
   id: serial('id').primaryKey(),
   marca: varchar('marca', { length: 255 }).notNull(),
   modelo: text('modelo'),
@@ -9,6 +9,6 @@ export const carSchema = pgTable('motorbikes_table', {
 });
 
 
-export type Bocadillo = typeof carSchema.$inferSelect;
-export type BocadilloInsert = typeof carSchema.$inferInsert;
+export type MotorBike = typeof motorbikesSchema.$inferSelect;
+export type MotorBikeInsert = typeof motorbikesSchema.$inferInsert;
 
