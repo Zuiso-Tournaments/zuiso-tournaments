@@ -22,6 +22,13 @@
       "when": 1723661694138,
       "tag": "0002_sleepy_junta",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1723716475296,
+      "tag": "0003_greedy_lethal_legion",
+      "breakpoints": true
     }
   ]
 }
