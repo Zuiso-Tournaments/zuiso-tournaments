@@ -1,9 +1,20 @@
 'use client';
 
 import Logo from '@/components/icons/Logo';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import {languageAtom} from '@/lib/atoms';
 import {handleRequest} from '@/lib/auth-helpers/client';
 import {SignOut} from '@/lib/auth-helpers/server';
 import {getRedirectMethod} from '@/lib/auth-helpers/settings';
+import {setCookie} from 'cookies-next';
+import {useSetAtom} from 'jotai';
+import {useTranslations} from 'next-intl';
 import Link from 'next/link';
 import {usePathname, useRouter} from 'next/navigation';
 
@@ -19,6 +30,15 @@ interface NavlinksProps {
 export default function Navlinks({user}: NavlinksProps) {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const router = getRedirectMethod() === 'client' ? useRouter() : null;
+
+  const t = useTranslations('Navbar');
+
+  const setLanguage = useSetAtom(languageAtom);
+
+  const handleLanguageChange = (value: string) => {
+    setCookie('language', value, {maxAge: 31536000, path: '/'});
+    setLanguage(value);
+  };
 
   return (
     <div className="align-center relative flex flex-row justify-between py-4 md:py-6">
@@ -38,6 +58,17 @@ export default function Navlinks({user}: NavlinksProps) {
         </nav>
       </div>
       <div className="flex justify-end space-x-8">
+        <Select onValueChange={handleLanguageChange}>
+          <SelectTrigger className="w-16">
+            <SelectValue placeholder={t('lang')} />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="en">EN</SelectItem>
+            <SelectItem value="es">ES</SelectItem>
+            <SelectItem value="it">IT</SelectItem>
+          </SelectContent>
+        </Select>
+
         {user ? (
           <form onSubmit={(e) => handleRequest(e, SignOut, router)}>
             <input type="hidden" name="pathName" value={usePathname()} />
