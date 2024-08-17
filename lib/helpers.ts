@@ -23,6 +23,13 @@ export const getURL = (path: string = '') => {
   return path ? `${url}/${path}` : url;
 };
 
+const imageUrl =
+  'https://cndjymkijvcepovkffid.supabase.co/storage/v1/object/public/';
+
+export const getImageUrl = (name: string) => {
+  return imageUrl+name
+}
+
 
 
 export const toDateTime = (secs: number) => {

@@ -1,12 +1,16 @@
 import {getPollas} from '@/actions/pollas';
+
+import Link from 'next/link';
+
 import ContactForm from '@/app/about/mdemora/ContactForm';
 import DrizzleTest from '@/app/about/mdemora/DrizzleTest';
+import ImageUpload from '@/app/about/mdemora/ImageUpload';
 import MisPollas from '@/app/about/mdemora/MisPollas';
 import MusicList from '@/app/about/mdemora/MusicList';
 import RQTest from '@/app/about/mdemora/RQTest';
 import RandomDiceResults from '@/app/about/mdemora/RandomDiceResults';
+
 import {Button} from '@/components/ui/button';
-import Link from 'next/link';
 
 export default async function MdeMoraPage() {
   const pollas = await getPollas();
@@ -80,6 +84,8 @@ export default async function MdeMoraPage() {
           <MisPollas pollas={pollas} />
 
           <RQTest />
+
+          <ImageUpload />
         </div>
       </div>
     </section>
