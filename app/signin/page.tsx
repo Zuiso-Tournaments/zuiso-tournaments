@@ -1,6 +1,7 @@
-import {getDefaultSignInView} from '@/lib/auth-helpers/settings';
 import {cookies} from 'next/headers';
 import {redirect} from 'next/navigation';
+
+import {getDefaultSignInView} from '@/lib/auth-helpers/settings';
 
 export default function SignIn() {
   const preferredSignInView =

@@ -1,5 +1,6 @@
-import Navlinks from '@/components/ui/Navbar/Navlinks';
 import {createClient} from '@/lib/supabase/server';
+
+import Navlinks from '@/components/ui/Navbar/Navlinks';
 
 import s from './Navbar.module.css';
 

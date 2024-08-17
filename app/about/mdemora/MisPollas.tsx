@@ -1,9 +1,11 @@
 'use client';
 
 import {addNewPollaAction} from '@/actions/pollas';
-import {Button} from '@/components/ui/button';
 import type {Polla} from '@/db/schemas/pollas';
+
 import {useEffect, useState} from 'react';
+
+import {Button} from '@/components/ui/button';
 
 const MisPollas = ({pollas: defaultPollas}: {pollas: Polla[]}) => {
   const [pollas, setPollas] = useState<Polla[]>(defaultPollas);

@@ -1,10 +1,8 @@
 'use server';
 
-import { getURL } from "@/lib/helpers";
-
+import {getURL} from '@/lib/helpers';
 
 const API_BASE_URL = getURL(`api`);
-
 
 type FetchOptions = {
   method?: 'GET' | 'POST' | 'PATCH' | 'DELETE';
@@ -13,13 +11,11 @@ type FetchOptions = {
   tags?: string[];
 };
 
-export async function fetchClient<T>(endpoint: string, options: FetchOptions = {}): Promise<T> {
-  const {
-    method = 'GET',
-    headers = {},
-    body,
-    tags,
-  } = options;
+export async function fetchClient<T>(
+  endpoint: string,
+  options: FetchOptions = {}
+): Promise<T> {
+  const {method = 'GET', headers = {}, body, tags} = options;
 
   const url = `${API_BASE_URL}${endpoint}`;
 
@@ -33,7 +29,7 @@ export async function fetchClient<T>(endpoint: string, options: FetchOptions = {
   };
 
   if (tags) {
-    fetchOptions.next = { tags };
+    fetchOptions.next = {tags};
   }
 
   const response = await fetch(url, fetchOptions);
@@ -44,4 +40,3 @@ export async function fetchClient<T>(endpoint: string, options: FetchOptions = {
 
   return response.json();
 }
-

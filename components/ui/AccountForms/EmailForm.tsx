@@ -1,10 +1,12 @@
 'use client';
 
-import {Button} from '@/components/ui/button';
-import {Card, CardDescription, CardFooter} from '@/components/ui/card';
+import {useRouter} from 'next/navigation';
+
 import {handleRequest} from '@/lib/auth-helpers/client';
 import {updateEmail} from '@/lib/auth-helpers/server';
-import {useRouter} from 'next/navigation';
+
+import {Button} from '@/components/ui/button';
+import {Card, CardDescription, CardFooter} from '@/components/ui/card';
 
 export default function EmailForm({
   userEmail,

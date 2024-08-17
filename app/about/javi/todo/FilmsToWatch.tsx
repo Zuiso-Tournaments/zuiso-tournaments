@@ -1,7 +1,12 @@
 'use client';
 
 import {addNewFilmAction} from '@/actions/javiTODO';
+import type {Film} from '@/db/schemas/tablaJaviTODO';
+
+import {useEffect, useRef, useState} from 'react';
+
 import FilmCard from '@/app/about/javi/todo/FilmCard';
+
 import Modal from '@/components/ui/Modal/Modal';
 import ModalBody from '@/components/ui/Modal/ModalBody';
 import ModalFooter from '@/components/ui/Modal/ModalFooter';
@@ -17,8 +22,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import type {Film} from '@/db/schemas/tablaJaviTODO';
-import {useEffect, useRef, useState} from 'react';
 
 const FilmsToWatch = ({films: defaultFilms}: {films: Film[]}) => {
   const [films, setFilms] = useState<Film[]>(defaultFilms);

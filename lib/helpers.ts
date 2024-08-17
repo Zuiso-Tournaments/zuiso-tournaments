@@ -1,4 +1,3 @@
-
 export const getURL = (path: string = '') => {
   // Check if NEXT_PUBLIC_SITE_URL is set and non-empty. Set this to your site URL in production env.
   let url =
@@ -27,10 +26,8 @@ const imageUrl =
   'https://cndjymkijvcepovkffid.supabase.co/storage/v1/object/public/';
 
 export const getImageUrl = (name: string) => {
-  return imageUrl+name
-}
-
-
+  return imageUrl + name;
+};
 
 export const toDateTime = (secs: number) => {
   const t = new Date(+0); // Unix epoch start.

@@ -4,6 +4,19 @@
 
 /*importar base de datos*/
 import {addNewBocadilloAction} from '@/actions/bocadillo';
+import type {Bocadillo} from '@/db/schemas/bocadillo';
+import {zodResolver} from '@hookform/resolvers/zod';
+import {useForm} from 'react-hook-form';
+
+/*importar sonido*/
+import {useSound} from 'use-sound';
+import {z} from 'zod';
+
+import {useEffect, useState} from 'react';
+
+/*importar comparaciones*/
+import {cn} from '@/lib/cn';
+
 import {Button} from '@/components/ui/button';
 
 /*importar todo lo del formulario*/
@@ -25,17 +38,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import type {Bocadillo} from '@/db/schemas/bocadillo';
-
-/*importar comparaciones*/
-import {cn} from '@/lib/cn';
-import {zodResolver} from '@hookform/resolvers/zod';
-import {useEffect, useState} from 'react';
-import {useForm} from 'react-hook-form';
-
-/*importar sonido*/
-import {useSound} from 'use-sound';
-import {z} from 'zod';
 
 /*Aqui empieza el de hacer sonar el himno*/
 

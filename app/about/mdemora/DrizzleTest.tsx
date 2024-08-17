@@ -1,9 +1,11 @@
 'use client';
 
 import {addNewNoteAction} from '@/actions/notes';
-import {Button} from '@/components/ui/button';
 import type {Note} from '@/db/schemas/notes';
+
 import {useEffect, useState} from 'react';
+
+import {Button} from '@/components/ui/button';
 
 const DrizzleTest = () => {
   const [notes, setNotes] = useState<Note[]>([]);

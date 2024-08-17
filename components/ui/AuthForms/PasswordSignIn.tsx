@@ -1,11 +1,14 @@
 'use client';
 
-import {Button} from '@/components/ui/button';
-import {handleRequest} from '@/lib/auth-helpers/client';
-import {signInWithPassword} from '@/lib/auth-helpers/server';
+import React from 'react';
+
 import Link from 'next/link';
 import {useRouter} from 'next/navigation';
-import React from 'react';
+
+import {handleRequest} from '@/lib/auth-helpers/client';
+import {signInWithPassword} from '@/lib/auth-helpers/server';
+
+import {Button} from '@/components/ui/button';
 
 /* eslint-disable react-hooks/rules-of-hooks */
 

@@ -1,10 +1,13 @@
 'use client';
 
+import {useTranslations} from 'next-intl';
+
+import React from 'react';
+
+import Link from 'next/link';
+
 import GitHub from '@/components/icons/GitHub';
 import Logo from '@/components/icons/Logo';
-import {useTranslations} from 'next-intl';
-import Link from 'next/link';
-import React from 'react';
 
 const LandingPage: React.FC = () => {
   const t = useTranslations('LandingPage');

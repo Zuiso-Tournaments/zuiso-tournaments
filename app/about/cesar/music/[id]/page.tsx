@@ -1,9 +1,11 @@
 'use client';
 
-import {Button} from '@/components/ui/button';
+import {useEffect, useState} from 'react';
+
 import Link from 'next/link';
 import {useParams} from 'next/navigation';
-import {useEffect, useState} from 'react';
+
+import {Button} from '@/components/ui/button';
 
 export default function MusicAboutId() {
   interface Music {

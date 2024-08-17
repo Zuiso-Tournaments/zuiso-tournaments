@@ -1,5 +1,8 @@
 'use server';
 
+import type {Tables} from '@/types_db';
+import type Stripe from 'stripe';
+
 import {
   calculateTrialEndUnixTimestamp,
   getErrorRedirect,
@@ -8,8 +11,6 @@ import {
 import {stripe} from '@/lib/stripe/config';
 import {createOrRetrieveCustomer} from '@/lib/supabase/admin';
 import {createClient} from '@/lib/supabase/server';
-import type {Tables} from '@/types_db';
-import type Stripe from 'stripe';
 
 type Price = Tables<'prices'>;
 

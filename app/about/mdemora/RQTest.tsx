@@ -1,8 +1,10 @@
 'use client';
 
 import {addNewNoteAction} from '@/actions/notes';
-import {Button} from '@/components/ui/button';
+
 import useNotesQuery from '@/hooks/useNotesQuery';
+
+import {Button} from '@/components/ui/button';
 
 const RQTest = () => {
   const {data} = useNotesQuery();

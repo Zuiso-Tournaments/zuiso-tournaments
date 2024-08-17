@@ -1,3 +1,14 @@
+import {cookies} from 'next/headers';
+import {redirect} from 'next/navigation';
+
+import {
+  getAuthTypes,
+  getDefaultSignInView,
+  getRedirectMethod,
+  getViewTypes,
+} from '@/lib/auth-helpers/settings';
+import {createClient} from '@/lib/supabase/server';
+
 import Logo from '@/components/icons/Logo';
 import EmailSignIn from '@/components/ui/AuthForms/EmailSignIn';
 import ForgotPassword from '@/components/ui/AuthForms/ForgotPassword';
@@ -7,15 +18,6 @@ import Separator from '@/components/ui/AuthForms/Separator';
 import SignUp from '@/components/ui/AuthForms/Signup';
 import UpdatePassword from '@/components/ui/AuthForms/UpdatePassword';
 import {Card} from '@/components/ui/card';
-import {
-  getAuthTypes,
-  getDefaultSignInView,
-  getRedirectMethod,
-  getViewTypes,
-} from '@/lib/auth-helpers/settings';
-import {createClient} from '@/lib/supabase/server';
-import {cookies} from 'next/headers';
-import {redirect} from 'next/navigation';
 
 export default async function SignIn({
   params,

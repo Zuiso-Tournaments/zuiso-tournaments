@@ -1,6 +1,8 @@
-import {progressAtom} from '@/app/about/mdemora/jotai/derivedAtoms';
-import {Progress} from '@/components/ui/progress';
 import {useAtomValue} from 'jotai';
+
+import {progressAtom} from '@/app/about/mdemora/jotai/derivedAtoms';
+
+import {Progress} from '@/components/ui/progress';
 
 const ProgressTracker = () => {
   const progress = useAtomValue(progressAtom);

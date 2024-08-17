@@ -1,11 +1,14 @@
 'use client';
 
-import type {MusicCardProps} from '@/app/about/javi/MusicCard';
-import {MusicCardLoading} from '@/app/about/javi/loading/MusicCardLoading';
-import {Button} from '@/components/ui/button';
+import {useEffect, useState} from 'react';
+
 import Link from 'next/link';
 import {useParams} from 'next/navigation';
-import {useEffect, useState} from 'react';
+
+import type {MusicCardProps} from '@/app/about/javi/MusicCard';
+import {MusicCardLoading} from '@/app/about/javi/loading/MusicCardLoading';
+
+import {Button} from '@/components/ui/button';
 
 const languageToFlag: {[key: string]: string} = {
   es: '🇪🇸',

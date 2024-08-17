@@ -1,1 +1,1 @@
-export const COFFE_TAG = 'coffe-tag'
+export const COFFE_TAG = 'coffe-tag';

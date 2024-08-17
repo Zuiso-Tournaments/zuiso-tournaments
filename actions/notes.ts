@@ -2,6 +2,7 @@
 
 import db from '@/db';
 import {notes} from '@/db/schemas/notes';
+
 import {revalidatePath} from 'next/cache';
 
 export const addNewNoteAction = async (text: string) => {

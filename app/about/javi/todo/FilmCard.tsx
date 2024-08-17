@@ -1,11 +1,16 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import type { Film } from '@/db/schemas/tablaJaviTODO';
-import { Checkbox } from '@/components/ui/checkbox'; // Adjust the import according to your file structure
-import { toggleWatched } from '@/actions/javiTODO'; // Adjust the import according to your file structure
+// Adjust the import according to your file structure
+import {toggleWatched} from '@/actions/javiTODO';
+import type {Film} from '@/db/schemas/tablaJaviTODO';
 
-const FilmCard = ({ film }: { film: Film }) => {
+import {useEffect, useState} from 'react';
+
+import {Checkbox} from '@/components/ui/checkbox';
+
+// Adjust the import according to your file structure
+
+const FilmCard = ({film}: {film: Film}) => {
   const [isWatched, setIsWatched] = useState(film.watched);
   // Sync the local state with the prop if it changes
   useEffect(() => {
@@ -16,9 +21,8 @@ const FilmCard = ({ film }: { film: Film }) => {
     console.log('Checkbox clicked for film:', film.filmId);
     try {
       // Toggle the watched status
-      setIsWatched(prev => !prev);
+      setIsWatched((prev) => !prev);
       await toggleWatched(film.filmId);
-      
     } catch (error) {
       console.error('Failed to toggle watched status:', error);
     }
@@ -27,13 +31,15 @@ const FilmCard = ({ film }: { film: Film }) => {
   return (
     <div
       key={film.filmId}
-      className={`bg-gray-100/30  w-10/12 border-4 py-4 px-6 rounded-xl ${getBorderColor(film.priority)} flex flex-row justify-between items-center `}
-    >
-      <p className='font-bold text-xl w-full '>{film.title}</p>
-      <div className='flex flex-row justify-end items-center w-full gap-2'>
+      className={`w-10/12  rounded-xl border-4 bg-gray-100/30 px-6 py-4 ${getBorderColor(film.priority)} flex flex-row items-center justify-between `}>
+      <p className="w-full text-xl font-bold ">{film.title}</p>
+      <div className="flex w-full flex-row items-center justify-end gap-2">
         <p>Vista:</p>
-        <Checkbox checked={isWatched} onClick={handleCheckboxChange} 
-        className='rounded-xl border-2 font-bold size-6'/>
+        <Checkbox
+          checked={isWatched}
+          onClick={handleCheckboxChange}
+          className="size-6 rounded-xl border-2 font-bold"
+        />
       </div>
     </div>
   );

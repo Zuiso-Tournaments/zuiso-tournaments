@@ -1,3 +1,5 @@
+import type Stripe from 'stripe';
+
 import {stripe} from '@/lib/stripe/config';
 import {
   deletePriceRecord,
@@ -6,7 +8,6 @@ import {
   upsertPriceRecord,
   upsertProductRecord,
 } from '@/lib/supabase/admin';
-import type Stripe from 'stripe';
 
 const relevantEvents = new Set([
   'product.created',

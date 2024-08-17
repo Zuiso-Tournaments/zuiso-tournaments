@@ -6,6 +6,7 @@ import {
   QueryClientProvider,
   isServer,
 } from '@tanstack/react-query';
+
 import type {ReactNode} from 'react';
 
 // In Next.js, this file would be called: app/providers.jsx

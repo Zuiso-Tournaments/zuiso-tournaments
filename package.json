@@ -21,7 +21,21 @@
     "supabase:generate-migration": "npx supabase db diff | npx supabase migration new",
     "supabase:generate-seed": "npx supabase db dump --data-only -f supabase/seed.sql",
     "supabase:push": "npx supabase db push",
-    "supabase:pull": "npx supabase db pull"
+    "supabase:pull": "npx supabase db pull",
+    "prepare": "husky",
+    "eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "format": "prettier --write ."
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@headlessui/react": "^2.1.2",
@@ -49,8 +63,6 @@
     "dotenv": "^16.4.5",
     "drizzle-orm": "^0.32.0",
     "embla-carousel-react": "^8.1.8",
-    "i18next": "^23.13.0",
-    "i18next-resources-to-backend": "^1.2.1",
     "jotai": "^2.9.0",
     "lodash": "^4.17.21",
     "lucide-react": "0.330.0",
@@ -58,7 +70,6 @@
     "nanoid": "^5.0.7",
     "next": "14.2.3",
     "next-cloudinary": "^6.10.0",
-    "next-i18n-router": "^5.5.1",
     "next-intl": "^3.17.3",
     "postgres": "^3.4.4",
     "react": "^18.3.1",
@@ -79,8 +90,8 @@
     "@types/node": "^20.14.2",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "@typescript-eslint/eslint-plugin": "^7.16.1",
-    "@typescript-eslint/parser": "^7.16.1",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
     "autoprefixer": "^10.4.19",
     "base64-arraybuffer": "^1.0.2",
     "drizzle-kit": "^0.23.0",
@@ -91,8 +102,10 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-tailwindcss": "^3.17.3",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.9",
     "postcss": "^8.4.38",
-    "prettier": "^3.3.1",
+    "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.5.14",
     "supabase": "^1.172.2",
     "typescript": "^5.4.5"

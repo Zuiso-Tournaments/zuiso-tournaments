@@ -1,8 +1,9 @@
-import {toDateTime} from '@/lib/helpers';
-import {stripe} from '@/lib/stripe/config';
 import {createClient} from '@supabase/supabase-js';
 import type Stripe from 'stripe';
 import type {Database, Tables, TablesInsert} from 'types_db';
+
+import {toDateTime} from '@/lib/helpers';
+import {stripe} from '@/lib/stripe/config';
 
 type Product = Tables<'products'>;
 type Price = Tables<'prices'>;
@@ -280,7 +281,6 @@ const manageSubscriptionStatusChange = async (
   // For a new subscription copy the billing details to the customer object.
   // NOTE: This is a costly operation and should happen at the very end.
   if (createAction && subscription.default_payment_method && uuid)
-    
     await copyBillingDetailsToCustomer(
       uuid,
       subscription.default_payment_method as Stripe.PaymentMethod

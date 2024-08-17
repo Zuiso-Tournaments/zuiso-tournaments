@@ -1,9 +1,10 @@
 'use client';
 
+import {useEffect, useState} from 'react';
+
 import type {MusicCardProps} from '@/app/about/javi/MusicCard';
 import MusicCard from '@/app/about/javi/MusicCard';
 import {MusicListLoading} from '@/app/about/javi/loading/MusicListLoading';
-import {useEffect, useState} from 'react';
 
 const MusicList = () => {
   const [music, setMusic] = useState<MusicCardProps[]>([]);

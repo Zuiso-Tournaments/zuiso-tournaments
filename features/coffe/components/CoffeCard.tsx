@@ -1,7 +1,10 @@
-import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
 import type {Coffe} from '@/db/schemas/coffe';
-import useCoffeDeleteMutation from '@/features/coffe/hooks/useCoffeDeleteMutation';
+
 import React from 'react';
+
+import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
+
+import useCoffeDeleteMutation from '@/features/coffe/hooks/useCoffeDeleteMutation';
 
 interface CoffeCardProps {
   coffe: Coffe;

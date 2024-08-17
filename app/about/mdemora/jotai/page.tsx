@@ -1,9 +1,11 @@
 'use client';
 
+import {useAtomValue, useSetAtom} from 'jotai';
+
 import ProgressTracker from '@/app/about/mdemora/jotai/ProgressTracker';
 import {animeAtom} from '@/app/about/mdemora/jotai/atoms';
+
 import {Button} from '@/components/ui/button';
-import {useAtomValue, useSetAtom} from 'jotai';
 
 const AnimeList = () => {
   const anime = useAtomValue(animeAtom);

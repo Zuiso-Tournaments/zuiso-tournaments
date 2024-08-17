@@ -1,9 +1,11 @@
 'use client';
 
-import {Button} from '@/components/ui/button';
-import {signInWithOAuth} from '@/lib/auth-helpers/client';
 import {type Provider} from '@supabase/supabase-js';
 import {Github} from 'lucide-react';
+
+import {signInWithOAuth} from '@/lib/auth-helpers/client';
+
+import {Button} from '@/components/ui/button';
 
 type OAuthProviders = {
   name: Provider;

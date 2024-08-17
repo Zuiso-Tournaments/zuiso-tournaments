@@ -1,10 +1,13 @@
 'use client';
 
-import type {Song} from '@/app/about/mdemora/types';
-import {Button} from '@/components/ui/button';
+import {useEffect, useState} from 'react';
+
 import Link from 'next/link';
 import {useParams} from 'next/navigation';
-import {useEffect, useState} from 'react';
+
+import type {Song} from '@/app/about/mdemora/types';
+
+import {Button} from '@/components/ui/button';
 
 export default function MusicAboutId() {
   const [data, setdata] = useState<Song | undefined>(undefined);

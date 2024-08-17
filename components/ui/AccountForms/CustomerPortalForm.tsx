@@ -1,11 +1,14 @@
 'use client';
 
-import {Button} from '@/components/ui/button';
-import {Card, CardDescription, CardFooter} from '@/components/ui/card';
-import {createStripePortal} from '@/lib/stripe/server';
 import type {Tables} from '@/types_db';
+
 import Link from 'next/link';
 import {usePathname, useRouter} from 'next/navigation';
+
+import {createStripePortal} from '@/lib/stripe/server';
+
+import {Button} from '@/components/ui/button';
+import {Card, CardDescription, CardFooter} from '@/components/ui/card';
 
 type Subscription = Tables<'subscriptions'>;
 type Price = Tables<'prices'>;

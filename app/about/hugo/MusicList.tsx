@@ -1,7 +1,8 @@
 'use client';
 
-import MusicCard from '@/app/about/hugo/MusicCard';
 import {useEffect, useState} from 'react';
+
+import MusicCard from '@/app/about/hugo/MusicCard';
 
 const MusicList = () => {
   const [music, setMusic] = useState<any[]>([]);

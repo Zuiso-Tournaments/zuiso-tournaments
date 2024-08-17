@@ -1,7 +1,8 @@
 'use client';
 
-import type {Song} from '@/app/about/mdemora/types';
 import Link from 'next/link';
+
+import type {Song} from '@/app/about/mdemora/types';
 
 const MusicCard = ({song}: {song: Song}) => {
   return (

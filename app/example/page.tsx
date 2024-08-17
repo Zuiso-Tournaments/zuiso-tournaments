@@ -1,6 +1,7 @@
+import {HydrationBoundary, QueryClient, dehydrate} from '@tanstack/react-query';
+
 import {getExamples} from '@/features/example/lib/data';
 import ExamplePage from '@/features/example/pages/ExamplePage';
-import {HydrationBoundary, QueryClient, dehydrate} from '@tanstack/react-query';
 
 export default async function Page() {
   const queryClient = new QueryClient();

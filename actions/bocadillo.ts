@@ -1,7 +1,9 @@
 'use server';
 
 import db from '@/db';
-import {BocadilloInsert, bocadillos} from '@/db/schemas/bocadillo';
+import type {BocadilloInsert} from '@/db/schemas/bocadillo';
+import {bocadillos} from '@/db/schemas/bocadillo';
+
 import {revalidatePath} from 'next/cache';
 
 export const getBocadillo = async () => {

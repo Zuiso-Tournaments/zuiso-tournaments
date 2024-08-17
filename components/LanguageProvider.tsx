@@ -1,11 +1,13 @@
 'use client';
 
-import {languageAtom} from '@/lib/atoms';
-import {getIntlMessages} from '@/lib/intl';
 import {useAtomValue, useSetAtom} from 'jotai';
 import {type AbstractIntlMessages, NextIntlClientProvider} from 'next-intl';
+
 import type {PropsWithChildren} from 'react';
 import {useEffect, useState} from 'react';
+
+import {languageAtom} from '@/lib/atoms';
+import {getIntlMessages} from '@/lib/intl';
 
 const LanguageProvider = ({
   children,

@@ -1,10 +1,13 @@
 'use client';
 
-import {Button} from '@/components/ui/button';
+import React from 'react';
+
+import {useRouter} from 'next/navigation';
+
 import {handleRequest} from '@/lib/auth-helpers/client';
 import {updatePassword} from '@/lib/auth-helpers/server';
-import {useRouter} from 'next/navigation';
-import React from 'react';
+
+import {Button} from '@/components/ui/button';
 
 /* eslint-disable react-hooks/rules-of-hooks */
 interface UpdatePasswordProps {

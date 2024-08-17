@@ -1,7 +1,8 @@
-import { getSupabaseBrowserClient } from "@/lib/supabase/client"
-import { nanoid } from 'nanoid'
+import {nanoid} from 'nanoid';
 
-const BUCKET_NAME = 'zuiso-images'
+import {getSupabaseBrowserClient} from '@/lib/supabase/client';
+
+const BUCKET_NAME = 'zuiso-images';
 
 type FileBody =
   | ArrayBuffer
@@ -13,21 +14,22 @@ type FileBody =
   | NodeJS.ReadableStream
   | ReadableStream<Uint8Array>
   | URLSearchParams
-  | string
+  | string;
 
 // Upload file using standard upload
-export async function uploadFile(file:FileBody) {
+export async function uploadFile(file: FileBody) {
+  const supabase = getSupabaseBrowserClient();
 
-  const supabase = getSupabaseBrowserClient()
+  const auth = await supabase.auth.getUser();
 
-  const auth = await supabase.auth.getUser()
-
-  const { data, error } = await supabase.storage.from(BUCKET_NAME).upload(`${auth.data.user?.id}/${nanoid()}`, file)
+  const {data, error} = await supabase.storage
+    .from(BUCKET_NAME)
+    .upload(`${auth.data.user?.id}/${nanoid()}`, file);
   if (error) {
     // Handle error
-    return error
+    return error;
   } else {
     // Handle success
-    return data
+    return data;
   }
 }

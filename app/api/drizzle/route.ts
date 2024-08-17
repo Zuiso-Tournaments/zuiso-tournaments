@@ -1,4 +1,5 @@
 import {getNotes} from '@/actions/notes';
+
 import {NextResponse} from 'next/server';
 
 export async function GET() {

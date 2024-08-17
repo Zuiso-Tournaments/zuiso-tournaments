@@ -1,5 +1,7 @@
 'use client';
 
+import React, {useState} from 'react';
+
 import {Button} from '@/components/ui/button';
 import {
   Dialog,
@@ -8,10 +10,10 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
+
 import ExampleCard from '@/features/example/components/ExampleCard';
 import ExampleForm from '@/features/example/components/ExampleForm';
 import useExampleQuery from '@/features/example/hooks/useExampleQuery';
-import React, {useState} from 'react';
 
 const ExamplePage = () => {
   const {data: examples, isLoading, error} = useExampleQuery();

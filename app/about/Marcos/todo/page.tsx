@@ -1,5 +1,16 @@
 'use client';
 
+import type {Tarea, TareaInsert} from '@/db/schemas/tabla_marcos';
+import {zodResolver} from '@hookform/resolvers/zod';
+import {useForm} from 'react-hook-form';
+import {z} from 'zod';
+
+import {useEffect, useState} from 'react';
+
+import {TodoCard} from '@/app/about/marcos/todo/TodoCard';
+
+import {useFeedback} from '@/hooks/useFeedback';
+
 import {Button} from '@/components/ui/button';
 import {
   Form,
@@ -10,14 +21,6 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import {Input} from '@/components/ui/input';
-import type {Tarea, TareaInsert} from '@/db/schemas/tabla_marcos';
-import {useFeedback} from '@/hooks/useFeedback';
-import {zodResolver} from '@hookform/resolvers/zod';
-import {useEffect, useState} from 'react';
-import {useForm} from 'react-hook-form';
-import {z} from 'zod';
-
-import {TodoCard} from './TodoCard';
 
 const formSchema = z.object({
   task: z.string().nonempty(),

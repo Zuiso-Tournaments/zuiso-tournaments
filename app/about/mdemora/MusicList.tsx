@@ -1,9 +1,11 @@
 'use client';
 
+import {useEffect, useState} from 'react';
+
 import MusicCard from '@/app/about/mdemora/MusicCard';
 import type {Song} from '@/app/about/mdemora/types';
+
 import {Skeleton} from '@/components/ui/skeleton';
-import {useEffect, useState} from 'react';
 
 const MusicList = () => {
   const [music, setMusic] = useState<Song[]>([]);

@@ -1,9 +1,10 @@
 'use client';
 
+import {useEffect, useState} from 'react';
+
 import type {PersonProps} from '@/app/about/AboutCard';
 import AboutCard from '@/app/about/AboutCard';
 import {AboutLoading} from '@/app/about/AboutLoading';
-import {useEffect, useState} from 'react';
 
 const AboutList = () => {
   const [people, setPeople] = useState<PersonProps[]>([]);

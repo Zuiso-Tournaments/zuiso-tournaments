@@ -1,4 +1,11 @@
-import {boolean, integer, pgTable, serial, text, timestamp} from 'drizzle-orm/pg-core';
+import {
+  boolean,
+  integer,
+  pgTable,
+  serial,
+  text,
+  timestamp,
+} from 'drizzle-orm/pg-core';
 
 export const bocadillos = pgTable('tabla_bocadillos', {
   id: serial('id').primaryKey(),
@@ -11,4 +18,3 @@ export const bocadillos = pgTable('tabla_bocadillos', {
 
 export type Bocadillo = typeof bocadillos.$inferSelect;
 export type BocadilloInsert = typeof bocadillos.$inferInsert;
-

@@ -1,8 +1,9 @@
-import type { Coffe, CoffeInsert } from "@/db/schemas/coffe";
-import { fetchClient } from "@/lib/api";
+import type {Coffe, CoffeInsert} from '@/db/schemas/coffe';
+
+import {fetchClient} from '@/lib/api';
 
 export const getCoffes = async (): Promise<Coffe[]> => {
-  const res = await fetchClient<{ data: Coffe[] }>('/coffe');
+  const res = await fetchClient<{data: Coffe[]}>('/coffe');
   return res.data;
 };
 
@@ -13,7 +14,6 @@ export const postCoffe = async (values: CoffeInsert): Promise<Coffe> => {
   });
   return res.data;
 };
-
 
 export const deleteCoffe = async (values: CoffeInsert): Promise<Coffe> => {
   const res = await fetchClient<{data: Coffe}>('/coffe', {

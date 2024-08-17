@@ -1,7 +1,8 @@
 'use client';
 
-import {cn} from '@/lib/cn';
 import React, {useState} from 'react';
+
+import {cn} from '@/lib/cn';
 
 const predictDice = () => {
   return Math.floor(Math.random() * 6) + 1;

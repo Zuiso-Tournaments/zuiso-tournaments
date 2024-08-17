@@ -1,7 +1,9 @@
 'use server';
 
 import db from '@/db';
-import {PollaInsert, pollas} from '@/db/schemas/pollas';
+import type {PollaInsert} from '@/db/schemas/pollas';
+import {pollas} from '@/db/schemas/pollas';
+
 import {revalidatePath} from 'next/cache';
 
 export const getPollas = async () => {
