@@ -1,6 +1,6 @@
+import '@/styles/main.css';
 import {Provider as JotaiProvider} from 'jotai';
 import {getLocale, getMessages} from 'next-intl/server';
-import 'styles/main.css';
 
 import type {PropsWithChildren} from 'react';
 import {Suspense} from 'react';

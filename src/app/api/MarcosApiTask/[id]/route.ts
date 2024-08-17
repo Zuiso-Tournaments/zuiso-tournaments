@@ -1,4 +1,4 @@
-import {deleteTask, getTask, updateTask} from 'actions/MarcosTasks';
+import {deleteTask, getTask, updateTask} from '@/actions/MarcosTasks';
 
 import {NextResponse} from 'next/server';
 
