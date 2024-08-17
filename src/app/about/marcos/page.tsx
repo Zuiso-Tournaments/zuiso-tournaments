@@ -101,7 +101,7 @@ export default async function MarcosPage() {
           <SongList />
           <Link
             className="mx-4 mt-9 transform rounded-lg bg-gray-100 px-4 py-2 text-blue-400 shadow-md transition duration-300 ease-in-out hover:scale-105 hover:underline"
-            href="/about/Marcos/todo">
+            href="/about/marcos/todo">
             TO DO APP
           </Link>
         </div>

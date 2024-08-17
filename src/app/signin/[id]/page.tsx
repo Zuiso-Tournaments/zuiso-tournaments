@@ -1,3 +1,5 @@
+import Logo from '@/icons/Logo';
+
 import {cookies} from 'next/headers';
 import {redirect} from 'next/navigation';
 
@@ -9,14 +11,13 @@ import {
 } from '@/lib/auth-helpers/settings';
 import {createClient} from '@/lib/supabase/server';
 
-import Logo from '@/components/icons/Logo';
-import EmailSignIn from '@/components/ui/AuthForms/EmailSignIn';
-import ForgotPassword from '@/components/ui/AuthForms/ForgotPassword';
-import OauthSignIn from '@/components/ui/AuthForms/OauthSignIn';
-import PasswordSignIn from '@/components/ui/AuthForms/PasswordSignIn';
-import Separator from '@/components/ui/AuthForms/Separator';
-import SignUp from '@/components/ui/AuthForms/Signup';
-import UpdatePassword from '@/components/ui/AuthForms/UpdatePassword';
+import EmailSignIn from '@/components/AuthForms/EmailSignIn';
+import ForgotPassword from '@/components/AuthForms/ForgotPassword';
+import OauthSignIn from '@/components/AuthForms/OauthSignIn';
+import PasswordSignIn from '@/components/AuthForms/PasswordSignIn';
+import Separator from '@/components/AuthForms/Separator';
+import SignUp from '@/components/AuthForms/Signup';
+import UpdatePassword from '@/components/AuthForms/UpdatePassword';
 import {Card} from '@/components/ui/card';
 
 export default async function SignIn({

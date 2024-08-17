@@ -25,6 +25,8 @@ import {Button} from '@/components/ui/button';
 
 /* eslint-disable react-hooks/rules-of-hooks */
 
+/* eslint-disable react-hooks/rules-of-hooks */
+
 // Define prop type with allowPassword boolean
 interface EmailSignInProps {
   allowPassword: boolean;

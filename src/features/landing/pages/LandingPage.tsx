@@ -1,13 +1,12 @@
 'use client';
 
+import GitHub from '@/icons/GitHub';
+import Logo from '@/icons/Logo';
 import {useTranslations} from 'next-intl';
 
 import React from 'react';
 
 import Link from 'next/link';
-
-import GitHub from '@/components/icons/GitHub';
-import Logo from '@/components/icons/Logo';
 
 const LandingPage: React.FC = () => {
   const t = useTranslations('LandingPage');

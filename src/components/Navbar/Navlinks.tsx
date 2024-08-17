@@ -1,5 +1,6 @@
 'use client';
 
+import Logo from '@/icons/Logo';
 import {setCookie} from 'cookies-next';
 import {useSetAtom} from 'jotai';
 import {useTranslations} from 'next-intl';
@@ -12,7 +13,6 @@ import {handleRequest} from '@/lib/auth-helpers/client';
 import {SignOut} from '@/lib/auth-helpers/server';
 import {getRedirectMethod} from '@/lib/auth-helpers/settings';
 
-import Logo from '@/components/icons/Logo';
 import {
   Select,
   SelectContent,

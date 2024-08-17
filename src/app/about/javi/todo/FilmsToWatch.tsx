@@ -7,12 +7,14 @@ import {useEffect, useRef, useState} from 'react';
 
 import FilmCard from '@/app/about/javi/todo/FilmCard';
 
-import Modal from '@/components/ui/Modal/Modal';
-import ModalBody from '@/components/ui/Modal/ModalBody';
-import ModalFooter from '@/components/ui/Modal/ModalFooter';
-import ModalHeader from '@/components/ui/Modal/ModalHeader';
 import {Button} from '@/components/ui/button';
 import {Checkbox} from '@/components/ui/checkbox';
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogTitle,
+} from '@/components/ui/dialog';
 import {Input} from '@/components/ui/input';
 import {
   Select,
@@ -166,9 +168,9 @@ const FilmsToWatch = ({films: defaultFilms}: {films: Film[]}) => {
       {films.map((film) => (
         <FilmCard key={film.filmId} film={film} />
       ))}
-      <Modal open={isModalOpen} onClose={handleCloseModal}>
-        <ModalHeader>Añade una película o serie a tu lista</ModalHeader>
-        <ModalBody>
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent>
+          <DialogTitle>Añade una película o serie a tu lista</DialogTitle>
           <form onSubmit={handleSubmit} className="space-y-4  ">
             <div className="w-full justify-center">
               <label
@@ -243,14 +245,14 @@ const FilmsToWatch = ({films: defaultFilms}: {films: Film[]}) => {
               </div>
             </div>
           </form>
-        </ModalBody>
-        <ModalFooter>
-          <Button onClick={handleCloseModal} variant="secondary">
-            Cancel
-          </Button>
-          <Button onClick={handleSubmit}>Add Film</Button>
-        </ModalFooter>
-      </Modal>
+          <DialogFooter>
+            <Button onClick={handleCloseModal} variant="secondary">
+              Cancel
+            </Button>
+            <Button onClick={handleSubmit}>Add Film</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

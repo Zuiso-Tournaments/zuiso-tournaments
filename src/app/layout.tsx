@@ -14,10 +14,10 @@ import {SpeedInsights} from '@vercel/speed-insights/next';
 
 import {getURL} from '@/lib/helpers';
 
+import Footer from '@/components/Footer';
 import LanguageProvider from '@/components/LanguageProvider';
+import Navbar from '@/components/Navbar';
 import RQProvider from '@/components/ReactQueryClientProvider';
-import Footer from '@/components/ui/Footer';
-import Navbar from '@/components/ui/Navbar';
 import {Toaster} from '@/components/ui/toaster';
 
 const title = 'Zuiso Tournaments';

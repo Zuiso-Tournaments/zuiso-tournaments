@@ -3,9 +3,9 @@ import {redirect} from 'next/navigation';
 import {getSubscription, getUser, getUserDetails} from '@/lib/supabase/queries';
 import {createClient} from '@/lib/supabase/server';
 
-import CustomerPortalForm from '@/components/ui/AccountForms/CustomerPortalForm';
-import EmailForm from '@/components/ui/AccountForms/EmailForm';
-import NameForm from '@/components/ui/AccountForms/NameForm';
+import CustomerPortalForm from '@/components/AccountForms/CustomerPortalForm';
+import EmailForm from '@/components/AccountForms/EmailForm';
+import NameForm from '@/components/AccountForms/NameForm';
 
 export default async function Account() {
   const supabase = createClient();

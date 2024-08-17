@@ -12,7 +12,7 @@ import {getErrorRedirect} from '@/lib/helpers';
 import {getStripe} from '@/lib/stripe/client';
 import {checkoutWithStripe} from '@/lib/stripe/server';
 
-import LogoCloud from '@/components/ui/LogoCloud';
+import LogoCloud from '@/components/LogoCloud';
 import {Button} from '@/components/ui/button';
 
 type Subscription = Tables<'subscriptions'>;
