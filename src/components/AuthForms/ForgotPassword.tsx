@@ -45,7 +45,7 @@ export default function ForgotPassword({
               autoCapitalize="none"
               autoComplete="email"
               autoCorrect="off"
-              className="w-full rounded-md bg-zinc-800 p-3"
+              className="w-full rounded-md bg-zuiso-800 p-3"
             />
           </div>
           <Button type="submit" className="mt-1" disabled={disableButton}>

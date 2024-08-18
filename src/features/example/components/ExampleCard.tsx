@@ -12,9 +12,9 @@ const ExampleCard: React.FC<ExampleCardProps> = ({
   className = '',
 }) => {
   return (
-    <div className={`rounded-lg bg-zinc-700 p-4 shadow ${className}`}>
+    <div className={`rounded-lg bg-zuiso-700 p-4 shadow ${className}`}>
       <p className="font-bold ">{title}</p>
-      <p className="mt-2 text-zinc-200">{description}</p>
+      <p className="mt-2 text-zuiso-200">{description}</p>
     </div>
   );
 };

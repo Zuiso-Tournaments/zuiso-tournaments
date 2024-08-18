@@ -27,6 +27,10 @@ import {Button} from '@/components/ui/button';
 
 /* eslint-disable react-hooks/rules-of-hooks */
 
+/* eslint-disable react-hooks/rules-of-hooks */
+
+/* eslint-disable react-hooks/rules-of-hooks */
+
 // Define prop type with allowPassword boolean
 interface EmailSignInProps {
   allowPassword: boolean;
@@ -62,7 +66,7 @@ export default function EmailSignIn({
               autoCapitalize="none"
               autoComplete="email"
               autoCorrect="off"
-              className="w-full rounded-md bg-zinc-800 p-3"
+              className="w-full rounded-md bg-zuiso-800 p-3"
             />
           </div>
           <Button type="submit" className="mt-1" disabled={disableButton}>

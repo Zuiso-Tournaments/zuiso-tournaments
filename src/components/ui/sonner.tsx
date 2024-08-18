@@ -15,13 +15,13 @@ const Toaster = ({...props}: ToasterProps) => {
       toastOptions={{
         classNames: {
           toast:
-            'group toast group-[.toaster]:bg-white group-[.toaster]:text-zinc-950 group-[.toaster]:border-zinc-200 group-[.toaster]:shadow-lg dark:group-[.toaster]:bg-zinc-950 dark:group-[.toaster]:text-zinc-50 dark:group-[.toaster]:border-zinc-800',
+            'group toast group-[.toaster]:bg-white group-[.toaster]:text-zuiso-950 group-[.toaster]:border-zuiso-200 group-[.toaster]:shadow-lg dark:group-[.toaster]:bg-zuiso-950 dark:group-[.toaster]:text-zuiso-50 dark:group-[.toaster]:border-zuiso-800',
           description:
-            'group-[.toast]:text-zinc-500 dark:group-[.toast]:text-zinc-400',
+            'group-[.toast]:text-zuiso-500 dark:group-[.toast]:text-zuiso-400',
           actionButton:
-            'group-[.toast]:bg-zinc-900 group-[.toast]:text-zinc-50 dark:group-[.toast]:bg-zinc-50 dark:group-[.toast]:text-zinc-900',
+            'group-[.toast]:bg-zuiso-900 group-[.toast]:text-zuiso-50 dark:group-[.toast]:bg-zuiso-50 dark:group-[.toast]:text-zuiso-900',
           cancelButton:
-            'group-[.toast]:bg-zinc-100 group-[.toast]:text-zinc-500 dark:group-[.toast]:bg-zinc-800 dark:group-[.toast]:text-zinc-400',
+            'group-[.toast]:bg-zuiso-100 group-[.toast]:text-zuiso-500 dark:group-[.toast]:bg-zuiso-800 dark:group-[.toast]:text-zuiso-400',
         },
       }}
       {...props}

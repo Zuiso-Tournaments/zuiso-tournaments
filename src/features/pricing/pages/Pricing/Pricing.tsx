@@ -103,19 +103,19 @@ export default function Pricing({user, products, subscription}: Props) {
             <h1 className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
               Pricing Plans
             </h1>
-            <p className="m-auto mt-5 max-w-2xl text-xl text-zinc-200 sm:text-center sm:text-2xl">
+            <p className="m-auto mt-5 max-w-2xl text-xl text-zuiso-200 sm:text-center sm:text-2xl">
               Start building for free, then add a site plan to go live. Account
               plans unlock additional features.
             </p>
-            <div className="relative mt-6 flex self-center rounded-lg border border-zinc-800 bg-zinc-900 p-0.5 sm:mt-8">
+            <div className="relative mt-6 flex self-center rounded-lg border border-zuiso-800 bg-zuiso-900 p-0.5 sm:mt-8">
               {intervals.includes('month') && (
                 <button
                   onClick={() => setBillingInterval('month')}
                   type="button"
                   className={`${
                     billingInterval === 'month'
-                      ? 'relative w-1/2 border-zinc-800 bg-zinc-700 text-white shadow-sm'
-                      : 'relative ml-0.5 w-1/2 border border-transparent text-zinc-400'
+                      ? 'relative w-1/2 border-zuiso-800 bg-zuiso-700 text-white shadow-sm'
+                      : 'relative ml-0.5 w-1/2 border border-transparent text-zuiso-400'
                   } m-1 whitespace-nowrap rounded-md py-2 text-sm font-medium focus:z-10 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 sm:w-auto sm:px-8`}>
                   Monthly billing
                 </button>
@@ -126,8 +126,8 @@ export default function Pricing({user, products, subscription}: Props) {
                   type="button"
                   className={`${
                     billingInterval === 'year'
-                      ? 'relative w-1/2 border-zinc-800 bg-zinc-700 text-white shadow-sm'
-                      : 'relative ml-0.5 w-1/2 border border-transparent text-zinc-400'
+                      ? 'relative w-1/2 border-zuiso-800 bg-zuiso-700 text-white shadow-sm'
+                      : 'relative ml-0.5 w-1/2 border border-transparent text-zuiso-400'
                   } m-1 whitespace-nowrap rounded-md py-2 text-sm font-medium focus:z-10 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 sm:w-auto sm:px-8`}>
                   Yearly billing
                 </button>
@@ -149,7 +149,7 @@ export default function Pricing({user, products, subscription}: Props) {
                 <div
                   key={product.id}
                   className={cn(
-                    'flex flex-col divide-y divide-zinc-600 rounded-lg bg-zinc-900 shadow-sm',
+                    'flex flex-col divide-y divide-zuiso-600 rounded-lg bg-zuiso-900 shadow-sm',
                     {
                       'border border-pink-500': subscription
                         ? product.name === subscription?.prices?.products?.name
@@ -163,19 +163,19 @@ export default function Pricing({user, products, subscription}: Props) {
                     <h2 className="text-2xl font-semibold leading-6 text-white">
                       {product.name}
                     </h2>
-                    <p className="mt-4 text-zinc-300">{product.description}</p>
+                    <p className="mt-4 text-zuiso-300">{product.description}</p>
                     <p className="mt-8">
                       <span className="white text-5xl font-extrabold">
                         {priceString}
                       </span>
-                      <span className="text-base font-medium text-zinc-100">
+                      <span className="text-base font-medium text-zuiso-100">
                         /{billingInterval}
                       </span>
                     </p>
                     <Button
                       type="button"
                       onClick={() => handleStripeCheckout(price)}
-                      className="mt-8 block w-full rounded-md py-2 text-center text-sm font-semibold text-white hover:bg-zinc-900">
+                      className="mt-8 block w-full rounded-md py-2 text-center text-sm font-semibold text-white hover:bg-zuiso-900">
                       {subscription ? 'Manage' : 'Subscribe'}
                     </Button>
                   </div>

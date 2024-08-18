@@ -16,10 +16,10 @@ export default async function MdeMoraPage() {
   const pollas = await getPollas();
 
   return (
-    <section className="mb-32 bg-black">
+    <section className="mb-32 ">
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:pt-24 lg:px-8">
         <div className="sm:align-center flex flex-col sm:flex-col">
-          <h1 className="mb-8 text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
+          <h1 className="mb-8 text-4xl font-extrabold  sm:text-center sm:text-6xl">
             Miguel de Mora
           </h1>
           <div className="flex gap-4">
@@ -29,7 +29,7 @@ export default async function MdeMoraPage() {
               alt="Miguel de Mora"
             />
             <div className="mt-4 flex flex-col gap-8 text-lg">
-              <p className="text-white">
+              <p>
                 Miguel de Mora is a software engineer and writer. He is the
                 author of the book &quot;The Pragmatic Programmer&quot; and has
                 written several articles on software development. He is also the
@@ -55,7 +55,7 @@ export default async function MdeMoraPage() {
               </p>
             </div>
           </div>
-          <h1 className="my-8 text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
+          <h1 className="my-8 text-4xl font-extrabold  sm:text-center sm:text-6xl">
             Demos
           </h1>
           <RandomDiceResults />

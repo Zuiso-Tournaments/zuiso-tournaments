@@ -8,7 +8,7 @@ export default function Footer() {
       <div className=" flex flex-col items-center justify-center gap-8 bg-zuiso-950 py-12  text-zuiso-50 transition-colors duration-150 dark:bg-zuiso-50 dark:text-zuiso-950 lg:grid-cols-12">
         <div className="col-span-6 lg:col-span-6">
           <Link href="/" className="flex flex-initial items-center font-bold">
-            <span className="mr-2 rounded-full border border-zinc-700">
+            <span className="mr-2 rounded-full border border-zuiso-700">
               <Logo />
             </span>
             <span>Zuiso Tournaments</span>
