@@ -65,7 +65,7 @@ export async function checkoutWithStripe(
       success_url: getURL(redirectPath),
     };
 
-    console.log(
+    console.info(
       'Trial end:',
       calculateTrialEndUnixTimestamp(price.trial_period_days)
     );

@@ -13,8 +13,7 @@ function useCoffeCreateMutation() {
 
   return useMutation({
     mutationFn: (values: CoffeInsert) => postCoffe(values),
-    onSuccess: (data) => {
-      console.log('Example created:', data);
+    onSuccess: () => {
       queryClient.invalidateQueries({queryKey: [COFFE_TAG]});
       successFeedback('Todo ha salido bien');
     },

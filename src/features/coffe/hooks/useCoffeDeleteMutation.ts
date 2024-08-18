@@ -13,8 +13,7 @@ function useCoffeDeleteMutation() {
 
   return useMutation({
     mutationFn: (values: CoffeInsert) => deleteCoffe(values),
-    onSuccess: (data) => {
-      console.log('Example created:', data);
+    onSuccess: () => {
       queryClient.invalidateQueries({queryKey: [COFFE_TAG]});
       successFeedback('Todo ha salido bien');
     },

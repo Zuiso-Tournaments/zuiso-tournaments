@@ -48,8 +48,7 @@ const ExampleForm: React.FC<ExampleFormProps> = ({onSubmit}) => {
 
   const mutation = useMutation({
     mutationFn: (values: FormValues) => postExample(values),
-    onSuccess: (data) => {
-      console.log('Example created:', data);
+    onSuccess: () => {
       form.reset();
       onSubmit();
       revalidate('example');

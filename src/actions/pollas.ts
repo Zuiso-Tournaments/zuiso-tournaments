@@ -11,14 +11,12 @@ export const getPollas = async () => {
 };
 
 export const addNewPollaAction = async (polla: PollaInsert) => {
-  console.log({polla});
-
   try {
     const res = await db.insert(pollas).values(polla);
     revalidatePath('/about/mdemora');
     return res;
   } catch (error) {
-    console.log(error);
+    console.error(error);
     revalidatePath('/about/mdemora');
     return {
       error: 'Ha ocurrido un error',

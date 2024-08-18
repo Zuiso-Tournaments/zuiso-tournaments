@@ -18,10 +18,6 @@ export default getRequestConfig(async () => {
   const locale =
     cookieLocale || acceptLanguage?.split(',')[0].split('-')[0] || 'en';
 
-  console.log({locale});
-  console.log({acceptLanguage});
-  console.log({languageCookie});
-
   return {
     locale,
     messages: (
