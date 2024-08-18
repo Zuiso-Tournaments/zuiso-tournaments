@@ -34,7 +34,7 @@ import {useSound} from 'use-sound';
 import {z} from 'zod';
 
 /*importar base de datos*/
-import {addNewBocadilloAction, getBocadillo} from '@/actions/bocadillo';
+import {addNewBocadilloAction} from '@/actions/bocadillo';
 import type {Bocadillo} from '@/db/schemas/bocadillo';
 
 /*Aqui empieza el de hacer sonar el himno*/
