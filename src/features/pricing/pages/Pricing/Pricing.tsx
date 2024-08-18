@@ -12,7 +12,6 @@ import {getErrorRedirect} from '@/lib/helpers';
 import {getStripe} from '@/lib/stripe/client';
 import {checkoutWithStripe} from '@/lib/stripe/server';
 
-import LogoCloud from '@/components/LogoCloud';
 import {Button} from '@/components/ui/button';
 
 type Subscription = Tables<'subscriptions'>;
@@ -94,7 +93,6 @@ export default function Pricing({user, products, subscription}: Props) {
             .
           </p>
         </div>
-        <LogoCloud />
       </section>
     );
   } else {
@@ -185,7 +183,6 @@ export default function Pricing({user, products, subscription}: Props) {
               );
             })}
           </div>
-          <LogoCloud />
         </div>
       </section>
     );
