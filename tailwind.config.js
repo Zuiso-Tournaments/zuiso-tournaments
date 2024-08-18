@@ -2,7 +2,7 @@ const {fontFamily} = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ['class', '[data-theme="dark"]'],
+  darkMode: ['class'],
   content: ['src/app/**/*.{ts,tsx}', 'src/components/**/*.{ts,tsx}'],
   theme: {
     container: {
@@ -13,6 +13,21 @@ module.exports = {
       },
     },
     extend: {
+      colors: {
+        zuiso: {
+          50: '#faf7fd',
+          100: '#f3edfa',
+          200: '#e9dff5',
+          300: '#d8c6ec',
+          400: '#bfa0e0',
+          500: '#a67bd1',
+          600: '#905ebf',
+          700: '#7a4ba5',
+          800: '#674188',
+          900: '#54356e',
+          950: '#371d4e',
+        },
+      },
       fontFamily: {
         sans: ['var(--font-sans)', ...fontFamily.sans],
       },
