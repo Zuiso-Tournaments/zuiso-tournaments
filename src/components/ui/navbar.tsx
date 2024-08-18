@@ -1,8 +1,6 @@
 import {createClient} from '@/lib/supabase/server';
 
-import Navlinks from '@/components/Navbar/Navlinks';
-
-import s from './Navbar.module.css';
+import Navlinks from '@/components/ui/navlinks';
 
 export default async function Navbar() {
   const supabase = createClient();
@@ -12,7 +10,7 @@ export default async function Navbar() {
   } = await supabase.auth.getUser();
 
   return (
-    <nav className={s.root}>
+    <nav>
       <div className="mx-auto max-w-6xl px-6">
         <Navlinks user={user} />
       </div>

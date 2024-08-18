@@ -14,10 +14,11 @@ import {SpeedInsights} from '@vercel/speed-insights/next';
 
 import {getURL} from '@/lib/helpers';
 
-import Footer from '@/components/Footer';
 import LanguageProvider from '@/components/LanguageProvider';
-import Navbar from '@/components/Navbar';
 import RQProvider from '@/components/ReactQueryClientProvider';
+import {ThemeProvider} from '@/components/ThemeProvider';
+import Footer from '@/components/ui/footer';
+import Navbar from '@/components/ui/navbar';
 import {Toaster} from '@/components/ui/toaster';
 
 const title = 'Zuiso Tournaments';
@@ -47,20 +48,26 @@ export default async function RootLayout({children}: PropsWithChildren) {
 
   return (
     <html lang={locale ?? 'en'}>
-      <body className="bg-black">
+      <body className="bg-zuiso-50 text-zuiso-950 antialiased transition-colors duration-200 dark:bg-zuiso-950 dark:text-zuiso-50">
         <RQProvider>
           <JotaiProvider>
             <LanguageProvider messages={messages} cookieLocale={cookieLocale}>
-              <Navbar />
-              <main
-                id="skip"
-                className="md:min-h[calc(100dvh-5rem)] min-h-[calc(100dvh-4rem)]">
-                {children}
-              </main>
-              <Footer />
-              <Suspense>
-                <Toaster />
-              </Suspense>
+              <ThemeProvider
+                attribute="class"
+                defaultTheme="system"
+                enableSystem
+                disableTransitionOnChange>
+                <Navbar />
+                <main
+                  id="skip"
+                  className="md:min-h[calc(100dvh-5rem)] min-h-[calc(100dvh-4rem)]">
+                  {children}
+                </main>
+                <Footer />
+                <Suspense>
+                  <Toaster />
+                </Suspense>
+              </ThemeProvider>
             </LanguageProvider>
           </JotaiProvider>
         </RQProvider>

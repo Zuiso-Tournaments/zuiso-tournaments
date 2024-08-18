@@ -8,6 +8,8 @@ import React from 'react';
 
 import Link from 'next/link';
 
+import {Button} from '@/components/ui/button';
+
 const LandingPage: React.FC = () => {
   const t = useTranslations('LandingPage');
   return (
@@ -19,13 +21,10 @@ const LandingPage: React.FC = () => {
       <main className="text-center">
         <h1 className="mb-4 text-4xl font-bold">Zuiso Tournaments</h1>
         <p className="mb-8 text-xl text-gray-600">{t('subtitle')}</p>
-        <p>{t('title')}</p>
 
         <div className="space-y-4">
-          <Link
-            href="/signup"
-            className="inline-block rounded-lg bg-blue-500 px-6 py-3 font-semibold text-white transition duration-300 hover:bg-blue-600">
-            Start Organizing
+          <Link href="/signup">
+            <Button>Start Organizing</Button>
           </Link>
           <Link
             href="/features"
