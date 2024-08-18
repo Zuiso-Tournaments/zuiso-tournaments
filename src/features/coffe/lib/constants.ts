@@ -1,0 +1,1 @@
+export const COFFE_TAG = 'coffe-tag';
