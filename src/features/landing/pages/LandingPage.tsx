@@ -1,6 +1,5 @@
 'use client';
 
-import GitHub from '@/icons/GitHub';
 import Logo from '@/icons/Logo';
 import {useTranslations} from 'next-intl';
 
@@ -26,33 +25,8 @@ const LandingPage: React.FC = () => {
           <Link href="/signup">
             <Button>Start Organizing</Button>
           </Link>
-          <Link
-            href="/features"
-            className="block text-blue-500 hover:underline">
-            Explore Features
-          </Link>
         </div>
       </main>
-
-      <footer className="mt-16 text-sm text-gray-500">
-        <div className="flex items-center justify-center space-x-4">
-          <a
-            href="https://github.com/zuiso-tournaments"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-gray-700">
-            <GitHub className="h-6 w-6" />
-          </a>
-          <span>|</span>
-          <Link href="/privacy" className="hover:text-gray-700">
-            Privacy Policy
-          </Link>
-          <span>|</span>
-          <Link href="/terms" className="hover:text-gray-700">
-            Terms of Service
-          </Link>
-        </div>
-      </footer>
     </div>
   );
 };
