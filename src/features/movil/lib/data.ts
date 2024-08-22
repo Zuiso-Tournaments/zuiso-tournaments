@@ -22,3 +22,11 @@ export const deleteMovil = async (values: MovilInsert): Promise<Movil> => {
   });
   return res.data;
 };
+
+export const updateMovil = async (values: MovilInsert): Promise<Movil> => {
+  const res = await fetchClient<{data: Movil}>(`/movil/${values.id}`, {
+    method: 'PATCH',
+    body: values,
+  });
+  return res.data;
+};
