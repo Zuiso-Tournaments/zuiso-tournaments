@@ -1,9 +1,9 @@
-import type {MovilInsert} from '@/db/schemas/movil';
+import type {Movil, MovilInsert} from '@/db/schemas/movil';
 import {zodResolver} from '@hookform/resolvers/zod';
 import {useForm} from 'react-hook-form';
 import {z} from 'zod';
 
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import {Button} from '@/components/ui/button';
 import {
@@ -17,6 +17,7 @@ import {
 import {Input} from '@/components/ui/input';
 
 import useMovilCreateMutation from '@/features/movil/hooks/useMovilCreateMutation';
+import useMovilEditMutation from '@/features/movil/hooks/useMovilEditMutation';
 
 const formSchema = z.object({
   name: z.string().min(1, 'Name is required'),
@@ -27,11 +28,16 @@ const formSchema = z.object({
 type FormData = z.infer<typeof formSchema>;
 
 interface MovilFormProps {
-  onSubmit: (data: MovilInsert) => void;
+  onSubmit: () => void;
   initialData?: Partial<MovilInsert>;
+  movil?: Movil;
 }
 
-const MovilForm: React.FC<MovilFormProps> = ({onSubmit, initialData}) => {
+const MovilForm: React.FC<MovilFormProps> = ({
+  onSubmit,
+  initialData,
+  movil,
+}) => {
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -41,15 +47,43 @@ const MovilForm: React.FC<MovilFormProps> = ({onSubmit, initialData}) => {
     },
   });
 
-  const mutation = useMovilCreateMutation();
+  useEffect(() => {
+    if (movil) {
+      form.reset(movil);
+    }
+  }, [movil]);
+
+  const createMutation = useMovilCreateMutation();
+  const updateMutation = useMovilEditMutation();
 
   const handleSubmit = (data: FormData) => {
-    mutation.mutate(data);
-    onSubmit(data);
+    try {
+      if (movil) {
+        updateMutation.mutate({
+          ...data,
+          id: movil.id,
+          marca: data.marca ?? '',
+          modelo: data.modelo ?? '',
+        });
+      } else {
+        createMutation.mutate({
+          ...data,
+          marca: data.marca ?? '',
+          modelo: data.modelo ?? '',
+        });
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      onSubmit();
+    }
   };
 
   return (
     <Form {...form}>
+      <p className="text-2xl font-bold">
+        {movil ? 'Edita Tu movil' : 'Crear movil'}
+      </p>
       <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
         <FormField
           control={form.control}
@@ -90,7 +124,7 @@ const MovilForm: React.FC<MovilFormProps> = ({onSubmit, initialData}) => {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit">{movil ? 'Editar' : 'Crear'}</Button>
       </form>
     </Form>
   );

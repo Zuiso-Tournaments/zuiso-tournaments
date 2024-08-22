@@ -24,7 +24,7 @@ export const deleteMovil = async (values: MovilInsert): Promise<Movil> => {
 };
 
 export const updateMovil = async (values: MovilInsert): Promise<Movil> => {
-  const res = await fetchClient<{data: Movil}>(`/movil/${values.id}`, {
+  const res = await fetchClient<{data: Movil}>(`/movil`, {
     method: 'PATCH',
     body: values,
   });

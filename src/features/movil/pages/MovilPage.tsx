@@ -1,15 +1,11 @@
 'use client';
 
+import type {Movil} from '@/db/schemas/movil';
+
 import React, {useState} from 'react';
 
 import {Button} from '@/components/ui/button';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog';
+import {Dialog, DialogContent, DialogTrigger} from '@/components/ui/dialog';
 
 import MovilCard from '@/features/movil/components/MovilCard';
 import MovilForm from '@/features/movil/components/MovilForm';
@@ -18,6 +14,8 @@ import useMovilQuery from '@/features/movil/hooks/useMovilQuery';
 const MovilPage = () => {
   const {data: movilData, isLoading, error} = useMovilQuery();
 
+  const [movil, setMovil] = useState<Movil>();
+
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   if (error) return <div>An error occurred: {error.message}</div>;
@@ -25,6 +23,11 @@ const MovilPage = () => {
   const handleSubmit = () => {
     // Handle form submission
     setIsDialogOpen(false);
+  };
+
+  const handleEdit = (movil: Movil) => {
+    setMovil(movil);
+    setIsDialogOpen(true);
   };
 
   return (
@@ -44,16 +47,18 @@ const MovilPage = () => {
             </Button>
           </DialogTrigger>
           <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Create new movil</DialogTitle>
-            </DialogHeader>
-            <MovilForm onSubmit={handleSubmit} />
+            <MovilForm onSubmit={handleSubmit} movil={movil} />
           </DialogContent>
         </Dialog>
       </div>
       <div>
         {movilData?.map((movil) => (
-          <MovilCard key={movil.id} movil={movil} className="mb-2" />
+          <MovilCard
+            key={movil.id}
+            movil={movil}
+            className="mb-2"
+            onEdit={handleEdit}
+          />
         ))}
       </div>
     </div>
