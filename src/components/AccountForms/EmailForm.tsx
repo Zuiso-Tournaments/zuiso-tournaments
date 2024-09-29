@@ -26,10 +26,10 @@ export default function EmailForm({
 
   return (
     <Card title="Your Email">
-      <CardDescription>
-        Please enter the email address you want to use to login.
-      </CardDescription>
-      <div className="mb-4 mt-8 text-xl font-semibold">
+      <div className="mb-4 ml-4 mt-8 text-xl font-semibold">
+        <CardDescription className=" mb-4 ">
+          Please enter the email address you want to use to login.
+        </CardDescription>
         <form id="emailForm" onSubmit={(e) => handleSubmit(e)}>
           <input
             type="text"
@@ -43,7 +43,7 @@ export default function EmailForm({
       </div>
       <CardFooter>
         <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
-          <p className="pb-4 sm:pb-0">
+          <p className="mr-4 pb-4 sm:pb-0">
             We will email you to verify the change.
           </p>
           <Button type="submit" form="emailForm">

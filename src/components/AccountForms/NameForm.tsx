@@ -22,8 +22,8 @@ export default function NameForm({userName}: {userName: string}) {
 
   return (
     <Card title="Your Name">
-      <div className="mb-4 mt-8 text-xl font-semibold">
-        <CardDescription>
+      <div className="mb-4 ml-4 mt-8 text-xl font-semibold">
+        <CardDescription className=" mb-4 ">
           Please enter your full name, or a display name you are comfortable
           with.
         </CardDescription>
@@ -31,7 +31,7 @@ export default function NameForm({userName}: {userName: string}) {
           <input
             type="text"
             name="fullName"
-            className="w-1/2 rounded-md bg-zuiso-800 p-3"
+            className=":text-white w-1/2 rounded-md bg-zuiso-800 p-3"
             defaultValue={userName}
             placeholder="Your name"
             maxLength={64}
@@ -40,7 +40,7 @@ export default function NameForm({userName}: {userName: string}) {
       </div>
       <CardFooter>
         <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
-          <p className="pb-4 sm:pb-0">64 characters maximum</p>
+          <p className="mr-4 pb-4 sm:pb-0">64 characters maximum</p>
           <Button type="submit" form="nameForm">
             Update Name
           </Button>
