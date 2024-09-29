@@ -29,14 +29,16 @@ export default function PasswordSignIn({
   };
 
   return (
-    <div className="my-8">
+    <div className="m-8">
       <form
         noValidate={true}
-        className="mb-4"
+        className="mb-6"
         onSubmit={(e) => handleSubmit(e)}>
-        <div className="grid gap-2">
-          <div className="grid gap-1">
-            <label htmlFor="email">Email</label>
+        <div className="grid gap-3">
+          <div className="grid gap-2">
+            <label className="font-bold" htmlFor="email">
+              Email
+            </label>
             <input
               id="email"
               placeholder="name@example.com"
@@ -45,9 +47,11 @@ export default function PasswordSignIn({
               autoCapitalize="none"
               autoComplete="email"
               autoCorrect="off"
-              className="w-full rounded-md bg-zuiso-800 p-3"
+              className="w-full rounded-md bg-zuiso-800 p-3 "
             />
-            <label htmlFor="password">Password</label>
+            <label className="font-bold" htmlFor="password">
+              Password
+            </label>
             <input
               id="password"
               placeholder="Password"
@@ -63,19 +67,19 @@ export default function PasswordSignIn({
         </div>
       </form>
       <p>
-        <Link href="/signin/forgot_password" className="text-sm font-light">
+        <Link href="/signin/forgot_password" className="text-m font-light">
           Forgot your password?
         </Link>
       </p>
       {allowEmail && (
         <p>
-          <Link href="/signin/email_signin" className="text-sm font-light">
+          <Link href="/signin/email_signin" className="text-m font-light">
             Sign in via magic link
           </Link>
         </p>
       )}
       <p>
-        <Link href="/signin/signup" className="text-sm font-light">
+        <Link href="/signin/signup" className="text-m font-light">
           Don&apos;t have an account? Sign up
         </Link>
       </p>

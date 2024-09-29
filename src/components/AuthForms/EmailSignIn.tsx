@@ -31,6 +31,8 @@ import {Button} from '@/components/ui/button';
 
 /* eslint-disable react-hooks/rules-of-hooks */
 
+/* eslint-disable react-hooks/rules-of-hooks */
+
 // Define prop type with allowPassword boolean
 interface EmailSignInProps {
   allowPassword: boolean;
@@ -50,14 +52,16 @@ export default function EmailSignIn({
   };
 
   return (
-    <div className="my-8">
+    <div className="m-8">
       <form
         noValidate={true}
-        className="mb-4"
+        className="mb-6"
         onSubmit={(e) => handleSubmit(e)}>
-        <div className="grid gap-2">
-          <div className="grid gap-1">
-            <label htmlFor="email">Email</label>
+        <div className="grid gap-3">
+          <div className="grid gap-2">
+            <label className="font-bold" htmlFor="email">
+              Email
+            </label>
             <input
               id="email"
               placeholder="name@example.com"
@@ -77,12 +81,12 @@ export default function EmailSignIn({
       {allowPassword && (
         <>
           <p>
-            <Link href="/signin/password_signin" className="text-sm font-light">
+            <Link href="/signin/password_signin" className="text-m font-light">
               Sign in with email and password
             </Link>
           </p>
           <p>
-            <Link href="/signin/signup" className="text-sm font-light">
+            <Link href="/signin/signup" className="text-m font-light">
               Don&apos;t have an account? Sign up
             </Link>
           </p>

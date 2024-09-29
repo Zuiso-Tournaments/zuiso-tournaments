@@ -22,14 +22,16 @@ export default function UpdatePassword({redirectMethod}: UpdatePasswordProps) {
   };
 
   return (
-    <div className="my-8">
+    <div className="m-8">
       <form
         noValidate={true}
-        className="mb-4"
+        className="mb-6"
         onSubmit={(e) => handleSubmit(e)}>
-        <div className="grid gap-2">
-          <div className="grid gap-1">
-            <label htmlFor="password">New Password</label>
+        <div className="grid gap-3">
+          <div className="grid gap-2">
+            <label className="font-bold" htmlFor="password">
+              New Password
+            </label>
             <input
               id="password"
               placeholder="Password"
@@ -38,7 +40,9 @@ export default function UpdatePassword({redirectMethod}: UpdatePasswordProps) {
               autoComplete="current-password"
               className="w-full rounded-md bg-zuiso-800 p-3"
             />
-            <label htmlFor="passwordConfirm">Confirm New Password</label>
+            <label className="font-bold" htmlFor="passwordConfirm">
+              Confirm New Password
+            </label>
             <input
               id="passwordConfirm"
               placeholder="Password"
