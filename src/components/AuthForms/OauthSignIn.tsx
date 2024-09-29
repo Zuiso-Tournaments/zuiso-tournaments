@@ -20,6 +20,11 @@ export default function OauthSignIn() {
       displayName: 'GitHub',
       icon: <Github className="h-5 w-5" />,
     },
+    {
+      name: 'google',
+      displayName: 'Google',
+      icon: <Github className="h-5 w-5" />,
+    },
     /* Add desired OAuth providers here */
   ];
 
@@ -28,11 +33,11 @@ export default function OauthSignIn() {
   };
 
   return (
-    <div className="mt-8">
+    <div className="mt-4">
       {oAuthProviders.map((provider) => (
         <form
           key={provider.name}
-          className="pb-2"
+          className="mx-8 mb-3 pb-3"
           onSubmit={(e) => handleSubmit(e)}>
           <input type="hidden" name="provider" value={provider.name} />
           <Button type="submit" className="w-full">
