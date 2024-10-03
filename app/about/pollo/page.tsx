@@ -1,3 +1,8 @@
+import { match } from "assert";
+import MagicDice from "./MagicDice";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+
 
 export default async function PolloPage() {
     return(
@@ -32,14 +37,21 @@ export default async function PolloPage() {
                                 estudio o en el escenario.
                             </p>
                                 Por último Ángel tiene una obsesión por los aliens y más
-                                cuando son fumetas
+                                cuando son fumetas, le encanta el universo y los misterios que 
+                                puede haber en el, desde que vio a uno de ellos fumandose una 
+                                galaxia entera ha quedado encandilado por los grises.
                             <p>
 
                             </p>
                     </div>
                     </div>
                 </div>
+
+                <MagicDice />
+                
             </div>  
         </section>
+
     );
 }
+
