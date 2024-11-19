@@ -22,6 +22,13 @@
       "when": 1723636622599,
       "tag": "0002_misty_blur",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1724165984618,
+      "tag": "0003_worthless_mesmero",
+      "breakpoints": true
     }
   ]
 }
